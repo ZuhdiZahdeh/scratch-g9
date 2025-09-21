@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدرس 10: برمجة الألعاب</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/scratch-lesson10.css">
+    <script src="../js/main.js" defer></script>
+    <script src="../js/scratch-lesson10.js" defer></script>
+</head>
+<body class="bg-gray-100">
+
+    <header class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-bold">البرمجة للصف التاسع</h1>
+            <nav>
+                <a href="../index.html" class="hover:text-yellow-400 mx-2">الرئيسية</a>
+                <a href="scratch-lesson9.html" class="hover:text-yellow-400 mx-2">الدرس السابق</a>
+                <a href="scratch-lesson11.html" class="hover:text-yellow-400 mx-2">الدرس التالي</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-6">
+        <article class="bg-white p-8 rounded-lg shadow-lg">
+            <h2 class="text-4xl text-center text-blue-800 mb-6">الدرس العاشر: برمجة الألعاب</h2>
+            <p class="text-xl text-center text-gray-700 mb-8">
+                هل حلمت يومًا بأن تصمم لعبتك الخاصة؟ في هذا الدرس، سنضع كل ما تعلمناه من مفاهيم معًا لبناء لعبة بسيطة وتفاعلية.
+            </p>
+
+            <section class="mb-8">
+                <h3 class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">الأهداف التعليمية</h3>
+                <ul class="list-disc list-inside space-y-2 text-lg text-gray-800">
+                    <li>يستخدم الطالب اللبنات المختلفة لبناء لعبة بسيطة.</li>
+                    <li>يبرمج الطالب التفاعل بين الكائنات في اللعبة.</li>
+                    <li>يضيف الطالب متغيرات لتتبع النقاط والنتائج.</li>
+                </ul>
+            </section>
+
+            <section class="mb-8">
+                <h3 class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">المفاهيم والمفردات</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="bg-blue-100 p-4 rounded-lg term-card" data-term="تتبع_النقاط">
+                        <h4 class="font-bold text-xl text-blue-900">تتبع النقاط</h4>
+                        <p class="text-gray-600">Score Tracking</p>
+                    </div>
+                    <div class="bg-blue-100 p-4 rounded-lg term-card" data-term="كشف_الاصطدام">
+                        <h4 class="font-bold text-xl text-blue-900">كشف الاصطدام</h4>
+                        <p class="text-gray-600">Collision Detection</p>
+                    </div>
+                    <div class="bg-blue-100 p-4 rounded-lg term-card" data-term="نهاية_اللعبة">
+                        <h4 class="font-bold text-xl text-blue-900">نهاية اللعبة</h4>
+                        <p class="text-gray-600">Game Over</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <h3 class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">مثال بسيط ومحلول: لعبة القفز</h3>
+                <p class="text-lg text-gray-800 mb-4">
+                    لنجعل الكائن يقفز عند الضغط على زر المسافة.
+                </p>
+
+                <h4 class="text-xl font-bold text-blue-800 mb-2">1. التخيل (المشكلة)</h4>
+                <p class="text-lg text-gray-700 mb-4">
+                    نريد أن يقفز الكائن 100 خطوة للأعلى ثم يعود للأسفل عندما يضغط اللاعب على زر المسافة.
+                </p>
+
+                <h4 class="text-xl font-bold text-blue-800 mb-2">2. البرمجة (الحل)</h4>
+                <ol class="list-decimal list-inside space-y-2 text-lg text-gray-800">
+                    <li>
+                        <strong>الحدث:</strong> استخدم لبنة **`عندما يُضغط مفتاح المسافة` (when space key pressed)**.
+                    </li>
+                    <li>
+                        <strong>القفز للأعلى:</strong> استخدم لبنة **`غير ص بمقدار 100` (change y by 100)**.
+                    </li>
+                    <li>
+                        <strong>العودة للأسفل:</strong> استخدم لبنة **`غير ص بمقدار -100` (change y by -100)**.
+                    </li>
+                </ol>
+                
+                <h4 class="text-xl font-bold text-blue-800 mb-2 mt-4">3. الكود النهائي</h4>
+                <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto text-left">
+                    <p class="text-gray-400 mb-2">الكود النهائي للمشروع:</p>
+                    <code>
+                        <span class="text-yellow-300">عندما يُضغط مفتاح المسافة</span> (when space key pressed)<br>
+                        <span class="text-blue-500">غير ص بمقدار 100</span> (change y by 100)<br>
+                        <span class="text-blue-500">انتظر 1 ثانية</span> (wait 1 seconds)<br>
+                        <span class="text-blue-500">غير ص بمقدار -100</span> (change y by -100)<br>
+                    </code>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <h3 class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">واجبات الدرس</h3>
+                <div class="bg-red-100 p-4 rounded-lg mb-4">
+                    <h4 class="font-bold text-xl text-red-800 mb-2">ملاحظة هامة لتسليم المشاريع</h4>
+                    <p class="text-lg text-gray-800 mb-2">
+                        لتنظيم المشاريع، يجب عليك تسمية ملف المشروع (ملف .sb3) بطريقة موحدة قبل تسليمه.
+                    </p>
+                    <p class="text-lg text-gray-800">
+                        **صيغة التسمية:** <span class="font-mono bg-gray-200 px-2 py-1 rounded">YourName-ProjectName</span>
+                    </p>
+                    <p class="text-lg text-gray-800 mt-2">
+                        **مثال:** إذا كان اسمك "Ali" واسم المشروع هو "Hello World"، يكون اسم الملف: **Ali-Hello_World**.
+                    </p>
+                    <p class="text-lg text-gray-800 mt-2 font-bold text-red-800">
+                        تذكر أن تتبع هذه الصيغة في جميع واجباتك، سواء كنت في المختبر أو في المنزل!
+                    </p>
+                </div>
+                <div class="bg-green-100 p-4 rounded-lg mb-4">
+                    <h4 class="font-bold text-xl text-green-800 mb-2">واجب الحصة (للمختبر)</h4>
+                    <p class="text-lg text-gray-800">
+                        مشروع "لعبة الصيد" **(Catch_Game)**:
+                        <ul class="list-disc list-inside space-y-1 text-gray-700 mt-2">
+                            <li>اجعل كائنًا يتحرك بشكل عشوائي على الشاشة.</li>
+                            <li>عندما يضغط اللاعب على الكائن، قم بإضافة نقطة إلى متغير النقاط.</li>
+                        </ul>
+                    </p>
+                </div>
+                <div class="bg-yellow-100 p-4 rounded-lg">
+                    <h4 class="font-bold text-xl text-yellow-800 mb-2">واجب منزلي (للكلاسروم)</h4>
+                    <p class="text-lg text-gray-800">
+                        مشروع "لعبة المتاهة" **(Maze_Game)**:
+                        <ul class="list-disc list-inside space-y-1 text-gray-700 mt-2">
+                            <li>صمم متاهة بسيطة باستخدام الخلفية.</li>
+                            <li>اجعل كائنًا يتحرك باستخدام مفاتيح الأسهم.</li>
+                            <li>استخدم لبنات `إذا` و `ملامس للون` لمنع الكائن من المرور عبر جدران المتاهة.</li>
+                        </ul>
+                    </p>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <h3 id="solutions-section" class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">الإجابات النموذجية</h3>
+                <button onclick="document.getElementById('solution-content').style.display='block'; this.style.display='none';" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full">
+                    اضغط هنا لعرض الإجابات
+                </button>
+                <div id="solution-content" class="mt-4 p-4 bg-gray-100 rounded-lg hidden">
+                    <h4 class="font-bold text-xl text-green-800 mb-2">حل واجب الحصة:</h4>
+                    <p class="text-lg">
+                        الكود المقترح لمشروع "لعبة الصيد" (لجعل الكائن يتبع الفأرة):
+                    </p>
+                    <pre class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto text-left"><code>
+عندما تُنقر الراية الخضراء (when green flag clicked)
+&nbsp;&nbsp;&nbsp;&nbsp;اجعل النقاط مساوياً 0 (set score to 0)
+&nbsp;&nbsp;&nbsp;&nbsp;كرر باستمرار (forever)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;اذهب إلى مؤشر الفأرة (go to mouse-pointer)
+&nbsp;&nbsp;&nbsp;&nbsp;عندما يُنقر هذا الكائن (when this sprite clicked)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;غير النقاط بمقدار 1 (change score by 1)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;اذهب إلى موضع عشوائي (go to random position)
+</code></pre>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <h3 class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">مصادر إضافية (للإثراء)</h3>
+                <ul class="list-disc list-inside space-y-2 text-lg text-gray-800">
+                    <li><a href="https://scratch.mit.edu/projects/editor/" target="_blank" class="text-blue-500 hover:underline">محرر سكراتش على الإنترنت</a> - جرب البرمجة مباشرة من متصفحك.</li>
+                    <li><a href="https://www.youtube.com/watch?v=FqYfO-w0J6s" target="_blank" class="text-blue-500 hover:underline">فيديو: جولة سريعة في سكراتش 3.0</a> - فيديو توضيحي لمكونات البرنامج.</li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer class="bg-gray-800 text-white text-center p-4 mt-8">
+        <p>&copy; 2024 مستودع البرمجة للصف التاسع</p>
+    </footer>
+
+    <!-- The Modal -->
+    <div id="modal" class="modal fixed z-10 inset-0 overflow-y-auto hidden">
+        <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+        
+        <div class="modal-container fixed w-full h-full top-0 left-0 flex items-center justify-center">
+            <div class="modal-content bg-white p-6 rounded-lg shadow-lg max-w-lg mx-auto z-50 overflow-y-auto">
+                
+                <div class="modal-header flex justify-between items-center pb-3">
+                    <h3 class="text-2xl font-bold" id="modal-title"></h3>
+                    <button class="modal-close-btn cursor-pointer z-50">
+                        <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                            <path d="M14.53 4.53a.75.75 0 00-1.06-1.06L9 7.94 4.53 3.47a.75.75 0 00-1.06 1.06L7.94 9l-4.47 4.47a.75.75 0 101.06 1.06L9 10.06l4.47 4.47a.75.75 0 101.06-1.06L10.06 9z"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="modal-body text-gray-700" id="modal-body">
+                    <!-- Term definition will be injected here -->
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

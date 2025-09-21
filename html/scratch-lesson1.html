@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدرس 1: جولة استكشافية</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/scratch-lesson1.css">
+
+</head>
+<body class="bg-gray-100">
+
+    <header class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-bold">البرمجة للصف التاسع</h1>
+            <nav>
+                <a href="../index.html" class="hover:text-yellow-400 mx-2">الرئيسية</a>
+                <a href="scratch-lesson2.html" class="hover:text-yellow-400 mx-2">الدرس التالي</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-6">
+        <article class="bg-white p-8 rounded-lg shadow-lg">
+            <h2 class="text-4xl text-center text-blue-800 mb-6">الدرس الأول: جولة استكشافية</h2>
+            <p class="text-xl text-center text-gray-700 mb-8">
+                هذا الدرس هو مدخلك الأول لعالم البرمجة. سنتعرف فيه على برنامج سكراتش، وكيف يمكننا أن نستخدمه لتحويل أفكارنا إلى مشاريع مذهلة!
+            </p>
+
+            <section class="mb-8">
+                <h3 class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">الأهداف التعليمية</h3>
+                <ul class="list-disc list-inside space-y-2 text-lg text-gray-800">
+                    <li>يتعرف الطالب على واجهة برنامج سكراتش الرئيسية.</li>
+                    <li>يصف الطالب وظيفة كل جزء من أجزاء واجهة البرنامج.</li>
+                    <li>يستخدم الطالب لبنات القلم لرسم أشكال هندسية.</li>
+                </ul>
+            </section>
+
+            <section class="mb-8">
+                <h3 class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">المفاهيم والمفردات</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="bg-blue-100 p-4 rounded-lg term-card" data-term="البرمجة">
+                        <h4 class="font-bold text-xl text-blue-900">البرمجة</h4>
+                        <p class="text-gray-600">Programming</p>
+                    </div>
+                    <div class="bg-blue-100 p-4 rounded-lg term-card" data-term="الكائن">
+                        <h4 class="font-bold text-xl text-blue-900">الكائن</h4>
+                        <p class="text-gray-600">Sprite</p>
+                    </div>
+                    <div class="bg-blue-100 p-4 rounded-lg term-card" data-term="اللبنة">
+                        <h4 class="font-bold text-xl text-blue-900">اللبنة</h4>
+                        <p class="text-gray-600">Block</p>
+                    </div>
+                    <div class="bg-blue-100 p-4 rounded-lg term-card" data-term="المنصة">
+                        <h4 class="font-bold text-xl text-blue-900">المنصة</h4>
+                        <p class="text-gray-600">Stage</p>
+                    </div>
+                    <div class="bg-blue-100 p-4 rounded-lg term-card" data-term="المتغير">
+                        <h4 class="font-bold text-xl text-blue-900">المتغير</h4>
+                        <p class="text-gray-600">Variable</p>
+                    </div>
+                    <div class="bg-blue-100 p-4 rounded-lg term-card" data-term="لبنة_مخصصة">
+                        <h4 class="font-bold text-xl text-blue-900">لبنة مخصصة</h4>
+                        <p class="text-gray-600">My Block</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <h3 class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">مثال عملي ومحلول: رسم مربع باستخدام المتغيرات</h3>
+                <p class="text-lg text-gray-800 mb-4">
+                    لنجرب معًا مشروعًا بسيطًا جدًا. هدفنا هو رسم مربع باستخدام المتغيرات ليكون الكود مرنًا.
+                </p>
+
+                <h4 class="text-xl font-bold text-blue-800 mb-2">1. التخيل (المشكلة)</h4>
+                <p class="text-lg text-gray-700 mb-4">
+                    نريد رسم مربع بطول ضلع محدد، مع إمكانية تغيير هذا الطول بسهولة.
+                </p>
+                
+                <h4 class="text-xl font-bold text-blue-800 mb-2">2. البرمجة (الحل)</h4>
+                <ol class="list-decimal list-inside space-y-2 text-lg text-gray-800">
+                    <li>
+                        <strong>إنشاء المتغير:</strong> من فئة **البيانات (Data)**، أنشئ متغيرًا باسم **`طول_الضلع`**.
+                    </li>
+                    <li>
+                        <strong>تحديد القيمة:</strong> استخدم لبنة **`اجعل طول_الضلع مساوياً 150`** لوضع قيمة افتراضية.
+                    </li>
+                    <li>
+                        <strong>الرسم:</strong> استخدم لبنة **`كرر 4 مرات` (repeat 4)**، وضع داخلها لبنة **`تحرك طول_الضلع خطوة`** و **`استدر 90 درجة`**.
+                    </li>
+                </ol>
+
+                <h4 class="text-xl font-bold text-blue-800 mb-2 mt-4">3. الكود النهائي</h4>
+                <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto text-left">
+                    <p class="text-gray-400 mb-2">الكود النهائي للمشروع:</p>
+                    <code>
+                        <span class="text-yellow-300">عندما تُنقر الراية الخضراء</span> (when green flag clicked)<br>
+                        <span class="text-blue-500">امسح</span> (erase)<br>
+                        <span class="text-orange-300">اجعل طول_الضلع مساوياً 150</span> (set side_length to 150)<br>
+                        <span class="text-blue-500">انزل القلم</span> (pen down)<br>
+                        <span class="text-orange-400">كرر 4 مرات</span> (repeat 4)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-500">تحرك طول_الضلع خطوة</span> (move side_length steps)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-500">استدر 90 درجة</span> (turn 90 degrees)<br>
+                        <span class="text-blue-500">ارفع القلم</span> (pen up)
+                    </code>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <h3 class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">واجبات الدرس</h3>
+                <div class="bg-red-100 p-4 rounded-lg mb-4">
+                    <h4 class="font-bold text-xl text-red-800 mb-2">ملاحظة هامة لتسليم المشاريع</h4>
+                    <p class="text-lg text-gray-800 mb-2">
+                        لتنظيم المشاريع، يجب عليك تسمية ملف المشروع (ملف .sb3) بطريقة موحدة قبل تسليمه.
+                    </p>
+                    <p class="text-lg text-gray-800">
+                        **صيغة التسمية:** <span class="font-mono bg-gray-200 px-2 py-1 rounded">YourName-ProjectName</span>
+                    </p>
+                    <p class="text-lg text-gray-800 mt-2">
+                        **مثال:** إذا كان اسمك "Ali" واسم المشروع هو "Hello World"، يكون اسم الملف: **Ali-Hello_World**.
+                    </p>
+                    <p class="text-lg text-gray-800 mt-2 font-bold text-red-800">
+                        تذكر أن تتبع هذه الصيغة في جميع واجباتك، سواء كنت في المختبر أو في المنزل!
+                    </p>
+                </div>
+                <div class="bg-green-100 p-4 rounded-lg mb-4">
+                    <h4 class="font-bold text-xl text-green-800 mb-2">واجب الحصة (للمختبر)</h4>
+                    <p class="text-lg text-gray-800">
+                        مشروع "الرسام الهندسي" **(Geometric_Painter)**:
+                        <ul class="list-disc list-inside space-y-1 text-gray-700 mt-2">
+                            <li>قم بإنشاء لبنة مخصصة باسم **`ارسم مربع`** تأخذ مدخلاً باسم **`الضلع`**.</li>
+                            <li>استخدم هذه اللبنة لرسم مربع.</li>
+                            <li>تلميح: ما هي زاوية الدوران المناسبة للمثلث؟</li>
+                        </ul>
+                    </p>
+                </div>
+                <div class="bg-yellow-100 p-4 rounded-lg">
+                    <h4 class="font-bold text-xl text-yellow-800 mb-2">واجب منزلي (للكلاسروم)</h4>
+                    <p class="text-lg text-gray-800">
+                        مشروع "رسام المعين" **(Rhombus_Painter)**:
+                        <ul class="list-disc list-inside space-y-1 text-gray-700 mt-2">
+                            <li>قم بإنشاء لبنة مخصصة باسم **`ارسم معين`** تأخذ مدخلين: **`الضلع`** و **`الزاوية`**.</li>
+                            <li>احسب الزاوية المنفرجة من الزاوية الحادة (الزاوية المنفرجة = 180 - الزاوية الحادة).</li>
+                            <li>استخدم اللبنة لرسم معين.</li>
+                        </ul>
+                    </p>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <h3 id="solutions-section" class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">الإجابات النموذجية</h3>
+                <button onclick="document.getElementById('solution-content').style.display='block'; this.style.display='none';" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full">
+                    اضغط هنا لعرض الإجابات
+                </button>
+                <div id="solution-content" class="mt-4 p-4 bg-gray-100 rounded-lg hidden">
+                    <h4 class="font-bold text-xl text-green-800 mb-2">حل واجب الحصة:</h4>
+                    <p class="text-lg">
+                        لإنجاز المهمة، يمكنك استخدام الكود التالي:
+                    </p>
+                    <pre class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto text-left"><code>
+تعريف ارسم مربع الضلع (define draw square side)
+كرر 4 مرات (repeat 4)
+&nbsp;&nbsp;&nbsp;&nbsp;تحرك الضلع خطوة (move side steps)
+&nbsp;&nbsp;&nbsp;&nbsp;استدر 90 درجة (turn 90 degrees)
+
+عندما تُنقر الراية الخضراء (when green flag clicked)
+امسح (erase)
+انزل القلم (pen down)
+ارسم مربع الضلع 150 (draw square 150)
+ارفع القلم (pen up)
+</code></pre>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <h3 class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">مصادر إضافية (للإثراء)</h3>
+                <ul class="list-disc list-inside space-y-2 text-lg text-gray-800">
+                    <li><a href="https://scratch.mit.edu/projects/editor/" target="_blank" class="text-blue-500 hover:underline">محرر سكراتش على الإنترنت</a> - جرب البرمجة مباشرة من متصفحك.</li>
+                    <li><a href="https://www.youtube.com/watch?v=FqYfO-w0J6s" target="_blank" class="text-blue-500 hover:underline">فيديو: جولة سريعة في سكراتش 3.0</a> - فيديو توضيحي لمكونات البرنامج.</li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer class="bg-gray-800 text-white text-center p-4 mt-8">
+        <p>&copy; 2024 مستودع البرمجة للصف التاسع</p>
+    </footer>
+
+    <!-- The Modal -->
+    <div id="modal" class="modal fixed z-10 inset-0 overflow-y-auto hidden">
+        <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+        
+        <div class="modal-container fixed w-full h-full top-0 left-0 flex items-center justify-center">
+            <div class="modal-content bg-white p-6 rounded-lg shadow-lg max-w-lg mx-auto z-50 overflow-y-auto">
+                
+                <div class="modal-header flex justify-between items-center pb-3">
+                    <h3 class="text-2xl font-bold" id="modal-title"></h3>
+                    <button class="modal-close-btn cursor-pointer z-50">
+                        <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                            <path d="M14.53 4.53a.75.75 0 00-1.06-1.06L9 7.94 4.53 3.47a.75.75 0 00-1.06 1.06L7.94 9l-4.47 4.47a.75.75 0 101.06 1.06L9 10.06l4.47 4.47a.75.75 0 101.06-1.06L10.06 9z"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="modal-body text-gray-700" id="modal-body">
+                    <!-- Term definition will be injected here -->
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/scratch-lesson1.js" defer></script>
+</body>
+</html>

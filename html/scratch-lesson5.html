@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدرس 5: الشروط والتحكم</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/scratch-lesson5.css">
+    <script src="../js/main.js" defer></script>
+    <script src="../js/scratch-lesson5.js" defer></script>
+</head>
+<body class="bg-gray-100">
+
+    <header class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-bold">البرمجة للصف التاسع</h1>
+            <nav>
+                <a href="../index.html" class="hover:text-yellow-400 mx-2">الرئيسية</a>
+                <a href="scratch-lesson4.html" class="hover:text-yellow-400 mx-2">الدرس السابق</a>
+                <a href="scratch-lesson6.html" class="hover:text-yellow-400 mx-2">الدرس التالي</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-6">
+        <article class="bg-white p-8 rounded-lg shadow-lg">
+            <h2 class="text-4xl text-center text-blue-800 mb-6">الدرس الخامس: الشروط والتحكم</h2>
+            <p class="text-xl text-center text-gray-700 mb-8">
+                تخيل أنك تريد أن يتخذ برنامجك قرارات بناءً على شروط معينة. في هذا الدرس، سنتعلم كيف نستخدم لبنات التحكم الشرطية `إذا... وإلا...` لجعل برامجنا أكثر ذكاءً وتفاعلية.
+            </p>
+
+            <section class="mb-8">
+                <h3 class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">الأهداف التعليمية</h3>
+                <ul class="list-disc list-inside space-y-2 text-lg text-gray-800">
+                    <li>يستخدم الطالب لبنة `إذا` و `إذا... وإلا...` لاتخاذ القرارات.</li>
+                    <li>يوظف الطالب عمليات المقارنة (`=`، `>`، `<`).</li>
+                    <li>يحلل الطالب المشكلات ويصمم حلولًا تعتمد على المنطق الشرطي.</li>
+                </ul>
+            </section>
+
+            <section class="mb-8">
+                <h3 class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">المفاهيم والمفردات</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="bg-blue-100 p-4 rounded-lg term-card" data-term="الشروط">
+                        <h4 class="font-bold text-xl text-blue-900">الشروط</h4>
+                        <p class="text-gray-600">Conditions</p>
+                    </div>
+                    <div class="bg-blue-100 p-4 rounded-lg term-card" data-term="المقارنة">
+                        <h4 class="font-bold text-xl text-blue-900">المقارنة</h4>
+                        <p class="text-gray-600">Comparison</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <h3 class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">مثال بسيط ومحلول: لعبة التخمين</h3>
+                <p class="text-lg text-gray-800 mb-4">
+                    لنجعل الكائن يطلب من المستخدم تخمين رقم معين.
+                </p>
+
+                <h4 class="text-xl font-bold text-blue-800 mb-2">1. التخيل (المشكلة)</h4>
+                <p class="text-lg text-gray-700 mb-4">
+                    نريد أن يختار الكائن رقمًا سريًا (مثلاً 50). إذا كان تخمين المستخدم صحيحًا، يقول "مبروك!". إذا كان خاطئًا، يقول "حاول مرة أخرى".
+                </p>
+
+                <h4 class="text-xl font-bold text-blue-800 mb-2">2. البرمجة (الحل)</h4>
+                <ol class="list-decimal list-inside space-y-2 text-lg text-gray-800">
+                    <li>
+                        <strong>إنشاء متغير:</strong> أنشئ متغيرًا باسم **`الرقم السري`**.
+                    </li>
+                    <li>
+                        <strong>الطلب:</strong> ابدأ بلبنة **`عندما تُنقر الراية الخضراء`** ثم استخدم **`اسأل`** لطلب التخمين.
+                    </li>
+                    <li>
+                        <strong>القرار:</strong> استخدم لبنة **`إذا... وإلا...` (if... else...)** من فئة **التحكم**.
+                    </li>
+                    <li>
+                        <strong>الشرط:</strong> داخل `إذا`، ضع شرطًا من فئة **العمليات (Operators)**: **`الإجابة = 50`**.
+                    </li>
+                    <li>
+                        <strong>النتائج:</strong>
+                        <ul class="list-disc list-inside space-y-1 text-gray-700 mt-2">
+                            <li>داخل `إذا`، ضع لبنة **`قل`** بنص "مبروك!".</li>
+                            <li>داخل `وإلا`، ضع لبنة **`قل`** بنص "حاول مرة أخرى!".</li>
+                        </ul>
+                    </li>
+                </ol>
+                
+                <h4 class="text-xl font-bold text-blue-800 mb-2 mt-4">3. الكود النهائي</h4>
+                <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto text-left">
+                    <p class="text-gray-400 mb-2">الكود النهائي للمشروع:</p>
+                    <code>
+                        <span class="text-yellow-300">عندما تُنقر الراية الخضراء</span> (when green flag clicked)<br>
+                        <span class="text-green-300">اجعل</span> الرقم السري <span class="text-green-300">مساوياً</span> 50 (set secret_number to 50)<br>
+                        <span class="text-green-300">اسأل</span> ما هو الرقم السري؟ <span class="text-green-300">وانتظر</span> (ask what is the secret number? and wait)<br>
+                        <span class="text-orange-400">إذا</span> <span class="text-red-400">الإجابة = الرقم السري</span> (if answer = secret_number)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">قل</span> مبروك! (say congratulations!)<br>
+                        <span class="text-orange-400">وإلا</span> (else)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">قل</span> حاول مرة أخرى! (say try again!)<br>
+                    </code>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <h3 class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">واجبات الدرس</h3>
+                <div class="bg-red-100 p-4 rounded-lg mb-4">
+                    <h4 class="font-bold text-xl text-red-800 mb-2">ملاحظة هامة لتسليم المشاريع</h4>
+                    <p class="text-lg text-gray-800 mb-2">
+                        لتنظيم المشاريع، يجب عليك تسمية ملف المشروع (ملف .sb3) بطريقة موحدة قبل تسليمه.
+                    </p>
+                    <p class="text-lg text-gray-800">
+                        **صيغة التسمية:** <span class="font-mono bg-gray-200 px-2 py-1 rounded">YourName-ProjectName</span>
+                    </p>
+                    <p class="text-lg text-gray-800 mt-2">
+                        **مثال:** إذا كان اسمك "Ali" واسم المشروع هو "Hello World"، يكون اسم الملف: **Ali-Hello_World**.
+                    </p>
+                    <p class="text-lg text-gray-800 mt-2 font-bold text-red-800">
+                        تذكر أن تتبع هذه الصيغة في جميع واجباتك، سواء كنت في المختبر أو في المنزل!
+                    </p>
+                </div>
+                <div class="bg-green-100 p-4 rounded-lg mb-4">
+                    <h4 class="font-bold text-xl text-green-800 mb-2">واجب الحصة (للمختبر)</h4>
+                    <p class="text-lg text-gray-800">
+                        مشروع "نادي الرياضة" **(Sports_Club)**:
+                        <ul class="list-disc list-inside space-y-1 text-gray-700 mt-2">
+                            <li>اطلب من المستخدم إدخال عمره.</li>
+                            <li>إذا كان عمره أكبر من أو يساوي 18، يقول له الكائن "أهلاً بك في النادي!".</li>
+                            <li>وإلا، يقول له "عفوًا، يجب أن يكون عمرك 18 سنة أو أكثر".</li>
+                        </ul>
+                    </p>
+                </div>
+                <div class="bg-yellow-100 p-4 rounded-lg">
+                    <h4 class="font-bold text-xl text-yellow-800 mb-2">واجب منزلي (للكلاسروم)</h4>
+                    <p class="text-lg text-gray-800">
+                        مشروع "آلة حاسبة بسيطة" **(Simple_Calculator)**:
+                        <ul class="list-disc list-inside space-y-1 text-gray-700 mt-2">
+                            <li>اطلب من المستخدم إدخال رقمين.</li>
+                            <li>اطلب منه اختيار العملية (+ أو -).</li>
+                            <li>استخدم لبنات `إذا... وإلا...` لحساب النتيجة بناءً على اختياره.</li>
+                        </ul>
+                    </p>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <h3 id="solutions-section" class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">الإجابات النموذجية</h3>
+                <button onclick="document.getElementById('solution-content').style.display='block'; this.style.display='none';" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full">
+                    اضغط هنا لعرض الإجابات
+                </button>
+                <div id="solution-content" class="mt-4 p-4 bg-gray-100 rounded-lg hidden">
+                    <h4 class="font-bold text-xl text-green-800 mb-2">حل واجب الحصة:</h4>
+                    <p class="text-lg">
+                        الكود المقترح لمشروع "نادي الرياضة":
+                    </p>
+                    <pre class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto text-left"><code>
+عندما تُنقر الراية الخضراء (when green flag clicked)
+اسأل كم عمرك؟ وانتظر (ask what is your age? and wait)
+إذا الإجابة >= 18 (if answer >= 18)
+&nbsp;&nbsp;&nbsp;&nbsp;قل أهلاً بك في النادي! (say welcome to the club!)
+وإلا (else)
+&nbsp;&nbsp;&nbsp;&nbsp;قل عفواً، يجب أن يكون عمرك 18 سنة أو أكثر. (say sorry, you must be 18 years or older.)
+</code></pre>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <h3 class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">مصادر إضافية (للإثراء)</h3>
+                <ul class="list-disc list-inside space-y-2 text-lg text-gray-800">
+                    <li><a href="https://scratch.mit.edu/projects/editor/" target="_blank" class="text-blue-500 hover:underline">محرر سكراتش على الإنترنت</a> - جرب البرمجة مباشرة من متصفحك.</li>
+                    <li><a href="https://www.youtube.com/watch?v=FqYfO-w0J6s" target="_blank" class="text-blue-500 hover:underline">فيديو: جولة سريعة في سكراتش 3.0</a> - فيديو توضيحي لمكونات البرنامج.</li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer class="bg-gray-800 text-white text-center p-4 mt-8">
+        <p>&copy; 2024 مستودع البرمجة للصف التاسع</p>
+    </footer>
+
+    <!-- The Modal -->
+    <div id="modal" class="modal fixed z-10 inset-0 overflow-y-auto hidden">
+        <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+        
+        <div class="modal-container fixed w-full h-full top-0 left-0 flex items-center justify-center">
+            <div class="modal-content bg-white p-6 rounded-lg shadow-lg max-w-lg mx-auto z-50 overflow-y-auto">
+                
+                <div class="modal-header flex justify-between items-center pb-3">
+                    <h3 class="text-2xl font-bold" id="modal-title"></h3>
+                    <button class="modal-close-btn cursor-pointer z-50">
+                        <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                            <path d="M14.53 4.53a.75.75 0 00-1.06-1.06L9 7.94 4.53 3.47a.75.75 0 00-1.06 1.06L7.94 9l-4.47 4.47a.75.75 0 101.06 1.06L9 10.06l4.47 4.47a.75.75 0 101.06-1.06L10.06 9z"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="modal-body text-gray-700" id="modal-body">
+                    <!-- Term definition will be injected here -->
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

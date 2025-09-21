@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدرس 9: المتغيرات والعمليات</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/scratch-lesson9.css">
+    <script src="../js/main.js" defer></script>
+    <script src="../js/scratch-lesson9.js" defer></script>
+</head>
+<body class="bg-gray-100">
+
+    <header class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-bold">البرمجة للصف التاسع</h1>
+            <nav>
+                <a href="../index.html" class="hover:text-yellow-400 mx-2">الرئيسية</a>
+                <a href="scratch-lesson8.html" class="hover:text-yellow-400 mx-2">الدرس السابق</a>
+                <a href="scratch-lesson10.html" class="hover:text-yellow-400 mx-2">الدرس التالي</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-6">
+        <article class="bg-white p-8 rounded-lg shadow-lg">
+            <h2 class="text-4xl text-center text-blue-800 mb-6">الدرس التاسع: المتغيرات والعمليات</h2>
+            <p class="text-xl text-center text-gray-700 mb-8">
+                في هذا الدرس، سنتعمق أكثر في استخدام المتغيرات والعمليات الحسابية. سنتعلم كيف نستخدم المتغيرات لتخزين وحساب قيم مختلفة في مشاريعنا.
+            </p>
+
+            <section class="mb-8">
+                <h3 class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">الأهداف التعليمية</h3>
+                <ul class="list-disc list-inside space-y-2 text-lg text-gray-800">
+                    <li>يستخدم الطالب المتغيرات لإجراء عمليات حسابية معقدة.</li>
+                    <li>يحلل الطالب المشكلات ويصمم حلولًا تعتمد على المتغيرات.</li>
+                    <li>يوظف الطالب المتغيرات في عمليات المقارنة.</li>
+                </ul>
+            </section>
+
+            <section class="mb-8">
+                <h3 class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">المفاهيم والمفردات</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="bg-blue-100 p-4 rounded-lg term-card" data-term="المتغير">
+                        <h4 class="font-bold text-xl text-blue-900">المتغير</h4>
+                        <p class="text-gray-600">Variable</p>
+                    </div>
+                    <div class="bg-blue-100 p-4 rounded-lg term-card" data-term="العمليات_المنطقية">
+                        <h4 class="font-bold text-xl text-blue-900">العمليات المنطقية</h4>
+                        <p class="text-gray-600">Logical Operations</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <h3 class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">مثال بسيط ومحلول: الآلة الحاسبة</h3>
+                <p class="text-lg text-gray-800 mb-4">
+                    لنجعل الكائن يعمل كآلة حاسبة بسيطة لعملية الضرب.
+                </p>
+
+                <h4 class="text-xl font-bold text-blue-800 mb-2">1. التخيل (المشكلة)</h4>
+                <p class="text-lg text-gray-700 mb-4">
+                    نريد أن نطلب من المستخدم إدخال رقمين، ثم نقوم بضربهما وإظهار الناتج.
+                </p>
+
+                <h4 class="text-xl font-bold text-blue-800 mb-2">2. البرمجة (الحل)</h4>
+                <ol class="list-decimal list-inside space-y-2 text-lg text-gray-800">
+                    <li>
+                        <strong>إنشاء المتغيرات:</strong> أنشئ متغيرين: **`الرقم1`** و **`الرقم2`**، ومتغير ثالث اسمه **`النتيجة`**.
+                    </li>
+                    <li>
+                        <strong>الطلب:</strong> استخدم لبنة **`اسأل`** لطلب الرقمين.
+                    </li>
+                    <li>
+                        <strong>العملية:</strong> استخدم لبنة **`اجعل النتيجة مساوياً`** ولبنة **`الضرب` (*)** من فئة **العمليات**.
+                    </li>
+                    <li>
+                        <strong>إظهار الناتج:</strong> استخدم لبنة **`قل`** لدمج النص مع متغير **`النتيجة`**.
+                    </li>
+                </ol>
+                
+                <h4 class="text-xl font-bold text-blue-800 mb-2 mt-4">3. الكود النهائي</h4>
+                <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto text-left">
+                    <p class="text-gray-400 mb-2">الكود النهائي للمشروع:</p>
+                    <code>
+                        <span class="text-yellow-300">عندما تُنقر الراية الخضراء</span> (when green flag clicked)<br>
+                        <span class="text-green-300">اسأل</span> أدخل الرقم الأول <span class="text-green-300">وانتظر</span> (ask enter first number and wait)<br>
+                        <span class="text-orange-400">اجعل الرقم1 مساوياً</span> <span class="text-green-300">الإجابة</span> (set number1 to answer)<br>
+                        <span class="text-green-300">اسأل</span> أدخل الرقم الثاني <span class="text-green-300">وانتظر</span> (ask enter second number and wait)<br>
+                        <span class="text-orange-400">اجعل الرقم2 مساوياً</span> <span class="text-green-300">الإجابة</span> (set number2 to answer)<br>
+                        <span class="text-orange-400">اجعل النتيجة مساوياً</span> <span class="text-red-400">الرقم1 * الرقم2</span> (set result to number1 * number2)<br>
+                        <span class="text-purple-400">قل</span> النتيجة هي: <span class="text-blue-400">النتيجة</span> (say the result is: result)
+                    </code>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <h3 class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">واجبات الدرس</h3>
+                <div class="bg-red-100 p-4 rounded-lg mb-4">
+                    <h4 class="font-bold text-xl text-red-800 mb-2">ملاحظة هامة لتسليم المشاريع</h4>
+                    <p class="text-lg text-gray-800 mb-2">
+                        لتنظيم المشاريع، يجب عليك تسمية ملف المشروع (ملف .sb3) بطريقة موحدة قبل تسليمه.
+                    </p>
+                    <p class="text-lg text-gray-800">
+                        **صيغة التسمية:** <span class="font-mono bg-gray-200 px-2 py-1 rounded">YourName-ProjectName</span>
+                    </p>
+                    <p class="text-lg text-gray-800 mt-2">
+                        **مثال:** إذا كان اسمك "Ali" واسم المشروع هو "Hello World"، يكون اسم الملف: **Ali-Hello_World**.
+                    </p>
+                    <p class="text-lg text-gray-800 mt-2 font-bold text-red-800">
+                        تذكر أن تتبع هذه الصيغة في جميع واجباتك، سواء كنت في المختبر أو في المنزل!
+                    </p>
+                </div>
+                <div class="bg-green-100 p-4 rounded-lg mb-4">
+                    <h4 class="font-bold text-xl text-green-800 mb-2">واجب الحصة (للمختبر)</h4>
+                    <p class="text-lg text-gray-800">
+                        مشروع "الآلة الحاسبة الكاملة" **(Full_Calculator)**:
+                        <ul class="list-disc list-inside space-y-1 text-gray-700 mt-2">
+                            <li>قم بإنشاء آلة حاسبة بسيطة تقوم بعمليات الجمع والطرح والضرب والقسمة.</li>
+                            <li>اطلب من المستخدم اختيار العملية التي يريدها.</li>
+                            <li>استخدم لبنات `إذا... وإلا...` لتنفيذ العملية المطلوبة.</li>
+                        </ul>
+                    </p>
+                </div>
+                <div class="bg-yellow-100 p-4 rounded-lg">
+                    <h4 class="font-bold text-xl text-yellow-800 mb-2">واجب منزلي (للكلاسروم)</h4>
+                    <p class="text-lg text-gray-800">
+                        مشروع "نظام النقاط" **(Points_System)**:
+                        <ul class="list-disc list-inside space-y-1 text-gray-700 mt-2">
+                            <li>أنشئ متغيرًا باسم "النقاط" وابدأه بصفر.</li>
+                            <li>اجعل الكائن يطلب من المستخدم الإجابة على 3 أسئلة.</li>
+                            <li>إذا كانت الإجابة صحيحة، أضف 10 نقاط للمتغير.</li>
+                            <li>إذا كانت الإجابة خاطئة، اطرح 5 نقاط من المتغير.</li>
+                            <li>في النهاية، أظهر عدد النقاط النهائي.</li>
+                        </ul>
+                    </p>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <h3 id="solutions-section" class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">الإجابات النموذجية</h3>
+                <button onclick="document.getElementById('solution-content').style.display='block'; this.style.display='none';" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full">
+                    اضغط هنا لعرض الإجابات
+                </button>
+                <div id="solution-content" class="mt-4 p-4 bg-gray-100 rounded-lg hidden">
+                    <h4 class="font-bold text-xl text-green-800 mb-2">حل واجب الحصة:</h4>
+                    <p class="text-lg">
+                        الكود المقترح لمشروع "الآلة الحاسبة الكاملة" (للعملية + كمثال):
+                    </p>
+                    <pre class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto text-left"><code>
+عندما تُنقر الراية الخضراء (when green flag clicked)
+اسأل أدخل الرقم الأول وانتظر (ask enter first number and wait)
+اجعل الرقم1 مساوياً الإجابة (set number1 to answer)
+اسأل أدخل الرقم الثاني وانتظر (ask enter second number and wait)
+اجعل الرقم2 مساوياً الإجابة (set number2 to answer)
+اسأل أدخل العملية (+، -، *، /) وانتظر (ask enter operation (+, -, *, /) and wait)
+إذا الإجابة = "+" (if answer = "+")
+&nbsp;&nbsp;&nbsp;&nbsp;اجعل النتيجة مساوياً الرقم1 + الرقم2 (set result to number1 + number2)
+&nbsp;&nbsp;&nbsp;&nbsp;قل النتيجة لمدة 2 ثانية (say result for 2 seconds)
+وإلا (else)
+&nbsp;&nbsp;&nbsp;&nbsp;// أكمل باقي العمليات هنا...
+</code></pre>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <h3 class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">مصادر إضافية (للإثراء)</h3>
+                <ul class="list-disc list-inside space-y-2 text-lg text-gray-800">
+                    <li><a href="https://scratch.mit.edu/projects/editor/" target="_blank" class="text-blue-500 hover:underline">محرر سكراتش على الإنترنت</a> - جرب البرمجة مباشرة من متصفحك.</li>
+                    <li><a href="https://www.youtube.com/watch?v=FqYfO-w0J6s" target="_blank" class="text-blue-500 hover:underline">فيديو: جولة سريعة في سكراتش 3.0</a> - فيديو توضيحي لمكونات البرنامج.</li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer class="bg-gray-800 text-white text-center p-4 mt-8">
+        <p>&copy; 2024 مستودع البرمجة للصف التاسع</p>
+    </footer>
+
+    <!-- The Modal -->
+    <div id="modal" class="modal fixed z-10 inset-0 overflow-y-auto hidden">
+        <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+        
+        <div class="modal-container fixed w-full h-full top-0 left-0 flex items-center justify-center">
+            <div class="modal-content bg-white p-6 rounded-lg shadow-lg max-w-lg mx-auto z-50 overflow-y-auto">
+                
+                <div class="modal-header flex justify-between items-center pb-3">
+                    <h3 class="text-2xl font-bold" id="modal-title"></h3>
+                    <button class="modal-close-btn cursor-pointer z-50">
+                        <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                            <path d="M14.53 4.53a.75.75 0 00-1.06-1.06L9 7.94 4.53 3.47a.75.75 0 00-1.06 1.06L7.94 9l-4.47 4.47a.75.75 0 101.06 1.06L9 10.06l4.47 4.47a.75.75 0 101.06-1.06L10.06 9z"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="modal-body text-gray-700" id="modal-body">
+                    <!-- Term definition will be injected here -->
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
