@@ -1,0 +1,6 @@
+
+/* scratch-lesson-geometry.css */
+.sec-title{ @apply text-2xl font-bold text-blue-700 mb-3 border-b-2 border-blue-300 pb-1; }
+.code{ @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-left text-sm; }
+.link-term{ @apply text-blue-700 underline hover:text-blue-900; }
+.modal-card{ max-height: 70vh; overflow-y: auto; }
