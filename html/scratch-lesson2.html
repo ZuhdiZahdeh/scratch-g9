@@ -1,63 +1,62 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scratch — من المربع إلى المضلع المنتظم</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="../css/main.css">
-  <link rel="stylesheet" href="../css/scratch-lesson2.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>سكراتش — الدرس 2: من المربع إلى المضلع المنتظم</title>
+
+  <!-- أنماط الدرس: بطاقة كود + تلوين حسب فئات سكراتش -->
+  <link rel="stylesheet" href="../css/scratch-lesson2.css?v=2" />
+  <!-- (اختياري) إن كان لديك ملف أنماط عام:
+  <link rel="stylesheet" href="../css/main.css" />
+  -->
+  <style>
+    /* تنسيقات خفيفة للصفحة */
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Noto Naskh Arabic UI","Tajawal",Arial,sans-serif;background:#f7fafc;color:#111;}
+    .page{max-width:980px;margin:32px auto;padding:0 16px;}
+    h1{font-size:28px;margin:0 0 8px;color:#1d4ed8}
+    .lead{color:#374151;margin:0 0 24px}
+    h2{font-size:22px;margin:28px 0 8px;color:#1f2937}
+    h3{font-size:18px;margin:22px 0 8px;color:#1f2937}
+    p{line-height:1.9;margin:0 0 12px}
+    .note{font-size:14px;color:#6b7280}
+    .card{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:16px 18px;margin:16px 0}
+  </style>
 </head>
-<body class="bg-gray-50">
-  <header class="bg-blue-700 text-white">
-    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
-      <h1 class="text-2xl font-bold">البرمجة للصف التاسع — أشكال هندسية في سكراتش</h1>
-      <nav class="space-x-4 space-x-reverse">
-        <a class="hover:text-yellow-300" href="../index.html">الرئيسية</a>
-        <a class="hover:text-yellow-300" href="scratch-lesson1.html">الدرس السابق</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container mx-auto px-4 py-8">
-    <!-- Intro -->
-    <section class="mb-10">
-      <h2 class="text-3xl font-bold text-blue-800 mb-2">من المربع البسيط → المعين → أي مضلع منتظم</h2>
-      <p class="text-gray-700 leading-8">
-        في هذا الدرس نتدرّج من أبسط برنامج لرسم مربع، ثم نعيد صياغته باستخدام
-        <button class="link-term" data-term="المتغير">المتغيّرات</button>
-        و
-        <button class="link-term" data-term="لبنة_مخصصة">اللبنات المخصّصة</button>،
-        ونطوّر الفكرة لرسم <strong>معيّن</strong> ثم <strong>أي مضلع منتظم n-gon</strong>.
+<body>
+  <main class="page">
+    <header>
+      <h1>من المربع البسيط → المعين → أي مضلع منتظم (n-gon)</h1>
+      <p class="lead">
+        نتدرّج من أبسط برنامج لرسم مربع، ثم نعيد الصياغة باستخدام
+        <strong>المتغيّرات</strong> و<strong>اللبنات المخصّصة</strong>، ونطوّر الفكرة
+        لرسم <strong>معيّن</strong> ثم <strong>أي مضلع منتظم</strong>.
       </p>
-    </section>
+    </header>
 
-    <!-- A: Square - simplest -->
-    <section id="A" class="mb-12">
-      <h3 class="sec-title">A) المربع — الطريقة الأسهل</h3>
-      <ol class="list-decimal list-inside text-gray-800 space-y-2">
-        <li>من القلم: <em>امسح</em>، <em>ارفع القلم</em>، <em>اجعل حجم القلم 5</em>، <em>اذهب إلى x:-225 y:160</em>، ثم <em>انزل القلم</em>.</li>
-        <li>ضع حلقة <code>كرّر 4</code>، وفيها: <code>تحرك 320 خطوة</code> ثم <code>استدر 90 درجة</code>.</li>
-      </ol>
-      <pre class="code"><code>when green flag clicked
+    <!-- A) المربع — الطريقة الأسهل -->
+    <section id="square-simple" class="card">
+      <h2>A) المربع — الطريقة الأسهل</h2>
+      <p>أقل عدد ممكن من اللبنات: حلقة تكرار 4 + حركة ودوران.</p>
+      <pre class="scratch-code"><code>when green flag clicked
 erase all
 pen up
 set pen size to (5)
 go to x:(-225) y:(160)
 pen down
 repeat (4)
-  move (320) steps
-  turn clockwise (90) degrees
+        move (320) steps
+        turn clockwise (90) degrees
 end
 pen up</code></pre>
+      <p class="note">يمكن تغيير 320 حسب المساحة المتاحة على المسرح.</p>
     </section>
 
-    <!-- B: Square - fixed XY points -->
-    <section id="B" class="mb-12">
-      <h3 class="sec-title">B) المربع — باستخدام النقاط الثابتة (X/Y)</h3>
-      <p class="text-gray-700">استخدم أربع نقاط أركان: (-230,160) → (230,160) → (230,-160) → (-230,-160) → العودة.</p>
-      <pre class="code"><code>when green flag clicked
+    <!-- B) المربع — باستخدام النقاط الثابتة -->
+    <section id="square-xy" class="card">
+      <h2>B) المربع — باستخدام النقاط الثابتة (X/Y)</h2>
+      <p>استخدم أربع نقاط أركان: (-230,160) → (230,160) → (230,-160) → (-230,-160) → العودة.</p>
+      <pre class="scratch-code"><code>when green flag clicked
 erase all
 pen up
 set pen size to (5)
@@ -70,10 +69,10 @@ glide (1) secs to x:(-230) y:(160)
 pen up</code></pre>
     </section>
 
-    <!-- C: Square - with variable -->
-    <section id="C" class="mb-12">
-      <h3 class="sec-title">C) المربع — باستخدام متغيّر (طول_الضلع)</h3>
-      <pre class="code"><code>when green flag clicked
+    <!-- C) المربع — باستخدام متغيّر -->
+    <section id="square-var" class="card">
+      <h2>C) المربع — باستخدام متغيّر (طول_الضلع)</h2>
+      <pre class="scratch-code"><code>when green flag clicked
 erase all
 pen up
 set pen size to (5)
@@ -81,22 +80,23 @@ go to x:(-225) y:(160)
 set [طول_الضلع v] to (150)
 pen down
 repeat (4)
-  move (طول_الضلع) steps
-  turn clockwise (90) degrees
+        move (طول_الضلع) steps
+        turn clockwise (90) degrees
 end
 pen up</code></pre>
     </section>
 
-    <!-- D: My Block draw square -->
-    <section id="D" class="mb-12">
-      <h3 class="sec-title">D) ترقية: لبنة مخصّصة — ارسم مربع(الضلع)</h3>
-      <div class="grid md:grid-cols-2 gap-4">
-        <pre class="code md:col-span-1"><code>define ارسم مربع (الضلع)
+    <!-- D) لبنة مخصّصة: ارسم مربع -->
+    <section id="square-myblock" class="card">
+      <h2>D) ترقية: لبنة مخصّصة — ارسم مربع(الضلع)</h2>
+      <h3>تعريف اللبنة</h3>
+      <pre class="scratch-code"><code>define ارسم مربع (الضلع)
 repeat (4)
-  move (الضلع) steps
-  turn clockwise (90) degrees
+        move (الضلع) steps
+        turn clockwise (90) degrees
 end</code></pre>
-        <pre class="code md:col-span-1"><code>when green flag clicked
+      <h3>الاستخدام</h3>
+      <pre class="scratch-code"><code>when green flag clicked
 erase all
 pen up
 set pen size to (5)
@@ -104,21 +104,22 @@ go to x:(-225) y:(160)
 pen down
 ارسم مربع (150)
 pen up</code></pre>
-      </div>
     </section>
 
-    <!-- E: Rhombus -->
-    <section id="E" class="mb-12">
-      <h3 class="sec-title">E) المعين — لبنة عامة: ارسم معين(الضلع، الزاوية_الحادة)</h3>
-      <pre class="code"><code>define ارسم معين (الضلع) (الزاوية_الحادة)
+    <!-- E) المعين -->
+    <section id="rhombus" class="card">
+      <h2>E) المعين — لبنة عامة: ارسم معين(الضلع، الزاوية_الحادّة)</h2>
+      <h3>تعريف اللبنة</h3>
+      <pre class="scratch-code"><code>define ارسم معين (الضلع) (الزاوية_الحادة)
 set [الزاوية_المنفرجة v] to (180 - (الزاوية_الحادة))
 repeat (2)
-  move (الضلع) steps
-  turn clockwise (الزاوية_الحادة) degrees
-  move (الضلع) steps
-  turn clockwise (الزاوية_المنفرجة) degrees
+        move (الضلع) steps
+        turn clockwise (الزاوية_الحادة) degrees
+        move (الضلع) steps
+        turn clockwise (الزاوية_المنفرجة) degrees
 end</code></pre>
-      <pre class="code"><code>when green flag clicked
+      <h3>الاستخدام</h3>
+      <pre class="scratch-code"><code>when green flag clicked
 erase all
 pen up
 set pen size to (5)
@@ -128,16 +129,18 @@ pen down
 pen up</code></pre>
     </section>
 
-    <!-- F: General regular polygon -->
-    <section id="F" class="mb-12">
-      <h3 class="sec-title">F) برنامج عام — أي مضلع منتظم n-gon</h3>
-      <pre class="code"><code>define ارسم مضلع منتظم (n) (L)
+    <!-- F) برنامج عام — مضلع منتظم -->
+    <section id="regular-ngon" class="card">
+      <h2>F) برنامج عام — أي مضلع منتظم (n-gon)</h2>
+      <h3>تعريف اللبنة</h3>
+      <pre class="scratch-code"><code>define ارسم مضلع منتظم (n) (L)
 set [زاوية v] to (360 / (n))
 repeat (n)
-  move (L) steps
-  turn clockwise (زاوية) degrees
+        move (L) steps
+        turn clockwise (زاوية) degrees
 end</code></pre>
-      <pre class="code"><code>when green flag clicked
+      <h3>الاستخدام بسؤالين للمستخدم</h3>
+      <pre class="scratch-code"><code>when green flag clicked
 erase all
 pen up
 set pen size to (5)
@@ -149,34 +152,21 @@ set [L v] to (answer)
 pen down
 ارسم مضلع منتظم (n) (L)
 pen up</code></pre>
-      <p class="text-sm text-gray-600 mt-2">تلميح: خماسي → زاوية = 72°، مثمّن → 45°.</p>
+      <p class="note">مثال: خماسي → زاوية = 360/5 = 72°، مثمّن → 45°.</p>
     </section>
 
-    <!-- Tasks -->
-    <section id="tasks" class="mb-12">
-      <h3 class="sec-title">واجبات وتحدّيات</h3>
-      <ul class="list-disc list-inside space-y-1 text-gray-800">
+    <!-- واجبات -->
+    <section id="tasks" class="card">
+      <h2>واجبات وتحدّيات</h2>
+      <ul>
         <li>ارسم مضلعًا منتظمًا تُحدّده بنفسك.</li>
         <li>أضف وسيطًا اختياريًا: <em>زاوية ابتدائية</em> لتدوير الشكل قبل الرسم.</li>
-        <li>بدّل الألوان كل ضلع: استخدم <code>غيّر لون القلم بمقدار 30</code> داخل الحلقة.</li>
+        <li>بدّل الألوان كل ضلع باستخدام <code>change pen color by (30)</code> داخل الحلقة.</li>
       </ul>
     </section>
   </main>
 
-  <footer class="bg-gray-800 text-white text-center py-4">
-    <p>© 2025 منهج سكراتش — الصف التاسع</p>
-  </footer>
-
-  <!-- Modal -->
-  <div id="modal" class="hidden fixed inset-0 z-50">
-    <div class="modal-overlay absolute inset-0 bg-black bg-opacity-40"></div>
-    <div class="modal-card bg-white rounded-lg shadow-xl max-w-lg mx-auto mt-24 p-6 relative">
-      <button class="modal-close absolute left-3 top-3 text-gray-500 hover:text-gray-700" aria-label="close">×</button>
-      <h3 id="modal-title" class="text-xl font-bold mb-2"></h3>
-      <div id="modal-body" class="text-gray-700 leading-7"></div>
-    </div>
-  </div>
-
-  <script src="../js/scratch-lesson2.js" defer></script>
+  <!-- ملوّن السطور حسب فئات سكراتش -->
+  <script defer src="../js/scratch-lesson2.js?v=2"></script>
 </body>
 </html>
