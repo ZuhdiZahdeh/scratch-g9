@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>سكراتش — رسم الشكل المنتظم</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/scratch-lesson2.css" />
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>رسم الشكل المنتظم (n-gon)</h1>
+    </header>
+
+    <a href="scratch-lesson2.html" class="back-link">← العودة إلى قائمة الأشكال</a>
+
+    <section id="regular-ngon" class="card">
+      <h2>A) برنامج عام — أي مضلع منتظم (n-gon)</h2>
+      <h3>تعريف اللبنة</h3>
+      <pre class="scratch-code"><code>define ارسم مضلع منتظم (n) (L)
+set [زاوية v] to (360 / (n))
+repeat (n)
+        move (L) steps
+        turn clockwise (زاوية) degrees
+end</code></pre>
+      <h3>الاستخدام بسؤالين للمستخدم</h3>
+      <pre class="scratch-code"><code>when green flag clicked
+erase all
+pen up
+set pen size to (5)
+go to x:(0) y:(160)
+ask [كم عدد الأضلاع؟] and wait
+set [n v] to (answer)
+ask [ما طول الضلع؟] and wait
+set [L v] to (answer)
+pen down
+ارسم مضلع منتظم (n) (L)
+pen up</code></pre>
+      <p class="note">مثال: خماسي → زاوية = 360/5 = 72°، مثمّن → 45°.</p>
+    </section>
+
+    <div id="myModal" class="modal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img class="modal-content" id="img01">
+      <div id="modal-caption"></div>
+    </div>
+    <script defer src="../js/scratch-lesson2.js?v=2"></script>
+    <script>
+      function showModal(element) {
+        var modal = document.getElementById('myModal');
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("modal-caption");
+        modal.style.display = "flex";
+        modalImg.src = element.src;
+        captionText.innerHTML = element.alt;
+      }
+
+      function closeModal() {
+        var modal = document.getElementById('myModal');
+        modal.style.display = "none";
+      }
+    </script>
+  </main>
+</body>
+</html>

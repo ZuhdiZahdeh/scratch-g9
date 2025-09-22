@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>سكراتش — رسم المستطيل</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/scratch-lesson2.css" />
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>رسم المستطيل</h1>
+    </header>
+
+    <a href="scratch-lesson2.html" class="back-link">← العودة إلى قائمة الأشكال</a>
+
+    <section id="rectangle-simple" class="card">
+      <h2>A) المستطيل — الطريقة الأسهل</h2>
+      <p>أقل عدد ممكن من اللبنات: حلقة تكرار 2 + حركتين ودوران.</p>
+      <div class="thumbnail-container">
+        <img class="thumbnail" onclick="showModal(this)" src="../images/Rectangular-MovementAndRotation.png" alt="كود سكراتش لرسم مستطيل">
+        <p>كود سكراتش لرسم مستطيل</p>
+      </div>
+      <p>لإنشاء مستطيل باستخدام الحركة والدوران، يجب على الكائن أن يرسم ضلعين متجاورين بطولين مختلفين، ثم يكرر هذه العملية.</p>
+      <div class="thumbnail-container">
+        <img class="thumbnail" onclick="showModal(this)" src="../images/Rectangular-MovementAndRotation-Result.png" alt="شكل مستطيل مرسوم">
+        <p>النتيجة النهائية لرسم المستطيل</p>
+      </div>
+      <pre class="scratch-code"><code>when green flag clicked
+erase all
+pen up
+set pen size to (5)
+go to x:(-225) y:(160)
+pen down
+repeat (2)
+        move (300) steps
+        turn clockwise (90) degrees
+        move (150) steps
+        turn clockwise (90) degrees
+end
+pen up</code></pre>
+    </section>
+
+    <section id="rectangle-xy" class="card">
+      <h2>B) المستطيل — باستخدام النقاط الثابتة (X/Y)</h2>
+      <p>استخدم أربع نقاط أركان: (-230,160) → (230,160) → (230,-160) → (-230,-160) → العودة.</p>
+      <pre class="scratch-code"><code>when green flag clicked
+erase all
+pen up
+set pen size to (5)
+go to x:(-230) y:(160)
+pen down
+glide (1) secs to x:(230) y:(160)
+glide (1) secs to x:(230) y:(-160)
+glide (1) secs to x:(-230) y:(-160)
+glide (1) secs to x:(-230) y:(160)
+pen up</code></pre>
+    </section>
+
+    <section id="rectangle-vars" class="card">
+      <h2>C) المستطيل — باستخدام متغيّرين (طول-الضلع، عرض-الضلع)</h2>
+      <pre class="scratch-code"><code>when green flag clicked
+erase all
+pen up
+set pen size to (5)
+go to x:(-225) y:(160)
+set [طول_الضلع v] to (300)
+set [عرض_الضلع v] to (150)
+pen down
+repeat (2)
+        move (طول_الضلع) steps
+        turn clockwise (90) degrees
+        move (عرض_الضلع) steps
+        turn clockwise (90) degrees
+end
+pen up</code></pre>
+    </section>
+
+    <section id="rectangle-myblock" class="card">
+      <h2>D) ترقية: لبنة مخصّصة — ارسم المستطيل(الطول، العرض)</h2>
+      <h3>تعريف اللبنة</h3>
+      <pre class="scratch-code"><code>define ارسم المستطيل (طول) (عرض)
+repeat (2)
+        move (طول) steps
+        turn clockwise (90) degrees
+        move (عرض) steps
+        turn clockwise (90) degrees
+end</code></pre>
+      <h3>الاستخدام</h3>
+      <pre class="scratch-code"><code>when green flag clicked
+erase all
+pen up
+set pen size to (5)
+go to x:(-225) y:(160)
+pen down
+ارسم المستطيل (300) (150)
+pen up</code></pre>
+    </section>
+
+    <div id="myModal" class="modal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img class="modal-content" id="img01">
+      <div id="modal-caption"></div>
+    </div>
+    <script defer src="../js/scratch-lesson2.js?v=2"></script>
+    <script>
+      function showModal(element) {
+        var modal = document.getElementById('myModal');
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("modal-caption");
+        modal.style.display = "flex";
+        modalImg.src = element.src;
+        captionText.innerHTML = element.alt;
+      }
+
+      function closeModal() {
+        var modal = document.getElementById('myModal');
+        modal.style.display = "none";
+      }
+    </script>
+  </main>
+</body>
+</html>

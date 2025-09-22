@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>سكراتش — رسم المعين</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/scratch-lesson2.css" />
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>رسم المعين</h1>
+    </header>
+
+    <a href="scratch-lesson2.html" class="back-link">← العودة إلى قائمة الأشكال</a>
+
+    <section id="rhombus-xy" class="card">
+      <h2>A) المعين — باستخدام النقاط الثابتة (X/Y)</h2>
+      <p>استخدم أربع نقاط أركان لرسم معين:</p>
+      <pre class="scratch-code"><code>when green flag clicked
+erase all
+pen up
+set pen size to (5)
+go to x:(-150) y:(0)
+pen down
+glide (1) secs to x:(0) y:(200)
+glide (1) secs to x:(150) y:(0)
+glide (1) secs to x:(0) y:(-200)
+glide (1) secs to x:(-150) y:(0)
+pen up</code></pre>
+    </section>
+
+    <section id="rhombus-vars" class="card">
+      <h2>B) المعين — باستخدام متغيّرين (طول-الضلع، الزاوية-الحادة)</h2>
+      <p>استخدم متغيرات لطول الضلع والزاوية الحادة.</p>
+      <pre class="scratch-code"><code>when green flag clicked
+erase all
+pen up
+set pen size to (5)
+go to x:(-225) y:(160)
+set [طول_الضلع v] to (150)
+set [الزاوية_الحادة v] to (60)
+set [الزاوية_المنفرجة v] to (180 - (الزاوية_الحادة))
+pen down
+repeat (2)
+        move (طول_الضلع) steps
+        turn clockwise (الزاوية_الحادة) degrees
+        move (طول_الضلع) steps
+        turn clockwise (الزاوية_المنفرجة) degrees
+end
+pen up</code></pre>
+    </section>
+
+    <section id="rhombus-myblock" class="card">
+      <h2>C) ترقية: لبنة مخصّصة — ارسم المعين(طول-الضلع، الزاوية-الحادة)</h2>
+      <h3>تعريف اللبنة</h3>
+      <pre class="scratch-code"><code>define ارسم معين (الضلع) (الزاوية_الحادة)
+set [الزاوية_المنفرجة v] to (180 - (الزاوية_الحادة))
+repeat (2)
+        move (الضلع) steps
+        turn clockwise (الزاوية_الحادة) degrees
+        move (الضلع) steps
+        turn clockwise (الزاوية_المنفرجة) degrees
+end</code></pre>
+      <h3>الاستخدام</h3>
+      <pre class="scratch-code"><code>when green flag clicked
+erase all
+pen up
+set pen size to (5)
+go to x:(0) y:(160)
+pen down
+ارسم معين (150) (60)
+pen up</code></pre>
+    </section>
+
+    <div id="myModal" class="modal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img class="modal-content" id="img01">
+      <div id="modal-caption"></div>
+    </div>
+    <script defer src="../js/scratch-lesson2.js?v=2"></script>
+    <script>
+      function showModal(element) {
+        var modal = document.getElementById('myModal');
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("modal-caption");
+        modal.style.display = "flex";
+        modalImg.src = element.src;
+        captionText.innerHTML = element.alt;
+      }
+
+      function closeModal() {
+        var modal = document.getElementById('myModal');
+        modal.style.display = "none";
+      }
+    </script>
+  </main>
+</body>
+</html>

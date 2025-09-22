@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>سكراتش — رسم المربع</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/scratch-lesson2.css" />
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>رسم المربع</h1>
+    </header>
+
+    <a href="scratch-lesson2.html" class="back-link">← العودة إلى قائمة الأشكال</a>
+
+    <section id="square-simple" class="card">
+      <h2>A) المربع — الطريقة الأسهل</h2>
+      <p>أقل عدد ممكن من اللبنات: حلقة تكرار 4 + حركة ودوران.</p>
+      <div class="thumbnail-container">
+        <img class="thumbnail" onclick="showModal(this)" src="../images/Square-MovementAndRotation.png" alt="كود سكراتش لرسم مربع">
+        <p>كود سكراتش لرسم مربع</p>
+      </div>
+      <pre class="scratch-code"><code>when green flag clicked
+erase all
+pen up
+set pen size to (5)
+go to x:(-225) y:(160)
+pen down
+repeat (4)
+        move (320) steps
+        turn clockwise (90) degrees
+end
+pen up</code></pre>
+      <div class="thumbnail-container">
+        <img class="thumbnail" onclick="showModal(this)" src="../images/Square-MovementAndRotation-Result.png" alt="شكل مربع مرسوم">
+        <p>النتيجة النهائية لرسم المربع</p>
+      </div>
+      <p class="note">يمكن تغيير 320 حسب المساحة المتاحة على المسرح.</p>
+    </section>
+
+    <section id="square-xy" class="card">
+      <h2>B) المربع — باستخدام النقاط الثابتة (X/Y)</h2>
+      <p>استخدم أربع نقاط أركان: (-230,160) → (230,160) → (230,-160) → (-230,-160) → العودة.</p>
+      <pre class="scratch-code"><code>when green flag clicked
+erase all
+pen up
+set pen size to (5)
+go to x:(-230) y:(160)
+pen down
+glide (1) secs to x:(230) y:(160)
+glide (1) secs to x:(230) y:(-160)
+glide (1) secs to x:(-230) y:(-160)
+glide (1) secs to x:(-230) y:(160)
+pen up</code></pre>
+    </section>
+
+    <section id="square-var" class="card">
+      <h2>C) المربع — باستخدام متغيّر (طول_الضلع)</h2>
+      <pre class="scratch-code"><code>when green flag clicked
+erase all
+pen up
+set pen size to (5)
+go to x:(-225) y:(160)
+set [طول_الضلع v] to (150)
+pen down
+repeat (4)
+        move (طول_الضلع) steps
+        turn clockwise (90) degrees
+end
+pen up</code></pre>
+    </section>
+
+    <section id="square-myblock" class="card">
+      <h2>D) ترقية: لبنة مخصّصة — ارسم مربع(الضلع)</h2>
+      <h3>تعريف اللبنة</h3>
+      <pre class="scratch-code"><code>define ارسم مربع (الضلع)
+repeat (4)
+        move (الضلع) steps
+        turn clockwise (90) degrees
+end</code></pre>
+      <h3>الاستخدام</h3>
+      <pre class="scratch-code"><code>when green flag clicked
+erase all
+pen up
+set pen size to (5)
+go to x:(-225) y:(160)
+pen down
+ارسم مربع (150)
+pen up</code></pre>
+    </section>
+    <div id="myModal" class="modal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img class="modal-content" id="img01">
+      <div id="modal-caption"></div>
+    </div>
+    <script defer src="../js/scratch-lesson2.js?v=2"></script>
+    <script>
+      function showModal(element) {
+        var modal = document.getElementById('myModal');
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("modal-caption");
+        modal.style.display = "flex";
+        modalImg.src = element.src;
+        captionText.innerHTML = element.alt;
+      }
+
+      function closeModal() {
+        var modal = document.getElementById('myModal');
+        modal.style.display = "none";
+      }
+    </script>
+  </main>
+</body>
+</html>

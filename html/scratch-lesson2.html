@@ -3,170 +3,74 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>سكراتش — الدرس 2: من المربع إلى المضلع المنتظم</title>
+  <title>سكراتش — الدرس 2: تطبيقات على الأشكال الهندسية</title>
 
-  <!-- أنماط الدرس: بطاقة كود + تلوين حسب فئات سكراتش -->
-  <link rel="stylesheet" href="../css/scratch-lesson2.css?v=2" />
-  <!-- (اختياري) إن كان لديك ملف أنماط عام:
   <link rel="stylesheet" href="../css/main.css" />
-  -->
-  <style>
-    /* تنسيقات خفيفة للصفحة */
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Noto Naskh Arabic UI","Tajawal",Arial,sans-serif;background:#f7fafc;color:#111;}
-    .page{max-width:980px;margin:32px auto;padding:0 16px;}
-    h1{font-size:28px;margin:0 0 8px;color:#1d4ed8}
-    .lead{color:#374151;margin:0 0 24px}
-    h2{font-size:22px;margin:28px 0 8px;color:#1f2937}
-    h3{font-size:18px;margin:22px 0 8px;color:#1f2937}
-    p{line-height:1.9;margin:0 0 12px}
-    .note{font-size:14px;color:#6b7280}
-    .card{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:16px 18px;margin:16px 0}
-  </style>
+  <link rel="stylesheet" href="../css/scratch-lesson2.css" />
 </head>
 <body>
   <main class="page">
     <header>
-      <h1>من المربع البسيط → المعين → أي مضلع منتظم (n-gon)</h1>
+      <h1>تطبيقات على الأشكال الهندسية</h1>
       <p class="lead">
-        نتدرّج من أبسط برنامج لرسم مربع، ثم نعيد الصياغة باستخدام
-        <strong>المتغيّرات</strong> و<strong>اللبنات المخصّصة</strong>، ونطوّر الفكرة
-        لرسم <strong>معيّن</strong> ثم <strong>أي مضلع منتظم</strong>.
+        في هذا الدرس، سنتعلّم كيفية رسم الأشكال الهندسية الأساسية باستخدام برنامج سكراتش، مع التركيز على استخدام اللبنات المخصّصة والمتغيرات.
       </p>
     </header>
 
-    <!-- A) المربع — الطريقة الأسهل -->
-    <section id="square-simple" class="card">
-      <h2>A) المربع — الطريقة الأسهل</h2>
-      <p>أقل عدد ممكن من اللبنات: حلقة تكرار 4 + حركة ودوران.</p>
-      <pre class="scratch-code"><code>when green flag clicked
-erase all
-pen up
-set pen size to (5)
-go to x:(-225) y:(160)
-pen down
-repeat (4)
-        move (320) steps
-        turn clockwise (90) degrees
-end
-pen up</code></pre>
-      <p class="note">يمكن تغيير 320 حسب المساحة المتاحة على المسرح.</p>
+    <section id="getting-started" class="card">
+      <h2>أولاً: البدء في العمل</h2>
+      <p>
+        قبل أن تبدأ، تأكد من فتح برنامج سكراتش وتسمية مشروعك باسمك. هذا سيضمن أن عملك يتم حفظه باسمك ولا يختلط بأعمال زملائك.
+      </p>
+      <p>
+        **تأكد أنك قمت بتسجيل الدخول إلى حسابك الخاص أو أن اسمك ظاهر في شريط العنوان.**
+      </p>
     </section>
 
-    <!-- B) المربع — باستخدام النقاط الثابتة -->
-    <section id="square-xy" class="card">
-      <h2>B) المربع — باستخدام النقاط الثابتة (X/Y)</h2>
-      <p>استخدم أربع نقاط أركان: (-230,160) → (230,160) → (230,-160) → (-230,-160) → العودة.</p>
-      <pre class="scratch-code"><code>when green flag clicked
-erase all
-pen up
-set pen size to (5)
-go to x:(-230) y:(160)
-pen down
-glide (1) secs to x:(230) y:(160)
-glide (1) secs to x:(230) y:(-160)
-glide (1) secs to x:(-230) y:(-160)
-glide (1) secs to x:(-230) y:(160)
-pen up</code></pre>
-    </section>
-
-    <!-- C) المربع — باستخدام متغيّر -->
-    <section id="square-var" class="card">
-      <h2>C) المربع — باستخدام متغيّر (طول_الضلع)</h2>
-      <pre class="scratch-code"><code>when green flag clicked
-erase all
-pen up
-set pen size to (5)
-go to x:(-225) y:(160)
-set [طول_الضلع v] to (150)
-pen down
-repeat (4)
-        move (طول_الضلع) steps
-        turn clockwise (90) degrees
-end
-pen up</code></pre>
-    </section>
-
-    <!-- D) لبنة مخصّصة: ارسم مربع -->
-    <section id="square-myblock" class="card">
-      <h2>D) ترقية: لبنة مخصّصة — ارسم مربع(الضلع)</h2>
-      <h3>تعريف اللبنة</h3>
-      <pre class="scratch-code"><code>define ارسم مربع (الضلع)
-repeat (4)
-        move (الضلع) steps
-        turn clockwise (90) degrees
-end</code></pre>
-      <h3>الاستخدام</h3>
-      <pre class="scratch-code"><code>when green flag clicked
-erase all
-pen up
-set pen size to (5)
-go to x:(-225) y:(160)
-pen down
-ارسم مربع (150)
-pen up</code></pre>
-    </section>
-
-    <!-- E) المعين -->
-    <section id="rhombus" class="card">
-      <h2>E) المعين — لبنة عامة: ارسم معين(الضلع، الزاوية_الحادّة)</h2>
-      <h3>تعريف اللبنة</h3>
-      <pre class="scratch-code"><code>define ارسم معين (الضلع) (الزاوية_الحادة)
-set [الزاوية_المنفرجة v] to (180 - (الزاوية_الحادة))
-repeat (2)
-        move (الضلع) steps
-        turn clockwise (الزاوية_الحادة) degrees
-        move (الضلع) steps
-        turn clockwise (الزاوية_المنفرجة) degrees
-end</code></pre>
-      <h3>الاستخدام</h3>
-      <pre class="scratch-code"><code>when green flag clicked
-erase all
-pen up
-set pen size to (5)
-go to x:(0) y:(160)
-pen down
-ارسم معين (150) (60)
-pen up</code></pre>
-    </section>
-
-    <!-- F) برنامج عام — مضلع منتظم -->
-    <section id="regular-ngon" class="card">
-      <h2>F) برنامج عام — أي مضلع منتظم (n-gon)</h2>
-      <h3>تعريف اللبنة</h3>
-      <pre class="scratch-code"><code>define ارسم مضلع منتظم (n) (L)
-set [زاوية v] to (360 / (n))
-repeat (n)
-        move (L) steps
-        turn clockwise (زاوية) degrees
-end</code></pre>
-      <h3>الاستخدام بسؤالين للمستخدم</h3>
-      <pre class="scratch-code"><code>when green flag clicked
-erase all
-pen up
-set pen size to (5)
-go to x:(0) y:(160)
-ask [كم عدد الأضلاع؟] and wait
-set [n v] to (answer)
-ask [ما طول الضلع؟] and wait
-set [L v] to (answer)
-pen down
-ارسم مضلع منتظم (n) (L)
-pen up</code></pre>
-      <p class="note">مثال: خماسي → زاوية = 360/5 = 72°، مثمّن → 45°.</p>
-    </section>
-
-    <!-- واجبات -->
     <section id="tasks" class="card">
-      <h2>واجبات وتحدّيات</h2>
-      <ul>
-        <li>ارسم مضلعًا منتظمًا تُحدّده بنفسك.</li>
-        <li>أضف وسيطًا اختياريًا: <em>زاوية ابتدائية</em> لتدوير الشكل قبل الرسم.</li>
-        <li>بدّل الألوان كل ضلع باستخدام <code>change pen color by (30)</code> داخل الحلقة.</li>
-      </ul>
-    </section>
-  </main>
+      <h2>واجبات الدرس</h2>
+      <div class="task-note">
+          <h4>ملاحظة هامة لتسليم المشاريع</h4>
+          <p>
+              لتنظيم المشاريع، يجب عليك تسمية ملف المشروع (ملف .sb3) بطريقة موحدة قبل تسليمه.
+          </p>
+          <p>
+              **صيغة التسمية:** <span class="monospace-text">YourName-ProjectName</span>
+          </p>
+          <p class="note-example">
+              **مثال:** إذا كان اسمك "Ali" واسم المشروع هو "Hello World"، يكون اسم الملف: **Ali-Hello_World**.
+          </p>
+          <p class="important-text">
+              تذكر أن تتبع هذه الصيغة في جميع واجباتك، سواء كنت في المختبر أو في المنزل!
+          </p>
+      </div>
 
-  <!-- ملوّن السطور حسب فئات سكراتش -->
-  <script defer src="../js/scratch-lesson2.js?v=2"></script>
+      <div class="lab-task">
+          <h4>واجب الحصة (للمختبر)</h4>
+          <p>
+              واجبك في هذه الحصة هو بناء البرامج لرسم الأشكال الهندسية التالية. اضغط على كل شكل لتشاهد الكود الخاص به:
+          </p>
+          <div class="shapes-container">
+            <a href="square.html" class="shape-link">
+                <img src="../images/square_icon.png" alt="أيقونة مربع">
+                <p>المربع</p>
+            </a>
+            <a href="rectangle.html" class="shape-link">
+                <img src="../images/rectangle_icon.png" alt="أيقونة مستطيل">
+                <p>المستطيل</p>
+            </a>
+            <a href="rhombus.html" class="shape-link">
+                <img src="../images/rhombus_icon.png" alt="أيقونة معين">
+                <p>المعين</p>
+            </a>
+            <a href="regular-polygon.html" class="shape-link">
+                <img src="../images/polygon_icon.png" alt="أيقونة مضلع منتظم">
+                <p>الشكل المنتظم</p>
+            </a>
+          </div>
+      </div>
+    </section>
+
+  </main>
 </body>
 </html>
