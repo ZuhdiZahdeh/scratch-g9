@@ -1,35 +1,38 @@
 
-/* scratch-lesson-geometry.js */
-document.addEventListener('DOMContentLoaded', () => {
-  const terms = {
-    'المتغير': 'مكان في الذاكرة نخزّن فيه قيمة يمكن تغييرها أثناء التشغيل؛ مثل طول الضلع.',
-    'لبنة_مخصصة': 'لبنة تقوم بإنشائها لتجميع أوامر متكررة في أمر واحد قابل لإعادة الاستخدام.'
-  };
+/* --- scratch-lesson2 code colorizer --- */
+(function(){
+  const categories = [
+    { cat:'events',    rx: /(when\s+green\s+flag\s+clicked|when\s+\w+\s+key\s+pressed|when\s+this\s+sprite\s+clicked)/i },
+    { cat:'pen',       rx: /(pen\s+down|pen\s+up|erase\s+all|set\s+pen\s+size|change\s+pen\s+size|set\s+pen\s+color|change\s+pen\s+color|stamp)/i },
+    { cat:'motion',    rx: /(move\s+\(?[\w\-\+]+\)?\s+steps|turn\s+(clockwise|counterclockwise)|go\s+to\s+x:|glide\s+\(?[\w\-\+]+\)?\s+secs\s+to\s+x:|point\s+in\s+direction|change\s+[xy]\s+by|go\s+to\s+random\s+position)/i },
+    { cat:'control',   rx: /(repeat\s*\(|forever|if\s*\(|else|wait\s*\(|stop\s+all|until\s*\()/i },
+    { cat:'variables', rx: /(set\s+\[?.+?\]?\s+to|change\s+\[?.+?\]?\s+by)/i },
+    { cat:'myblocks',  rx: /(define\s+\w+|^\s*ارسم\s|لبنة\s+مخص)/i }
+  ];
 
-  const modal = document.getElementById('modal');
-  const title = document.getElementById('modal-title');
-  const body = document.getElementById('modal-body');
-
-  function openModal(t, html){
-    title.textContent = t;
-    body.innerHTML = `<p>${html}</p>`;
-    modal.classList.remove('hidden');
+  function detectCat(line){
+    const t = line.trim();
+    for(const rule of categories){
+      if(rule.rx.test(t)) return rule.cat;
+    }
+    return 'none';
   }
 
-  function closeModal(){
-    modal.classList.add('hidden');
+  function colorize(pre){
+    const code = pre.querySelector('code');
+    const text = (code ? code.textContent : pre.textContent) || '';
+    const lines = text.split(/\r?\n/);
+    pre.innerHTML = ''; // clear
+    for(const ln of lines){
+      const span = document.createElement('span');
+      span.className = 'line';
+      span.dataset.cat = detectCat(ln);
+      span.textContent = ln.length ? ln : ' ';
+      pre.appendChild(span);
+    }
   }
 
-  document.querySelectorAll('.link-term').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const key = btn.dataset.term || btn.textContent.trim();
-      const k = key.replace(/\s+/g, '_');
-      if(terms[k] || terms[key]){
-        openModal(btn.textContent.trim(), terms[k] || terms[key]);
-      }
-    });
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('pre.scratch-code').forEach(colorize);
   });
-
-  document.querySelector('.modal-close')?.addEventListener('click', closeModal);
-  modal.querySelector('.modal-overlay')?.addEventListener('click', closeModal);
-});
+})();

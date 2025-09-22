@@ -40,15 +40,15 @@
         <li>من القلم: <em>امسح</em>، <em>ارفع القلم</em>، <em>اجعل حجم القلم 5</em>، <em>اذهب إلى x:-225 y:160</em>، ثم <em>انزل القلم</em>.</li>
         <li>ضع حلقة <code>كرّر 4</code>، وفيها: <code>تحرك 320 خطوة</code> ثم <code>استدر 90 درجة</code>.</li>
       </ol>
-      <pre class="scratch-code"><code>when green flag clicked
+      <pre class="code"><code>when green flag clicked
 erase all
 pen up
 set pen size to (5)
 go to x:(-225) y:(160)
 pen down
 repeat (4)
-        move (320) steps
-        turn clockwise (90) degrees
+  move (320) steps
+  turn clockwise (90) degrees
 end
 pen up</code></pre>
     </section>
@@ -57,7 +57,7 @@ pen up</code></pre>
     <section id="B" class="mb-12">
       <h3 class="sec-title">B) المربع — باستخدام النقاط الثابتة (X/Y)</h3>
       <p class="text-gray-700">استخدم أربع نقاط أركان: (-230,160) → (230,160) → (230,-160) → (-230,-160) → العودة.</p>
-      <pre class="scratch-code"><code>when green flag clicked
+      <pre class="code"><code>when green flag clicked
 erase all
 pen up
 set pen size to (5)
@@ -73,7 +73,7 @@ pen up</code></pre>
     <!-- C: Square - with variable -->
     <section id="C" class="mb-12">
       <h3 class="sec-title">C) المربع — باستخدام متغيّر (طول_الضلع)</h3>
-      <pre class="scratch-code"><code>when green flag clicked
+      <pre class="code"><code>when green flag clicked
 erase all
 pen up
 set pen size to (5)
@@ -110,7 +110,7 @@ pen up</code></pre>
     <!-- E: Rhombus -->
     <section id="E" class="mb-12">
       <h3 class="sec-title">E) المعين — لبنة عامة: ارسم معين(الضلع، الزاوية_الحادة)</h3>
-      <pre class="scratch-code"><code>define ارسم معين (الضلع) (الزاوية_الحادة)
+      <pre class="code"><code>define ارسم معين (الضلع) (الزاوية_الحادة)
 set [الزاوية_المنفرجة v] to (180 - (الزاوية_الحادة))
 repeat (2)
   move (الضلع) steps
@@ -118,7 +118,7 @@ repeat (2)
   move (الضلع) steps
   turn clockwise (الزاوية_المنفرجة) degrees
 end</code></pre>
-      <pre class="scratch-code"><code>when green flag clicked
+      <pre class="code"><code>when green flag clicked
 erase all
 pen up
 set pen size to (5)
@@ -131,13 +131,13 @@ pen up</code></pre>
     <!-- F: General regular polygon -->
     <section id="F" class="mb-12">
       <h3 class="sec-title">F) برنامج عام — أي مضلع منتظم n-gon</h3>
-      <pre class="scratch-code"><code>define ارسم مضلع منتظم (n) (L)
+      <pre class="code"><code>define ارسم مضلع منتظم (n) (L)
 set [زاوية v] to (360 / (n))
 repeat (n)
   move (L) steps
   turn clockwise (زاوية) degrees
 end</code></pre>
-      <pre class="scratch-code"><code>when green flag clicked
+      <pre class="code"><code>when green flag clicked
 erase all
 pen up
 set pen size to (5)
