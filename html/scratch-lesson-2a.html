@@ -1,269 +1,244 @@
 <!DOCTYPE html>
-
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>الدرس 2: أساسيات التعامل مع الكائنات</title>
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>سكراتش — الدرس 2: من المربع إلى المضلع المنتظم</title>
 
+  <link rel="stylesheet" href="../css/scratch-lesson2.css?v=2" />
+  <link rel="stylesheet" href="../css/main.css" />
 </head>
-<body class="bg-gray-100">
+<body>
+  <main class="page">
+    <header>
+      <h1>من المربع البسيط → المعين → أي مضلع منتظم (n-gon)</h1>
+      <p class="lead">
+        نتدرّج من أبسط برنامج لرسم مربع، ثم نعيد الصياغة باستخدام
+        <strong>المتغيّرات</strong> و<strong>اللبنات المخصّصة</strong>، ونطوّر الفكرة
+        لرسم <strong>معيّن</strong> ثم <strong>أي مضلع منتظم</strong>.
+      </p>
+    </header>
 
-<header class="bg-blue-600 text-white p-4">
-    <div class="container mx-auto flex justify-between items-center">
-        <h1 class="text-3xl font-bold">البرمجة للصف التاسع</h1>
-        <nav>
-            <a href="index.html" class="hover:text-yellow-400 mx-2">الرئيسية</a>
-            <a href="lesson1.html" class="hover:text-yellow-400 mx-2">الدرس السابق</a>
-            <a href="lesson3.html" class="hover:text-yellow-400 mx-2">الدرس التالي</a>
-        </nav>
-    </div>
-</header>
+    <section id="square-simple" class="card">
+      <h2>A) المربع — الطريقة الأسهل</h2>
+      <p>أقل عدد ممكن من اللبنات: حلقة تكرار 4 + حركة ودوران.</p>
+      <div class="thumbnail-container">
+        <img class="thumbnail" onclick="showModal(this)" src="../images/Square-MovementAndRotation.png" alt="كود سكراتش لرسم مربع">
+        <p>كود سكراتش لرسم مربع</p>
+      </div>
+      <pre class="scratch-code"><code>when green flag clicked
+erase all
+pen up
+set pen size to (5)
+go to x:(-225) y:(160)
+pen down
+repeat (4)
+        move (320) steps
+        turn clockwise (90) degrees
+end
+pen up</code></pre>
+      <div class="thumbnail-container">
+        <img class="thumbnail" onclick="showModal(this)" src="../images/Square-MovementAndRotation-Result.png" alt="شكل مربع مرسوم">
+        <p>النتيجة النهائية لرسم المربع</p>
+      </div>
+      <p class="note">يمكن تغيير 320 حسب المساحة المتاحة على المسرح.</p>
+    </section>
 
-<main class="container mx-auto p-6">
-    <article class="bg-white p-8 rounded-lg shadow-lg">
-        <h2 class="text-4xl text-center text-blue-800 mb-6">الدرس الثاني: أساسيات التعامل مع الكائنات</h2>
-        <p class="text-xl text-center text-gray-700 mb-8">
-            بعد أن تعرفنا على واجهة سكراتش، سنتعمق اليوم في كيفية التحكم بالكائنات، وتغيير مظهرها، وجعلها تتفاعل مع الأحداث.
-        </p>
+    <section id="square-xy" class="card">
+      <h2>B) المربع — باستخدام النقاط الثابتة (X/Y)</h2>
+      <p>استخدم أربع نقاط أركان: (-230,160) → (230,160) → (230,-160) → (-230,-160) → العودة.</p>
+      <pre class="scratch-code"><code>when green flag clicked
+erase all
+pen up
+set pen size to (5)
+go to x:(-230) y:(160)
+pen down
+glide (1) secs to x:(230) y:(160)
+glide (1) secs to x:(230) y:(-160)
+glide (1) secs to x:(-230) y:(-160)
+glide (1) secs to x:(-230) y:(160)
+pen up</code></pre>
+    </section>
 
-        <section class="mb-8">
-            <h3 class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">الأهداف التعليمية</h3>
-            <ul class="list-disc list-inside space-y-2 text-lg text-gray-800">
-                <li>يتحكم الطالب بحركة الكائن (الانتقال، الانزلاق).</li>
-                <li>يغير الطالب مظهر الكائن ولونه وحجمه.</li>
-                <li>يوظف الطالب لبنات الأحداث المختلفة للتحكم بسلوك الكائن.</li>
-            </ul>
-        </section>
+    <section id="square-var" class="card">
+      <h2>C) المربع — باستخدام متغيّر (طول_الضلع)</h2>
+      <pre class="scratch-code"><code>when green flag clicked
+erase all
+pen up
+set pen size to (5)
+go to x:(-225) y:(160)
+set [طول_الضلع v] to (150)
+pen down
+repeat (4)
+        move (طول_الضلع) steps
+        turn clockwise (90) degrees
+end
+pen up</code></pre>
+    </section>
 
-        <section class="mb-8">
-            <h3 class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">المفاهيم والمفردات</h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div class="bg-blue-100 p-4 rounded-lg term-card" data-term="الحركة">
-                    <h4 class="font-bold text-xl text-blue-900">الحركة</h4>
-                    <p class="text-gray-600">Motion</p>
-                </div>
-                <div class="bg-blue-100 p-4 rounded-lg term-card" data-term="المظاهر">
-                    <h4 class="font-bold text-xl text-blue-900">المظاهر</h4>
-                    <p class="text-gray-600">Looks</p>
-                </div>
-                <div class="bg-blue-100 p-4 rounded-lg term-card" data-term="الأحداث">
-                    <h4 class="font-bold text-xl text-blue-900">الأحداث</h4>
-                    <p class="text-gray-600">Events</p>
-                </div>
-            </div>
-        </section>
+    <section id="square-myblock" class="card">
+      <h2>D) ترقية: لبنة مخصّصة — ارسم مربع(الضلع)</h2>
+      <h3>تعريف اللبنة</h3>
+      <pre class="scratch-code"><code>define ارسم مربع (الضلع)
+repeat (4)
+        move (الضلع) steps
+        turn clockwise (90) degrees
+end</code></pre>
+      <h3>الاستخدام</h3>
+      <pre class="scratch-code"><code>when green flag clicked
+erase all
+pen up
+set pen size to (5)
+go to x:(-225) y:(160)
+pen down
+ارسم مربع (150)
+pen up</code></pre>
+    </section>
 
-        <section class="mb-8">
-            <h3 class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">مثال بسيط ومحلول</h3>
-            <p class="text-lg text-gray-800 mb-4">
-                لنجعل كائن القطة يتحرك، ثم يغير لونه ويتحدث.
+    <section id="rectangle" class="card">
+      <h2>E) تصميم المستطيل</h2>
+      <p>يمكنك رسم مستطيل باستخدام ضلعين مختلفين في الطول.</p>
+      <div class="thumbnail-container">
+        <img class="thumbnail" onclick="showModal(this)" src="../images/Rectangular-MovementAndRotation.png" alt="كود سكراتش لرسم مستطيل">
+        <p>كود سكراتش لرسم مستطيل</p>
+      </div>
+      <p>لإنشاء مستطيل باستخدام الحركة والدوران، يجب على الكائن أن يرسم ضلعين متجاورين بطولين مختلفين، ثم يكرر هذه العملية.</p>
+      <div class="thumbnail-container">
+        <img class="thumbnail" onclick="showModal(this)" src="../images/Rectangular-MovementAndRotation-Result.png" alt="شكل مستطيل مرسوم">
+        <p>النتيجة النهائية لرسم المستطيل</p>
+      </div>
+    </section>
+
+    <section id="rhombus" class="card">
+      <h2>F) المعين — لبنة عامة: ارسم معين(الضلع، الزاوية_الحادّة)</h2>
+      <p>يمكنك رسم المعين باستخدام أضلاع متساوية في الطول ولكن بزوايا مختلفة عن 90 درجة.</p>
+      <pre class="scratch-code"><code>define ارسم معين (الضلع) (الزاوية_الحادة)
+set [الزاوية_المنفرجة v] to (180 - (الزاوية_الحادة))
+repeat (2)
+        move (الضلع) steps
+        turn clockwise (الزاوية_الحادة) degrees
+        move (الضلع) steps
+        turn clockwise (الزاوية_المنفرجة) degrees
+end</code></pre>
+      <pre class="scratch-code"><code>when green flag clicked
+erase all
+pen up
+set pen size to (5)
+go to x:(0) y:(160)
+pen down
+ارسم معين (150) (60)
+pen up</code></pre>
+    </section>
+
+    <section id="regular-ngon" class="card">
+      <h2>G) برنامج عام — أي مضلع منتظم (n-gon)</h2>
+      <h3>تعريف اللبنة</h3>
+      <pre class="scratch-code"><code>define ارسم مضلع منتظم (n) (L)
+set [زاوية v] to (360 / (n))
+repeat (n)
+        move (L) steps
+        turn clockwise (زاوية) degrees
+end</code></pre>
+      <h3>الاستخدام بسؤالين للمستخدم</h3>
+      <pre class="scratch-code"><code>when green flag clicked
+erase all
+pen up
+set pen size to (5)
+go to x:(0) y:(160)
+ask [كم عدد الأضلاع؟] and wait
+set [n v] to (answer)
+ask [ما طول الضلع؟] and wait
+set [L v] to (answer)
+pen down
+ارسم مضلع منتظم (n) (L)
+pen up</code></pre>
+      <p class="note">مثال: خماسي → زاوية = 360/5 = 72°، مثمّن → 45°.</p>
+    </section>
+
+    <section id="tasks" class="card">
+      <h2>واجبات الدرس</h2>
+      <div class="task-note">
+          <h4>ملاحظة هامة لتسليم المشاريع</h4>
+          <p>
+              لتنظيم المشاريع، يجب عليك تسمية ملف المشروع (ملف .sb3) بطريقة موحدة قبل تسليمه.
+          </p>
+          <p>
+              **صيغة التسمية:** <span class="monospace-text">YourName-ProjectName</span>
+          </p>
+          <p class="note-example">
+              **مثال:** إذا كان اسمك "Ali" واسم المشروع هو "Hello World"، يكون اسم الملف: **Ali-Hello_World**.
+          </p>
+          <p class="important-text">
+              تذكر أن تتبع هذه الصيغة في جميع واجباتك، سواء كنت في المختبر أو في المنزل!
+          </p>
+      </div>
+
+      <div class="lab-task">
+          <h4>واجب الحصة (للمختبر)</h4>
+          <p>
+              مشروع "القطة الناطقة" **(Talking_Cat)**:
+              <ul>
+                  <li>افتح مشروعًا جديدًا.</li>
+                  <li>اجعل القطة تقول "مرحباً!" ثم تغير لونها، ثم تتحرك 10 خطوات.</li>
+                  <li>احفظ المشروع بالصيغة المذكورة أعلاه.</li>
+              </ul>
+          </p>
+      </div>
+
+      <div class="home-task">
+          <h4>واجب منزلي (للكلاسروم)</h4>
+          <p>
+              مشروع "الرسوم المتحركة" **(Animation_Project)**:
+              <ul>
+                  <li>أضف كائنين إلى المنصة، وبرمجهما ليتحدثا مع بعضهما البعض.</li>
+                  <li>اجعل كل كائن يغير مظهره أثناء الحديث.</li>
+                  <li>احفظ المشروع بالصيغة المذكورة وارفعه على الكلاسروم.</li>
+              </ul>
+          </p>
+      </div>
+    </section>
+
+    <section id="solutions" class="card">
+        <h2>الإجابات النموذجية</h2>
+        <button onclick="document.getElementById('solution-content').style.display='block'; this.style.display='none';">
+            اضغط هنا لعرض الإجابات
+        </button>
+        <div id="solution-content">
+            <h4>حل واجب الحصة:</h4>
+            <p>
+                الكود المقترح لمشروع "القطة الناطقة":
             </p>
-
-            <h4 class="text-xl font-bold text-blue-800 mb-2">1. التخيل (المشكلة)</h4>
-            <p class="text-lg text-gray-700 mb-4">
-                نريد أن يتحرك القط إلى الأمام، ثم يغير لونه، وأخيراً يقول "لقد وصلت!".
-            </p>
-
-            <h4 class="text-xl font-bold text-blue-800 mb-2">2. البرمجة (الحل)</h4>
-            <ol class="list-decimal list-inside space-y-2 text-lg text-gray-800">
-                <li>
-                    <strong>البداية:</strong> ابدأ بلبنة **`عندما تُنقر الراية الخضراء` (when green flag clicked)** من فئة **الأحداث**.
-                </li>
-                <li>
-                    <strong>الحركة:</strong> اسحب لبنة **`تحرك 10 خطوات` (move 10 steps)** من فئة **الحركة**. يمكنك تغيير الرقم 10 إلى رقم أكبر مثل 50 أو 100 ليتحرك أكثر.
-                </li>
-                <li>
-                    <strong>تغيير المظهر:</strong> اسحب لبنة **`غير تأثير اللون بمقدار 25` (change color effect by 25)** من فئة **المظاهر**.
-                </li>
-                <li>
-                    <strong>الحوار:</strong> اسحب لبنة **`قل مرحباً!` (say hello!)** من فئة **المظاهر** وغيّر النص إلى "لقد وصلت!".
-                </li>
-            </ol>
-            
-            <h4 class="text-xl font-bold text-blue-800 mb-2 mt-4">3. الكود النهائي</h4>
-            <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto text-left">
-                <p class="text-gray-400 mb-2">الكود النهائي للمشروع:</p>
-                <code>
-                    <span class="text-yellow-300">عندما تُنقر الراية الخضراء</span> (when green flag clicked)<br>
-                    <span class="text-blue-500">تحرك 100 خطوة</span> (move 100 steps)<br>
-                    <span class="text-purple-400">غير تأثير اللون بمقدار 25</span> (change color effect by 25)<br>
-                    <span class="text-purple-400">قل</span> لقد وصلت!
-                </code>
-            </div>
-        </section>
-
-        <section class="mb-8">
-            <h3 class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">واجبات الدرس</h3>
-            <div class="bg-red-100 p-4 rounded-lg mb-4">
-                <h4 class="font-bold text-xl text-red-800 mb-2">ملاحظة هامة لتسليم المشاريع</h4>
-                <p class="text-lg text-gray-800 mb-2">
-                    لتنظيم المشاريع، يجب عليك تسمية ملف المشروع (ملف .sb3) بطريقة موحدة قبل تسليمه.
-                </p>
-                <p class="text-lg text-gray-800">
-                    **صيغة التسمية:** <span class="font-mono bg-gray-200 px-2 py-1 rounded">YourName-ProjectName</span>
-                </p>
-                <p class="text-lg text-gray-800 mt-2">
-                    **مثال:** إذا كان اسمك "Ali" واسم المشروع هو "Hello World"، يكون اسم الملف: **Ali-Hello_World**.
-                </p>
-                <p class="text-lg text-gray-800 mt-2 font-bold text-red-800">
-                    تذكر أن تتبع هذه الصيغة في جميع واجباتك، سواء كنت في المختبر أو في المنزل!
-                </p>
-            </div>
-            <div class="bg-green-100 p-4 rounded-lg mb-4">
-                <h4 class="font-bold text-xl text-green-800 mb-2">واجب الحصة (للمختبر)</h4>
-                <p class="text-lg text-gray-800">
-                    مشروع "القطة الناطقة" **(Talking_Cat)**:
-                    <ul class="list-disc list-inside space-y-1 text-gray-700 mt-2">
-                        <li>افتح مشروعًا جديدًا.</li>
-                        <li>اجعل القطة تقول "مرحباً!" ثم تغير لونها، ثم تتحرك 10 خطوات.</li>
-                        <li>احفظ المشروع بالصيغة المذكورة أعلاه.</li>
-                    </ul>
-                </p>
-            </div>
-            <div class="bg-yellow-100 p-4 rounded-lg">
-                <h4 class="font-bold text-xl text-yellow-800 mb-2">واجب منزلي (للكلاسروم)</h4>
-                <p class="text-lg text-gray-800">
-                    مشروع "الرسوم المتحركة" **(Animation_Project)**:
-                    <ul class="list-disc list-inside space-y-1 text-gray-700 mt-2">
-                        <li>أضف كائنين إلى المنصة، وبرمجهما ليتحدثا مع بعضهما البعض.</li>
-                        <li>اجعل كل كائن يغير مظهره أثناء الحديث.</li>
-                        <li>احفظ المشروع بالصيغة المذكورة وارفعه على الكلاسروم.</li>
-                    </ul>
-                </p>
-            </div>
-        </section>
-
-        <section class="mb-8">
-            <h3 id="solutions-section" class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">الإجابات النموذجية</h3>
-            <button onclick="document.getElementById('solution-content').style.display='block'; this.style.display='none';" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full">
-                اضغط هنا لعرض الإجابات
-            </button>
-            <div id="solution-content" class="mt-4 p-4 bg-gray-100 rounded-lg hidden">
-                <h4 class="font-bold text-xl text-green-800 mb-2">حل واجب الحصة:</h4>
-                <p class="text-lg">
-                    الكود المقترح لمشروع "القطة الناطقة":
-                </p>
-                <pre class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto text-left"><code>
+            <pre><code>
 عندما تُنقر الراية الخضراء (when green flag clicked)
 قل مرحباً! لمدة 2 ثانية (say Hello! for 2 seconds)
 غير تأثير اللون بمقدار 25 (change color effect by 25)
 تحرك 10 خطوات (move 10 steps)
 </code></pre>
-</div>
-</section>
-
-        <section class="mb-8">
-            <h3 class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">
-                ترقية: رسم الأشكال الهندسية
-            </h3>
-
-            <h4 class="text-xl font-bold text-blue-800 mb-4">A) المربع — الطريقة الأسهل</h4>
-            <p class="text-lg text-gray-700 mb-4">
-                يمكنك رسم مربع بسهولة باستخدام لبنات الحركة والدوران.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-around items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <div class="flex-1 text-center">
-                    <h5 class="text-lg font-bold mb-2">كود بناء المربع</h5>
-                    <img src="images/Square-MovementAndRotation.png"
-                         alt="كود برمجي لبناء مربع"
-                         class="w-full sm:w-64 cursor-pointer rounded-lg shadow-lg hover:shadow-2xl transition-shadow"
-                         onclick="openModal('images/Square-MovementAndRotation.png', 'كود بناء المربع')">
-                </div>
-                <div class="flex-1 text-center">
-                    <h5 class="text-lg font-bold mb-2">نتيجة الكود النهائية</h5>
-                    <img src="images/Square-MovementAndRotation-Result.png"
-                         alt="نتيجة الكود النهائية: مربع مرسوم"
-                         class="w-full sm:w-64 cursor-pointer rounded-lg shadow-lg hover:shadow-2xl transition-shadow"
-                         onclick="openModal('images/Square-MovementAndRotation-Result.png', 'نتيجة الكود النهائية')">
-                </div>
-            </div>
-
-            <hr class="my-6">
-
-            <h4 class="text-xl font-bold text-blue-800 mb-4">B) تصميم المستطيل</h4>
-            <p class="text-lg text-gray-700 mb-4">
-                لإنشاء مستطيل، ستحتاج إلى ضلعين مختلفين في الطول.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-around items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <div class="flex-1 text-center">
-                    <h5 class="text-lg font-bold mb-2">كود بناء المستطيل</h5>
-                    <img src="images/Rectangular-MovementAndRotation.png"
-                         alt="كود برمجي لبناء مستطيل"
-                         class="w-full sm:w-64 cursor-pointer rounded-lg shadow-lg hover:shadow-2xl transition-shadow"
-                         onclick="openModal('images/Rectangular-MovementAndRotation.png', 'كود بناء المستطيل')">
-                </div>
-                <div class="flex-1 text-center">
-                    <h5 class="text-lg font-bold mb-2">نتيجة الكود النهائية</h5>
-                    <img src="images/Rectangular-MovementAndRotation-Result.png"
-                         alt="نتيجة الكود النهائية: مستطيل مرسوم"
-                         class="w-full sm:w-64 cursor-pointer rounded-lg shadow-lg hover:shadow-2xl transition-shadow"
-                         onclick="openModal('images/Rectangular-MovementAndRotation-Result.png', 'نتيجة الكود النهائية')">
-                </div>
-            </div>
-
-            <hr class="my-6">
-
-            <h4 class="text-xl font-bold text-blue-800 mb-4">C) رسم المعين</h4>
-            <p class="text-lg text-gray-700 mb-4">
-                لإنشاء معين، ستستخدم أضلاعًا متساوية في الطول ولكن بزوايا مختلفة عن 90 درجة.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-around items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <div class="flex-1 text-center">
-                    <h5 class="text-lg font-bold mb-2">كود بناء المعين</h5>
-                    <img src="images/Rhombus-Code.png"
-                         alt="كود برمجي لبناء معين"
-                         class="w-full sm:w-64 cursor-pointer rounded-lg shadow-lg hover:shadow-2xl transition-shadow"
-                         onclick="openModal('images/Rhombus-Code.png', 'كود بناء المعين')">
-                </div>
-                <div class="flex-1 text-center">
-                    <h5 class="text-lg font-bold mb-2">نتيجة الكود النهائية</h5>
-                    <img src="images/Rhombus-Result.png"
-                         alt="نتيجة الكود النهائية: معين مرسوم"
-                         class="w-full sm:w-64 cursor-pointer rounded-lg shadow-lg hover:shadow-2xl transition-shadow"
-                         onclick="openModal('images/Rhombus-Result.png', 'نتيجة الكود النهائية')">
-                </div>
-            </div>
-
-        </section>
-
-        <section class="mb-8">
-            <h3 class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">مصادر إضافية (للإثراء)</h3>
-            <ul class="list-disc list-inside space-y-2 text-lg text-gray-800">
-                <li><a href="[https://scratch.mit.edu/projects/editor/](https://scratch.mit.edu/projects/editor/)" target="_blank" class="text-blue-500 hover:underline">محرر سكراتش على الإنترنت</a> - جرب البرمجة مباشرة من متصفحك.</li>
-                <li><a href="[https://www.youtube.com/watch?v=FqYfO-w0J6s](https://www.youtube.com/watch?v=FqYfO-w0J6s)" target="_blank" class="text-blue-500 hover:underline">فيديو: جولة سريعة في سكراتش 3.0</a> - فيديو توضيحي لمكونات البرنامج.</li>
-            </ul>
-        </section>
-    </article>
-</main>
-
-<footer class="bg-gray-800 text-white text-center p-4 mt-8">
-    <p>&copy; 2024 مستودع البرمجة للصف التاسع</p>
-</footer>
-
-<div id="modal" class="modal fixed z-10 inset-0 overflow-y-auto hidden">
-    <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
-    
-    <div class="modal-container fixed w-full h-full top-0 left-0 flex items-center justify-center p-4">
-        <div class="modal-content bg-white p-6 rounded-lg shadow-lg max-w-2xl mx-auto z-50 overflow-y-auto">
-            
-            <div class="modal-header flex justify-between items-center pb-3">
-                <h3 class="text-2xl font-bold" id="modal-title"></h3>
-                <button class="modal-close-btn cursor-pointer z-50">
-                    <svg class="fill-current text-black" xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" width="18" height="18" viewBox="0 0 18 18">
-                        <path d="M14.53 4.53a.75.75 0 00-1.06-1.06L9 7.94 4.53 3.47a.75.75 0 00-1.06 1.06L7.94 9l-4.47 4.47a.75.75 0 101.06 1.06L9 10.06l4.47 4.47a.75.75 0 101.06-1.06L10.06 9z"></path>
-                    </svg>
-                </button>
-            </div>
-
-            <div class="modal-body text-gray-700">
-                <img id="modal-image" src="" alt="صورة مكبرة">
-            </div>
         </div>
-    </div>
-</div>
-<script src="js/main.js" defer></script>
+    </section>
+  </main>
+
+  <div id="myModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="modal-caption"></div>
+  </div>
+
+  <script defer src="../js/scratch-lesson2.js?v=2"></script>
+  <script>
+    function showModal(element) {
+      var modal = document.getElementById('myModal');
+      var modalImg = document.getElementById("img01");
+      var captionText = document.getElementById("modal-caption");
+      modal.style.display = "flex";
+      modalImg.src = element.src;
+      captionText.innerHTML = element.alt;
+    }
+
+    function closeModal() {
+      var modal = document.getElementById('myModal');
+      modal.style.display = "none";
+    }
+  </script>
 </body>
 </html>
