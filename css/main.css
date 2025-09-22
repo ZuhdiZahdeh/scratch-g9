@@ -114,3 +114,48 @@ h1, h2, h3, h4 {
 .term-card:hover {
     transform: translateY(-5px);
 }
+/* جدول فئات سكراتش — ألوان متوافقة مع تنسيق الدرس2 */
+.scratch-cats-table {
+  width:100%;
+  border-collapse: collapse;
+  direction: rtl;
+  margin-top: 18px;
+  font-family: "Tajawal", "Noto Naskh Arabic", Arial, sans-serif;
+}
+.scratch-cats-table th,
+.scratch-cats-table td {
+  padding: 12px 14px;
+  border-radius: 6px;
+  vertical-align: middle;
+  font-size: 15px;
+}
+.scratch-cats-table thead th {
+  text-align: right;
+  color:#0f172a;
+  font-weight:700;
+  padding-bottom:10px;
+}
+
+/* فئات وألوان */
+.cat-events    { background:#FFBF00; color:#051017; } /* Events - ذهبي */
+.cat-control   { background:#FFAB19; color:#051017; } /* Control - برتقالي */
+.cat-motion    { background:#4C97FF; color:#fff; }     /* Motion - أزرق */
+.cat-looks     { background:#9966FF; color:#fff; }     /* Looks - بنفسجي */
+.cat-sound     { background:#FF66B2; color:#fff; }     /* Sound - زهري */
+.cat-pen       { background:#0FBD8C; color:#fff; }     /* Pen - أخضر */
+.cat-sensing   { background:#5CB1D6; color:#051017; }  /* Sensing - سماوي */
+.cat-operators { background:#59C059; color:#051017; }  /* Operators - أخضر فاتح */
+.cat-variables { background:#FF8C1A; color:#051017; }  /* Variables - برتقالي غامق */
+.cat-myblocks  { background:#FF6680; color:#051017; }  /* My Blocks - وردي محمر */
+
+/* صفوف: نجعلها تبدو كبطاقات منفصلة */
+.scratch-cats-table tbody tr { display: table-row; margin-bottom:10px; }
+.scratch-cats-table td.examples { font-family: "Courier New", monospace; opacity:0.95; }
+
+/* تجميل عام */
+.scratch-cats-wrapper { background:#fff; padding:16px; border-radius:10px; box-shadow:0 6px 20px rgba(2,6,23,0.06); }
+@media (max-width:720px){
+  .scratch-cats-table thead{display:none;}
+  .scratch-cats-table, .scratch-cats-table tbody, .scratch-cats-table tr, .scratch-cats-table td { display:block; width:100%; }
+  .scratch-cats-table td{ text-align:right; padding:10px; }
+}
