@@ -21,14 +21,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (terms[term]) {
                 modalTitle.textContent = term;
                 modalBody.innerHTML = `<p>${terms[term]}</p>`;
-                modal.classList.remove('hidden');
+				modal.style.display = "flex";
             }
         });
     });
 
     // إخفاء البطاقة المنبثقة عند النقر على زر الإغلاق
     closeBtn.addEventListener('click', () => {
-        modal.classList.add('hidden');
+        modal.style.display = "none";
     });
 
     // إخفاء البطاقة المنبثقة عند النقر خارجها

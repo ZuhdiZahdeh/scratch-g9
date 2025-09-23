@@ -93,18 +93,6 @@ h1, h2, h3, h4 {
     direction: ltr;
     text-align: left;
 }
-/* Modal styles */
-.modal {
-    transition: opacity 0.25s ease;
-}
-
-.modal-overlay {
-    transition: opacity 0.25s ease;
-}
-
-.modal-container {
-    padding: 1rem;
-}
 
 .term-card {
     cursor: pointer;
@@ -166,6 +154,64 @@ h1, h2, h3, h4 {
 .scratch-cats-table tbody tr { 
   display: table-row; 
   margin-bottom:14px; 
+}
+
+/* Modal (نفس أسلوب صفحة التكنولوجيا) */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, .6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.modal {
+  width: min(900px, 92vw);
+  max-height: 86vh;
+  overflow: auto;
+  background: #0b1220;
+  border: 1px solid rgba(148, 163, 184, .22);
+  border-radius: 18px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .45);
+}
+
+.modal header {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 1), rgba(15, 23, 42, .92));
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(148, 163, 184, .18);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.modal header h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #e5e7eb;
+}
+
+.modal .content {
+  padding: 18px;
+  color: #e5e7eb;
+}
+
+.modal .content h4 {
+  margin: 14px 0 8px;
+  color: #86efac;
+}
+
+.modal .content p {
+  margin: 0 0 10px;
+}
+
+.modal .content ul {
+  margin: 6px 0 12px;
+  padding: 0 18px;
 }
 
 /* إزالة عمود اللون: (لو بقي في HTML) اجعله مخفياً */
