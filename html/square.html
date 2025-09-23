@@ -42,18 +42,26 @@ pen up</code></pre>
 
     <section id="square-xy" class="card">
       <h2>B) المربع — باستخدام النقاط الثابتة (X/Y)</h2>
-      <p>استخدم أربع نقاط أركان: (-230,160) → (230,160) → (230,-160) → (-230,-160) → العودة.</p>
+      <p>استخدم أربع نقاط أركان: (-150,150) → (150,150) → (150,-150) → (-150,-150) → العودة.</p>
+      <div class="thumbnail-container">
+        <img class="thumbnail" onclick="showModal(this)" src="../images/Square-FixedPoints.png" alt="كود سكراتش لرسم مربع باستخدام النقاط الثابتة">
+        <p>كود سكراتش لرسم مربع باستخدام النقاط الثابتة</p>
+      </div>
       <pre class="scratch-code"><code>when green flag clicked
 erase all
 pen up
 set pen size to (5)
-go to x:(-230) y:(160)
+go to x:(-150) y:(150)
 pen down
-glide (1) secs to x:(230) y:(160)
-glide (1) secs to x:(230) y:(-160)
-glide (1) secs to x:(-230) y:(-160)
-glide (1) secs to x:(-230) y:(160)
+glide (1) secs to x:(150) y:(150)
+glide (1) secs to x:(150) y:(-150)
+glide (1) secs to x:(-150) y:(-150)
+glide (1) secs to x:(-150) y:(150)
 pen up</code></pre>
+      <div class="thumbnail-container">
+        <img class="thumbnail" onclick="showModal(this)" src="../images/Square-FixedPoints-Result.png" alt="شكل مربع مرسوم باستخدام النقاط الثابتة">
+        <p>النتيجة النهائية لرسم المربع</p>
+      </div>
     </section>
 
     <section id="square-var" class="card">
