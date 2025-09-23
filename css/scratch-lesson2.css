@@ -78,9 +78,7 @@ p {
 .modal-content {
     margin: auto;
     display: block;
-    width: 80%;
-    max-width: 700px;
-    max-height: 90vh;
+    max-height: 90vh; /* التحديث الذي طلبته */
     animation-name: zoom;
     animation-duration: 0.6s;
 }
