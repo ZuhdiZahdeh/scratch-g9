@@ -61,15 +61,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /*
     * الكود الجديد المسؤول عن تلوين الأسطر البرمجية
-    * تم نقله من ملف scratch-lesson2.js ليكون عامًا
     */
     const categories = [
-        { cat:'events',    rx: /(when\\s+green\\s+flag\\s+clicked|when\\s+\\w+\\s+key\\s+pressed|when\\s+this\\s+sprite\\s+clicked)/i },
-        { cat:'pen',       rx: /(pen\\s+down|pen\\s+up|erase\\s+all|set\\s+pen\\s+size|change\\s+pen\\s+size|set\\s+pen\\s+color|change\\s+pen\\s+color|stamp)/i },
-        { cat:'motion',    rx: /(move\\s+\\(?[\\w\\-\\+]+\\)?\\s+steps|turn\\s+(clockwise|counterclockwise)|go\\s+to\\s+x:|glide\\s+\\(?[\\w\\-\\+]+\\)?\\s+secs\\s+to\\s+x:|point\\s+in\\s+direction|change\\s+[xy]\\s+by|go\\s+to\\s+random\\s+position)/i },
-        { cat:'control',   rx: /(repeat\\s*\\(|forever|if\\s*\\(|else|wait\\s*\\(|stop\\s+all|until\\s*\\()/i },
-        { cat:'variables', rx: /(set\\s+\\[?.+?\\]?\\s+to|change\\s+\\[?.+?\\]?\\s+by)/i },
-        { cat:'myblocks',  rx: /(define\\s+\\w+|^\\s*ارسم\\s|لبنة\\s+مخص)/i }
+        { cat:'events',    rx: /(when\s+green\s+flag\s+clicked|when\s+\w+\s+key\s+pressed|when\s+this\s+sprite\s+clicked)/i },
+        { cat:'pen',       rx: /(pen\s+down|pen\s+up|erase\s+all|set\s+pen\s+size|change\s+pen\s+size|set\s+pen\s+color|change\s+pen\s+color|stamp)/i },
+        { cat:'motion',    rx: /(move\s+\(?[\w\-\+]+\)?\s+steps|turn\s+(clockwise|counterclockwise)|go\s+to\s+x:|glide\s+\(?[\w\-\+]+\)?\s+secs\s+to\s+x:|point\s+in\s+direction|change\s+[xy]\s+by|go\s+to\s+random\s+position)/i },
+        { cat:'control',   rx: /(repeat\s*\(|forever|if\s*\(|else|wait\s*\(|stop\s+all|until\s*\()/i },
+        { cat:'variables', rx: /(set\s+\[?.+?\]?\s+to|change\s+\[?.+?\]?\s+by)/i },
+        { cat:'myblocks',  rx: /(define\s+\w+|^\s*ارسم\s|لبنة\s+مخص)/i }
     ];
 
     function detectCat(line){
