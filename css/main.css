@@ -118,7 +118,7 @@ h1, h2, h3, h4 {
   padding: 16px 18px;
   border-radius: 8px;
   vertical-align: middle;
-  font-size: 20px;              /* تكبير الخط */
+  font-size: 20px;
   line-height: 1.45;
 }
 
@@ -143,17 +143,21 @@ h1, h2, h3, h4 {
 .cat-variables { background:#FF8C1A; color:#051017; }  /* Variables */
 .cat-myblocks  { background:#FF6680; color:#051017; }  /* My Blocks */
 
+.line[data-cat="control"] {
+  background: #FFAB19;
+  color: #fff;
+}
 /* أمثلة بخط أحادي مع مساحة إضافية */
-.scratch-cats-table td.examples { 
-  font-family: "Courier New", monospace; 
+.scratch-cats-table td.examples {
+  font-family: "Courier New", monospace;
   opacity:0.96;
-  font-size:19px;              /* أمثلة بخط قريب من حجم النص */
+  font-size:19px;
 }
 
 /* مظهر كسطر-بطاقة: مسافة بين الصفوف */
-.scratch-cats-table tbody tr { 
-  display: table-row; 
-  margin-bottom:14px; 
+.scratch-cats-table tbody tr {
+  display: table-row;
+  margin-bottom:14px;
 }
 
 /* Modal (نفس أسلوب صفحة التكنولوجيا) */
@@ -227,4 +231,18 @@ h1, h2, h3, h4 {
   .scratch-cats-table td.label{ font-weight:800; margin-bottom:6px; display:block; }
 }
 
+/* أنماط النافذة المنبثقة للصور */
+#imageModal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 50;
+}
 
+.max-h-screen-image {
+  max-height: 100vh;
+  width: auto;
+}

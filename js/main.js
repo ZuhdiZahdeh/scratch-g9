@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.getElementById('modal');
-    const modalTitle = document.getElementById('modal-title');
-    const modalBody = document.getElementById('modal-body');
-    const closeBtn = document.querySelector('.modal-close-btn');
+    const termModal = document.getElementById('term-modal');
+    const termModalTitle = document.getElementById('term-modal-title');
+    const termModalBody = document.getElementById('term-modal-body');
+    const termModalCloseBtn = document.querySelector('.modal-close-btn');
 
     // تعريف المصطلحات وشرحها
     const terms = {
@@ -19,22 +19,38 @@ document.addEventListener('DOMContentLoaded', () => {
         card.addEventListener('click', () => {
             const term = card.dataset.term;
             if (terms[term]) {
-                modalTitle.textContent = term;
-                modalBody.innerHTML = `<p>${terms[term]}</p>`;
-				modal.style.display = "flex";
+                termModalTitle.textContent = term;
+                termModalBody.innerHTML = `<p>${terms[term]}</p>`;
+                termModal.classList.remove('hidden');
             }
         });
     });
 
     // إخفاء البطاقة المنبثقة عند النقر على زر الإغلاق
-    closeBtn.addEventListener('click', () => {
-        modal.style.display = "none";
+    termModalCloseBtn.addEventListener('click', () => {
+        termModal.classList.add('hidden');
     });
 
     // إخفاء البطاقة المنبثقة عند النقر خارجها
-    modal.addEventListener('click', (e) => {
+    termModal.addEventListener('click', (e) => {
         if (e.target.classList.contains('modal-overlay')) {
-            modal.classList.add('hidden');
+            termModal.classList.add('hidden');
         }
     });
+
+    // دالة لإظهار النافذة المنبثقة للصور
+    window.showImageModal = function(imageUrl) {
+        const modal = document.getElementById('imageModal');
+        const enlargedImage = document.getElementById('enlargedImage');
+        enlargedImage.src = imageUrl;
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    };
+
+    // دالة لإخفاء النافذة المنبثقة للصور
+    window.hideImageModal = function() {
+        const modal = document.getElementById('imageModal');
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+    };
 });
