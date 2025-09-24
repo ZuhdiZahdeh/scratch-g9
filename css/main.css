@@ -143,21 +143,30 @@ h1, h2, h3, h4 {
 .cat-variables { background:#FF8C1A; color:#051017; }  /* Variables */
 .cat-myblocks  { background:#FF6680; color:#051017; }  /* My Blocks */
 
-.line[data-cat="control"] {
-  background: #FFAB19;
-  color: #fff;
-}
+/* أنماط أسطر الأكواد لتلوينها حسب الفئة - تم دمجها هنا */
+.line[data-cat="events"] { background: #FFBF00; color:#051017; }
+.line[data-cat="control"] { background: #FFAB19; color: #fff; }
+.line[data-cat="motion"] { background: #4C97FF; color: #fff; }
+.line[data-cat="pen"] { background: #0FBD8C; color: #fff; }
+.line[data-cat="looks"] { background: #9966FF; color: #fff; }
+.line[data-cat="sound"] { background: #FF66B2; color: #fff; }
+.line[data-cat="sensing"] { background: #5CB1D6; color: #051017; }
+.line[data-cat="operators"] { background: #59C059; color: #051017; }
+.line[data-cat="variables"] { background: #FF8C1A; color: #051017; }
+.line[data-cat="myblocks"] { background: #FF6680; color: #051017; }
+
+
 /* أمثلة بخط أحادي مع مساحة إضافية */
-.scratch-cats-table td.examples {
-  font-family: "Courier New", monospace;
+.scratch-cats-table td.examples { 
+  font-family: "Courier New", monospace; 
   opacity:0.96;
   font-size:19px;
 }
 
 /* مظهر كسطر-بطاقة: مسافة بين الصفوف */
-.scratch-cats-table tbody tr {
-  display: table-row;
-  margin-bottom:14px;
+.scratch-cats-table tbody tr { 
+  display: table-row; 
+  margin-bottom:14px; 
 }
 
 /* Modal (نفس أسلوب صفحة التكنولوجيا) */
@@ -229,21 +238,4 @@ h1, h2, h3, h4 {
   .scratch-cats-table, .scratch-cats-table tbody, .scratch-cats-table tr, .scratch-cats-table td { display:block; width:100%; }
   .scratch-cats-table td{ text-align:right; padding:12px; font-size:18px; }
   .scratch-cats-table td.label{ font-weight:800; margin-bottom:6px; display:block; }
-}
-
-/* أنماط النافذة المنبثقة للصور */
-#imageModal {
-  position: fixed;
-  inset: 0;
-  display: none; 
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.75);
-  z-index: 50;
-}
-
-/* جعل الصورة ملئ الصفحة */
-.max-h-screen-image {
-  max-height: 100vh;
-  width: auto;
 }
