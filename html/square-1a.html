@@ -19,7 +19,7 @@
       <h2>A) المربع — الطريقة الأسهل</h2>
       <p>أقل عدد ممكن من اللبنات: حلقة تكرار 4 + حركة ودوران.</p>
       <div class="thumbnail-container">
-        <img class="thumbnail" onclick="showImageModal(this.src)" src="../images/Square-MovementAndRotation.png" alt="كود سكراتش لرسم مربع">
+        <img class="thumbnail" onclick="showModal(this)" src="../images/Square-MovementAndRotation.png" alt="كود سكراتش لرسم مربع">
         <p>كود سكراتش لرسم مربع</p>
       </div>
       <pre class="scratch-code"><code>when green flag clicked
@@ -33,13 +33,18 @@ repeat (4)
         turn clockwise (90) degrees
 <span class="line" data-cat="control">end</span>
 pen up</code></pre>
+      <div class="thumbnail-container">
+        <img class="thumbnail" onclick="showModal(this)" src="../images/Square-MovementAndRotation-Result.png" alt="شكل مربع مرسوم">
+        <p>النتيجة النهائية لرسم المربع</p>
+      </div>
+      <p class="note">يمكن تغيير 320 حسب المساحة المتاحة على المسرح.</p>
     </section>
 
     <section id="square-xy" class="card">
       <h2>B) المربع — باستخدام النقاط الثابتة (X/Y)</h2>
       <p>استخدم أربع نقاط أركان: (-150,150) → (150,150) → (150,-150) → (-150,-150) → العودة.</p>
       <div class="thumbnail-container">
-        <img class="thumbnail" onclick="showImageModal(this.src)" src="../images/Square-FixedPoints.png" alt="كود سكراتش لرسم مربع باستخدام النقاط الثابتة">
+        <img class="thumbnail" onclick="showModal(this)" src="../images/Square-FixedPoints.png" alt="كود سكراتش لرسم مربع باستخدام النقاط الثابتة">
         <p>كود سكراتش لرسم مربع باستخدام النقاط الثابتة</p>
       </div>
       <pre class="scratch-code"><code>when green flag clicked
@@ -54,39 +59,25 @@ glide (1) secs to x:(-150) y:(-150)
 glide (1) secs to x:(-150) y:(150)
 pen up</code></pre>
       <div class="thumbnail-container">
-        <img class="thumbnail" onclick="showImageModal(this.src)" src="../images/Square-FixedPoints-Result.png" alt="شكل مربع مرسوم باستخدام النقاط الثابتة">
+        <img class="thumbnail" onclick="showModal(this)" src="../images/Square-FixedPoints-Result.png" alt="شكل مربع مرسوم باستخدام النقاط الثابتة">
         <p>النتيجة النهائية لرسم المربع</p>
       </div>
     </section>
 
-    <section id="square-variable" class="card">
+    <section id="square-var" class="card">
       <h2>C) المربع — باستخدام متغيّر (طول_الضلع)</h2>
-      <p>لتغيير حجم المربع بسهولة، يمكننا استخدام متغير. قم بإنشاء متغير جديد اسمه <span class="monospace-text">طول_الضلع</span>.</p>
-      <div class="thumbnail-container">
-        <img class="thumbnail" onclick="showImageModal(this.src)" src="../images/Square-Variable-side_length.png" alt="كود سكراتش لرسم مربع باستخدام متغير">
-        <p>كود سكراتش لرسم مربع بمتغير</p>
-      </div>
       <pre class="scratch-code"><code>when green flag clicked
-<span class="line" data-cat="events"></span>
 erase all
 pen up
 set pen size to (5)
 go to x:(-225) y:(160)
+set [طول_الضلع v] to (150)
 pen down
-set <span class="line" data-cat="variables">[طول_الضلع]</span> to (150)
 repeat (4)
-        move <span class="line" data-cat="variables">(طول_الضلع)</span> steps
+        move (طول_الضلع) steps
         turn clockwise (90) degrees
 <span class="line" data-cat="control">end</span>
 pen up</code></pre>
-    </section>
-
-    <section id="square-result" class="card">
-      <h2>صورة النتيجة</h2>
-      <div class="thumbnail-container">
-        <img class="thumbnail" onclick="showImageModal(this.src)" src="../images/Square-Variable-side_length-Result.png" alt="نتيجة رسم مربع باستخدام متغير">
-        <p>نتيجة تشغيل الكود</p>
-      </div>
     </section>
 
     <section id="square-myblock" class="card">
@@ -107,15 +98,27 @@ pen down
 ارسم مربع (150)
 pen up</code></pre>
     </section>
-  </main>
-
-  <div id="imageModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50 hidden">
-    <div class="relative max-w-full max-h-screen p-4">
-        <button class="absolute top-4 right-6 text-white text-4xl font-bold hover:text-gray-300" onclick="hideImageModal()">&times;</button>
-        <img id="enlargedImage" class="max-h-screen-image rounded-lg">
+    <div id="myModal" class="modal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img class="modal-content" id="img01">
+      <div id="modal-caption"></div>
     </div>
-  </div>
+    <script defer src="../js/scratch-lesson2.js?v=2"></script>
+    <script>
+      function showModal(element) {
+        var modal = document.getElementById('myModal');
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("modal-caption");
+        modal.style.display = "flex";
+        modalImg.src = element.src;
+        captionText.innerHTML = element.alt;
+      }
 
-  <script src="../js/main.js" defer></script>
+      function closeModal() {
+        var modal = document.getElementById('myModal');
+        modal.style.display = "none";
+      }
+    </script>
+  </main>
 </body>
 </html>
