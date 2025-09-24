@@ -235,13 +235,14 @@ h1, h2, h3, h4 {
 #imageModal {
   position: fixed;
   inset: 0;
-  display: flex;
+  display: none; 
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.75);
   z-index: 50;
 }
 
+/* جعل الصورة ملئ الصفحة */
 .max-h-screen-image {
   max-height: 100vh;
   width: auto;
