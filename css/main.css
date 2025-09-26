@@ -239,3 +239,51 @@ h1, h2, h3, h4 {
   margin: 6px 0 12px;
   padding: 0 18px;
 }
+/* تنسيقات عرض الصور المصغرة ونافذة العرض المنبثقة */
+
+/* حاوية الصورة المصغرة: لتوسيط الصورة */
+.thumbnail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* توسيط أفقي للصورة والنص */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* الصورة المصغرة نفسها: تحديد الأبعاد وتفعيل النقر */
+.thumbnail {
+    width: 100px;
+    height: 100px;
+    object-fit: contain; /* للحفاظ على نسب الصورة داخل المربع 100x100 */
+    cursor: pointer; /* لإظهار المؤشر كيد عند المرور فوق الصورة */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: transform 0.2s;
+}
+
+.thumbnail:hover {
+    transform: scale(1.05); /* تأثير بسيط عند المرور فوقها */
+}
+
+/* نافذة العرض المنبثقة (Modal) */
+#imageModal {
+    z-index: 1000; /* للتأكد من أنها تظهر فوق كل العناصر الأخرى */
+}
+
+/* الصورة داخل نافذة العرض المنبثقة (عندما تكون مكبرة) */
+#imageModal img {
+    max-height: 90vh; /* الحد الأقصى للارتفاع (90% من ارتفاع الشاشة) */
+    max-width: 90vw;  /* الحد الأقصى للعرض (90% من عرض الشاشة) */
+    object-fit: contain;
+    background-color: #fff; /* خلفية بيضاء للصورة المكبرة */
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* زر إغلاق النافذة */
+#imageModal button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+}
