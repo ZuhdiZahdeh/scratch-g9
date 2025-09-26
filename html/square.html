@@ -91,7 +91,7 @@ pen up</code></pre>
 <section id="square-myblock" class="card">
       <h2>D) ترقية: لبنة مخصّصة — ارسم مربع(الضلع)</h2>
       <h3>تعريف اللبنة</h3>
-      <pre class="scratch-code"> <code><span class="line" data-cat="myblocks">define ارسم مربع (الضلع)</span>
+<pre class="scratch-code"> <code><span class="line" data-cat="myblocks">define ارسم مربع (الضلع)</span>
 repeat (4)
 <span class="line" data-cat="motion">move </span><span class="line" data-cat="variables"> (الضلع) </span><span class="line" data-cat="motion"> steps </span> 
 turn clockwise (90) degrees
@@ -134,18 +134,18 @@ set pen size to (5)
 go to x:(-150) y:(150)
 point in direction 90
 set [Y-position] to (150)
-ask "ما هو طول الضلع ؟" and wait 
+<span class="line" data-cat="sensing">ask "ما هو طول الضلع ؟" and wait</span> 
 set [my variable]  to [answer]
 repeat (15)
 repeat (4)
 		pen down
-		 move  [my variable] steps
+		<span class="line" data-cat="motion">move </span><span class="line" data-cat="variables">[my variable]</span><span class="line" data-cat="motion"> steps </span> 
         turn clockwise (90) degrees
 <span class="line" data-cat="control">end</span>
-pen up
-change y by -10 
-change x by 10 
-change  [my variable] by 20
+	pen up
+	change y by -10 
+	change x by 10 
+	change  [my variable] by 20
 <span class="line" data-cat="control">end</span>
 <span class="line" data-cat="looks">hide </span></code></pre>
 </section>
