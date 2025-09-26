@@ -74,8 +74,8 @@ go to x:(-225) y:(160)
 pen down
 set <span class="line" data-cat="variables">[طول_الضلع]</span> to (150)
 repeat (4)
-		<span class="line" data-cat="motion">move </span><span class="line" data-cat="variables"> (طول_الضلع)</span><span class="line" data-cat="motion"> steps </span> 
-        turn clockwise (90) degrees
+		<span class="line" data-cat="motion">		move </span><span class="line" data-cat="variables"> (طول_الضلع)</span><span class="line" data-cat="motion"> steps </span> 
+				turn clockwise (90) degrees
 <span class="line" data-cat="control">end</span>
 pen up</code></pre>
     </section>
@@ -93,7 +93,7 @@ pen up</code></pre>
       <h3>تعريف اللبنة</h3>
 <pre class="scratch-code"> <code><span class="line" data-cat="myblocks">define ارسم مربع (الضلع)</span>
 repeat (4)
-		<span class="line" data-cat="motion">move </span><span class="line" data-cat="variables"> (الضلع) </span><span class="line" data-cat="motion"> steps </span> 
+<span class="line" data-cat="motion">			move </span><span class="line" data-cat="variables"> (الضلع) </span><span class="line" data-cat="motion"> steps </span> 
 		turn clockwise (90) degrees
 <span class="line" data-cat="control">end</span></code></pre>
 <h3>الاستخدام</h3>
@@ -139,8 +139,8 @@ set [my variable]  to [answer]
 repeat (15)
 repeat (4)
 		pen down
-		<span class="line" data-cat="motion">move </span><span class="line" data-cat="variables">[my variable]</span><span class="line" data-cat="motion"> steps </span> 
-        turn clockwise (90) degrees
+<span class="line" data-cat="motion">		move </span><span class="line" data-cat="variables">[my variable]</span><span class="line" data-cat="motion"> steps </span> 
+		turn clockwise (90) degrees
 <span class="line" data-cat="control">end</span>
 	pen up
 	change y by -10 
