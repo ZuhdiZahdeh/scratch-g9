@@ -42,22 +42,39 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     setupTermModal();
 
-    // دالة لإظهار النافذة المنبثقة للصور
+
+    // ************************************************************
+    // كاش (Caching) عناصر النافذة المنبثقة للصور
+    // ************************************************************
+    const imageModal = document.getElementById('imageModal');
+    // تصحيح: استخدام المعرّف الصحيح الموجود في square.html وهو 'modalImage'
+    const modalImage = document.getElementById('modalImage');
+
+    // إذا لم يتم العثور على عناصر الـ Modal، لا تكمل تنفيذ الكود
+    if (!imageModal || !modalImage) return;
+
+
+    // دالة لإظهار النافذة المنبثقة للصور (تُستخدم عبر onclick في HTML)
     window.showImageModal = function(imageUrl) {
-        const modal = document.getElementById('imageModal');
-        const enlargedImage = document.getElementById('enlargedImage');
-        enlargedImage.src = imageUrl;
-        modal.classList.remove('hidden');
+        modalImage.src = imageUrl;
+        imageModal.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
     };
 
-    // دالة لإخفاء النافذة المنبثقة للصور
+    // دالة لإخفاء النافذة المنبثقة للصور (تُستخدم عبر onclick في زر الإغلاق)
     window.hideImageModal = function() {
-        const modal = document.getElementById('imageModal');
-        modal.classList.add('hidden');
+        imageModal.classList.add('hidden');
         document.body.style.overflow = 'auto';
     };
 
+
+    // الإغلاق بالنقر على القناع (الخلفية السوداء) فقط
+    imageModal.addEventListener('click', (e) => {
+        // إذا كان العنصر الذي تم النقر عليه هو الـ Modal نفسه (وليس الصورة المكبرة أو زر الإغلاق)
+        if (e.target === imageModal) {
+            window.hideImageModal();
+        }
+    });
 
     /*
     * الكود الجديد المسؤول عن تلوين الأسطر البرمجية

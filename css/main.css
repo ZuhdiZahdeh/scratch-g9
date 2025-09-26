@@ -287,3 +287,24 @@ h1, h2, h3, h4 {
     left: 20px;
     z-index: 1001;
 }
+
+/* إضافة هذه التنسيقات لـ main.css لتأكيد عرض الـ Modal */
+#imageModal {
+    /* التأكد من أنها تملأ الشاشة بالكامل وتظهر فوق كل شيء */
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    z-index: 9999; /* قيمة عالية جداً */
+    /* التأكد من التوسيط */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    /* التأكد من خلفية القناع */
+    background-color: rgba(0, 0, 0, 0.75) !important; 
+}
+/* إخفاء النافذة عند وجود فئة hidden */
+#imageModal.hidden {
+    display: none !important;
+}
