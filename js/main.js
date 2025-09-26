@@ -35,7 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         termModal.addEventListener('click', (e) => {
-            if (e.target.classList.contains('modal-overlay')) {
+            // للتأكد من أن النقر كان على القناع (الخلفية) وليس محتوى الـ Modal
+            if (e.target.classList.contains('modal-overlay') || e.target === termModal) {
                 termModal.classList.add('hidden');
             }
         });
@@ -44,40 +45,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // ************************************************************
-    // كاش (Caching) عناصر النافذة المنبثقة للصور
+    // كاش (Caching) عناصر النافذة المنبثقة للصور - تم تصحيح المعرّف
     // ************************************************************
     const imageModal = document.getElementById('imageModal');
-    // تصحيح: استخدام المعرّف الصحيح الموجود في square.html وهو 'modalImage'
-    const modalImage = document.getElementById('modalImage');
+    // **التصحيح**: استخدام المعرّف الصحيح 'enlargedImage'
+    const modalImage = document.getElementById('enlargedImage'); 
 
-    // إذا لم يتم العثور على عناصر الـ Modal، لا تكمل تنفيذ الكود
-    if (!imageModal || !modalImage) return;
+    // **التصحيح**: تشغيل منطق الصور فقط إذا تم العثور على كلا العنصرين
+    if (imageModal && modalImage) { 
+        
+        // دالة لإظهار النافذة المنبثقة للصور (تُستخدم عبر onclick في HTML)
+        window.showImageModal = function(imageUrl) {
+            modalImage.src = imageUrl;
+            imageModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        };
+
+        // دالة لإخفاء النافذة المنبثقة للصور (تُستخدم عبر onclick في زر الإغلاق)
+        window.hideImageModal = function() {
+            imageModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        };
 
 
-    // دالة لإظهار النافذة المنبثقة للصور (تُستخدم عبر onclick في HTML)
-    window.showImageModal = function(imageUrl) {
-        modalImage.src = imageUrl;
-        imageModal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-    };
-
-    // دالة لإخفاء النافذة المنبثقة للصور (تُستخدم عبر onclick في زر الإغلاق)
-    window.hideImageModal = function() {
-        imageModal.classList.add('hidden');
-        document.body.style.overflow = 'auto';
-    };
-
-
-    // الإغلاق بالنقر على القناع (الخلفية السوداء) فقط
-    imageModal.addEventListener('click', (e) => {
-        // إذا كان العنصر الذي تم النقر عليه هو الـ Modal نفسه (وليس الصورة المكبرة أو زر الإغلاق)
-        if (e.target === imageModal) {
-            window.hideImageModal();
-        }
-    });
+        // الإغلاق بالنقر على القناع (الخلفية السوداء) فقط
+        imageModal.addEventListener('click', (e) => {
+            // إذا كان العنصر الذي تم النقر عليه هو الـ Modal نفسه (وليس الصورة المكبرة أو زر الإغلاق)
+            if (e.target === imageModal) {
+                window.hideImageModal();
+            }
+        });
+    }
 
     /*
-    * الكود الجديد المسؤول عن تلوين الأسطر البرمجية
+    * الكود المسؤول عن تلوين الأسطر البرمجية
     */
     const categories = [
         { cat:'events',    rx: /(when\s+green\s+flag\s+clicked|when\s+\w+\s+key\s+pressed|when\s+this\s+sprite\s+clicked)/i },
@@ -102,14 +103,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const code = pre.querySelector('code');
             if (!code) return;
 
-            const lines = code.innerHTML.split('\n');
+            // استخدام innerText بدلاً من innerHTML لضمان معالجة النص فقط
+            const lines = code.innerText.split('\n');
             let newHtml = '';
             for (const line of lines) {
                 const cat = detectCat(line);
+                // تأكد من ترميز HTML للأحرف الخاصة داخل الكود (مثل < و >)
+                const escapedLine = line.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                
                 if (cat) {
-                    newHtml += `<span class="line" data-cat="${cat}">${line}</span>\n`;
+                    newHtml += `<span class="line" data-cat="${cat}">${escapedLine}</span>\n`;
                 } else {
-                    newHtml += `<span>${line}</span>\n`;
+                    newHtml += `<span>${escapedLine}</span>\n`;
                 }
             }
             code.innerHTML = newHtml;

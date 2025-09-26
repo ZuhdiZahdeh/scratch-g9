@@ -266,18 +266,25 @@ h1, h2, h3, h4 {
 }
 
 /* نافذة العرض المنبثقة (Modal) */
-#imageModal {
-    z-index: 1000; /* للتأكد من أنها تظهر فوق كل العناصر الأخرى */
-}
-
 /* الصورة داخل نافذة العرض المنبثقة (عندما تكون مكبرة) */
 #imageModal img {
-    max-height: 90vh; /* الحد الأقصى للارتفاع (90% من ارتفاع الشاشة) */
-    max-width: 90vw;  /* الحد الأقصى للعرض (90% من عرض الشاشة) */
+    /* تم التعديل من 90vh/90vw إلى 80vh/80vw */
+    max-height: 80vh; /* الحد الأقصى للارتفاع (80% من ارتفاع الشاشة) - تم التحديث */
+    max-width: 80vw;  /* الحد الأقصى للعرض (80% من عرض الشاشة) - تم التحديث */
     object-fit: contain;
     background-color: #fff; /* خلفية بيضاء للصورة المكبرة */
     padding: 10px;
     border-radius: 8px;
+}
+
+
+/* سيتم تطبيق هذه التنسيقات على أي صورة في الدرس الأول (ضمن body) لها الأبعاد 100 */
+body img[width="100"][height="100"] {
+    margin-top: 1rem; 
+    margin-bottom: 1rem; 
+    border: 2px solid #3B82F6; /* إطار أزرق جذاب */
+    transition: transform 0.3s ease-in-out; 
+    cursor: pointer;
 }
 
 /* زر إغلاق النافذة */
@@ -307,4 +314,24 @@ h1, h2, h3, h4 {
 /* إخفاء النافذة عند وجود فئة hidden */
 #imageModal.hidden {
     display: none !important;
+}
+/* تنسيقات الصورة داخل النافذة المنبثقة */
+.max-h-screen-image {
+    max-height: 80vh; /* لا تتجاوز 80% من ارتفاع الشاشة */
+    max-width: 80vw;  /* لا تتجاوز 80% من عرض الشاشة */
+    object-fit: contain; /* لضمان تناسق الصورة داخل الحدود الجديدة */
+}
+
+/* يمكنك إضافة بعض التنسيقات للصورة المصغرة لجعلها تبدو أفضل،
+   مثل إضافة هوامش أو تأثير عند التحويم (hover)
+*/
+.scratch-lesson1 img[width="100"][height="100"] {
+    margin-top: 1rem; /* مسافة أعلى الصورة */
+    margin-bottom: 1rem; /* مسافة أسفل الصورة */
+    border: 1px solid #ccc; /* إطار خفيف */
+    transition: transform 0.2s ease-in-out; /* تأثير تحويم ناعم */
+}
+
+.scratch-lesson1 img[width="100"][height="100"]:hover {
+    transform: scale(1.05); /* تكبير بسيط عند التحويم */
 }
