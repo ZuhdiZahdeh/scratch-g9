@@ -67,7 +67,6 @@ pen up</code></pre>
         <p>كود سكراتش لرسم مربع بمتغير</p>
       </div>
       <pre class="scratch-code"><code>when green flag clicked
-<span class="line" data-cat="events"></span>
 erase all
 pen up
 set pen size to (5)
@@ -92,14 +91,13 @@ pen up</code></pre>
 <section id="square-myblock" class="card">
       <h2>D) ترقية: لبنة مخصّصة — ارسم مربع(الضلع)</h2>
       <h3>تعريف اللبنة</h3>
-<pre class="scratch-code"><code>
-define ارسم مربع (الضلع)
+      <pre class="scratch-code"><code>define ارسم مربع (الضلع)
 repeat (4)
 <span class="line" data-cat="motion">move </span><span class="line" data-cat="variables"> (الضلع) </span><span class="line" data-cat="motion"> steps </span> 
 turn clockwise (90) degrees
 <span class="line" data-cat="control">end</span></code></pre>
 <h3>الاستخدام</h3>
-<pre class="scratch-code"><code>when green flag clicked
+      <pre class="scratch-code"><code>when green flag clicked
 erase all
 pen up
 set pen size to (5)
@@ -128,8 +126,7 @@ pen up
     </section>
 
 <h3>لبنات الكود الأساسية المستخدمة</h3>
-<pre class="scratch-code"><code>
-when green flag clicked
+      <pre class="scratch-code"><code>when green flag clicked
 show
 erase all
 pen up
@@ -139,7 +136,6 @@ point in direction 90
 set [Y-position] to (150)
 ask "ما هو طول الضلع ؟" and wait 
 set [my variable]  to [answer]
-
 repeat (15)
 repeat (4)
 		pen down
@@ -150,8 +146,8 @@ pen up
 change y by -10 
 change x by 10 
 change  [my variable] by 20
-end
-</code></pre></section>
+end</code></pre>
+</section>
 </main>
 
 
