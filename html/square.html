@@ -131,16 +131,28 @@ pen up</code></pre>
 
     <h3>لبنات الكود الأساسية المستخدمة</h3>
     <pre class="scratch-code"><code>when green flag clicked
+<pre class="scratch-code"><code>when green flag clicked
+show
 erase all
 pen up
-set pen size to (2)
-go to x:(0) y:(0)
-pen down
-repeat (36)
-        ارسم مربع (150)
-        turn clockwise (10) degrees
+set pen size to (5)
+go to x:(-150) y:(150)
+point in direction 90
+set [Y-position] to (150)
+ask "ما هو طول الضلع ؟" and wait 
+set [my variable]  to [answer]
+
+repeat (15)
+repeat (4)
+		pen down
+		 move  [my variable] steps
+        turn clockwise (90) degrees
 end
-pen up</code></pre>
+pen up
+change y by -10 
+change x by 10 
+change  [my variable] by 20
+end</code></pre>
   </section>
 </main>
 
