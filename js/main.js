@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const termModal = document.getElementById('term-modal');
         const termModalTitle = document.getElementById('term-modal-title');
         const termModalBody = document.getElementById('term-modal-body');
-        // ❌ كان يستخدم: document.querySelector('.modal-close-btn');
-        // ✅ الأفضل استخدام زر الإغلاق داخل الـ Modal ليكون التحديد خاصًا به
+        
+        // ✅ تحديد زر الإغلاق بدقة
         const termModalCloseBtn = termModal ? termModal.querySelector('.modal-close-btn') : null;
         
         if (!termModal) return;
@@ -36,13 +36,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
 
-        // تفعيل النقر على بطاقات المفاهيم
+        // تفعيل النقر على بطاقات المفاهيم (الحل الجذري لعمل البطاقات)
         document.querySelectorAll('.term-card').forEach(card => {
             card.addEventListener('click', handleCardClick);
         });
 
         // تفعيل الإغلاق
-        if (termModalCloseBtn) { // تأكد من وجود الزر قبل تعيين onclick
+        if (termModalCloseBtn) { 
             termModalCloseBtn.onclick = hideModal;
         }
         termModal.onclick = (e) => {
@@ -56,26 +56,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. وظيفة النافذة المنبثقة لتكبير الصور (Image Modal)
     // ************************************************************
     const imageModal = document.getElementById('imageModal');
-    // تصحيح: استخدام المعرّف الصحيح الموجود في square.html
+    // ✅ استخدام المعرّف الصحيح
     const modalImage = document.getElementById('modalImage');
 
-    // إذا لم يتم العثور على عناصر الـ Modal للصور، لا تكمل تنفيذ هذا الجزء
     if (imageModal && modalImage) {
 
-        // دالة لإظهار النافذة المنبثقة للصور (تُستخدم عبر onclick في HTML)
         window.showImageModal = function(imageUrl) {
             modalImage.src = imageUrl;
             imageModal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // منع تمرير الصفحة
+            document.body.style.overflow = 'hidden'; 
         };
 
-        // دالة لإخفاء النافذة المنبثقة للصور (تُستخدم عبر onclick في زر الإغلاق)
         window.hideImageModal = function() {
             imageModal.classList.add('hidden');
-            document.body.style.overflow = 'auto'; // إعادة تفعيل التمرير
+            document.body.style.overflow = 'auto'; 
         };
 
-        // الإغلاق بالنقر على القناع (الخلفية السوداء) فقط
         imageModal.addEventListener('click', (e) => {
             if (e.target === imageModal) {
                 window.hideImageModal();
@@ -84,21 +80,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ************************************************************
-    // 3. وظيفة تلوين كود سكراتش (Syntax Highlighting)
+    // 3. وظيفة تلوين كود سكراتش (Syntax Highlighting) - تم تصحيح الأخطاء النحوية هنا
     // ************************************************************
-const categories = [
+    const categories = [
         // تم تصحيح: استخدام \s بدلاً من \\s
         { cat: 'events', rx: /(when\s+green\s+flag\s+clicked|when\s+key\s+pressed|when\s+this\s+sprite\s+clicked)/i },
         // تم تصحيح: استخدام \s بدلاً من \\s
         { cat: 'pen', rx: /(pen\s+up|pen\s+down|erase\s+all|set\s+pen\s+size|set\s+pen\s+color|change\s+pen\s+color|stamp)/i },
-        // هذا هو التصحيح الذي قمت به لفئة motion
+        // تم تصحيح: خطأ الأقواس و \s
         { cat: 'motion', rx: /(move\s+\(?[^)]+\)?\s+steps|turn\s+(clockwise|counterclockwise)|go\s+to\s+x:|glide\s+\(?[^)]+\)?\s+secs\s+to\s+x:|point\s+in\s+direction|change\s+[xy]\s+by|go\s+to\s+random\s+position)/i },
         // تم تصحيح: استخدام \s بدلاً من \\s وإزالة \ من الأقواس
         { cat: 'control', rx: /(repeat\s*\(|forever|if\s*\(|else|wait\s*\(|stop\s+all|until\s*\()/i },
         // تم تصحيح: استخدام \s بدلاً من \\s
         { cat: 'variables', rx: /(set\s+\[?.+?\]?\s+to|change\s+\[?.+?\]?\s+by|الضلع)/i },
-        // تم تصحيح: استخدام \s بدلاً من \\s
-        { cat: 'myblocks', rx: /(define\s+\w+|^^\s*ارسم\s|لبنة\s+مخص)/i }
+        // ✅ التصحيح الجذري: إزالة ^^ من التعبير النمطي لمنع خطأ Syntax Error
+        { cat: 'myblocks', rx: /(define\s+\w+|\s*ارسم\s|لبنة\s+مخص)/i }
     ];
 
     function detectCat(line) {
@@ -119,7 +115,6 @@ const categories = [
             let coloredHtml = '';
 
             lines.forEach(line => {
-                // إزالة وسوم التلوين الموجودة سابقاً لتجنب التكرار
                 let cleanLine = line.replace(/<span[^>]*>(.*?)<\/span>/g, '$1').trim();
                 
                 const cat = detectCat(cleanLine);
