@@ -176,5 +176,14 @@
 </div>
 
   <script src="../js/main.js" defer></script>
+  <script>
+document.querySelectorAll('.term-card').forEach(card => {
+  card.addEventListener('click', () => {
+    console.log("تم الضغط على بطاقة:", card.dataset.term);
+    document.getElementById('term-modal').classList.remove('hidden');
+  });
+});
+</script>
+
 </body>
 </html>
