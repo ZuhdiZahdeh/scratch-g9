@@ -1,19 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
+    console.log("✅ DOM محمل، بدء تشغيل main.js");
 
     // ************************************************************
     // 1. وظيفة النافذة المنبثقة للمصطلحات والمفاهيم (Term Modal)
     // ************************************************************
     const setupTermModal = () => {
+        console.log("➡️ تشغيل setupTermModal()");
+
         // جلب العناصر من HTML
         const termModal = document.getElementById('term-modal');
         const termModalTitle = document.getElementById('term-modal-title');
         const termModalBody = document.getElementById('term-modal-body');
-        // استخدام محدد أدق لزر الإغلاق داخل الـ Modal
         const termModalCloseBtn = document.querySelector('#term-modal .modal-close-btn');
         const termCards = document.querySelectorAll('.term-card');
 
-        // إذا لم يتم العثور على الـ Modal (كما في الصفحة الرئيسية أو المربع)، نتوقف.
-        if (!termModal) return;
+        if (!termModal) {
+            console.warn("⚠️ لم يتم العثور على term-modal في الصفحة");
+            return;
+        }
 
         // المصطلحات والتعريفات
         const terms = {
@@ -26,33 +30,49 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const hideModal = () => {
+            console.log("❌ إغلاق term-modal");
             termModal.classList.add('hidden');
+            console.log("الحالة الحالية:", termModal.classList.toString());
         };
 
         const handleCardClick = (e) => {
             const term = e.currentTarget.dataset.term;
+            console.log("🃏 تم الضغط على بطاقة:", term);
+
             if (terms[term]) {
-                // التأكد من وجود العنوان والنص داخل الـ Modal قبل التعديل
-                if (!termModalTitle || !termModalBody) return;
-                
+                if (!termModalTitle || !termModalBody) {
+                    console.error("❌ لم يتم العثور على عناصر العنوان أو النص داخل term-modal");
+                    return;
+                }
                 termModalTitle.textContent = term;
                 termModalBody.textContent = terms[term];
+
+                console.log("✅ فتح term-modal");
                 termModal.classList.remove('hidden');
+                console.log("الحالة الحالية:", termModal.classList.toString());
+            } else {
+                console.warn("⚠️ لا يوجد تعريف للمصطلح:", term);
             }
         };
 
         // تفعيل النقر على بطاقات المفاهيم
         termCards.forEach(card => {
+            console.log("🔗 ربط بطاقة:", card.dataset.term);
             card.addEventListener('click', handleCardClick);
         });
 
         // تفعيل الإغلاق
         if (termModalCloseBtn) {
-             termModalCloseBtn.onclick = hideModal;
+            termModalCloseBtn.onclick = hideModal;
+            console.log("🔗 تم ربط زر الإغلاق للـ term-modal");
+        } else {
+            console.warn("⚠️ لم يتم العثور على زر الإغلاق في term-modal");
         }
-        // الإغلاق بالنقر على القناع (الخلفية السوداء) فقط
+
+        // الإغلاق بالنقر على الخلفية
         termModal.onclick = (e) => {
             if (e.target === termModal) {
+                console.log("🖱️ النقر على خلفية term-modal");
                 hideModal();
             }
         };
@@ -60,80 +80,53 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ************************************************************
     // 2. وظيفة النافذة المنبثقة لتكبير الصور (Image Modal)
-    // الحل الجذري: تعريف الدوال على نافذة (window) لـ HTML
     // ************************************************************
     const imageModal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage');
 
     if (imageModal && modalImage) {
-        // الحل الجذري: تعريف الدوال عالميًا (global) لتمكين HTML onclick
         window.showImageModal = function(imageUrl) {
+            console.log("🖼️ فتح imageModal مع الصورة:", imageUrl);
             modalImage.src = imageUrl;
             imageModal.classList.remove('hidden');
-            // document.body.style.overflow = 'hidden'; // منع تمرير الصفحة
+            console.log("الحالة الحالية:", imageModal.classList.toString());
+            // document.body.style.overflow = 'hidden'; // للتجربة علقنا منع التمرير
         };
 
         window.hideImageModal = function() {
+            console.log("❌ إغلاق imageModal");
             imageModal.classList.add('hidden');
-            // document.body.style.overflow = 'auto'; // إعادة تفعيل التمرير
+            console.log("الحالة الحالية:", imageModal.classList.toString());
+            // document.body.style.overflow = 'auto';
         };
 
-        // الإغلاق بالنقر على القناع (الخلفية السوداء) فقط
+        // الإغلاق بالنقر على الخلفية
         imageModal.addEventListener('click', (e) => {
             if (e.target === imageModal) {
+                console.log("🖱️ النقر على خلفية imageModal");
                 window.hideImageModal();
             }
         });
+
+        console.log("🔗 تم تهيئة imageModal");
+    } else {
+        console.warn("⚠️ لم يتم العثور على imageModal أو modalImage في الصفحة");
     }
 
     // ************************************************************
-    // 3. وظيفة تلوين كود سكراتش (Syntax Highlighting)
+    // 3. تلوين كود سكراتش (Syntax Highlighting)
     // ************************************************************
-const categories = [
-        // تم تصحيح: استخدام \s بدلاً من \\s
-        { cat: 'events', rx: /(when\s+green\s+flag\s+clicked|when\s+key\s+pressed|when\s+this\s+sprite\s+clicked)/i },
-        // تم تصحيح: استخدام \s بدلاً من \\s
-        { cat: 'pen', rx: /(pen\s+up|pen\s+down|erase\s+all|set\s+pen\s+size|set\s+pen\s+color|change\s+pen\s+color|stamp)/i },
-        // هذا هو التصحيح الذي قمت به لفئة motion   
-        { cat: 'motion', rx: /(move\s+\(?[\w\-\+]+\)?\s+steps|turn\s+(clockwise|counterclockwise)|go\s+to\s+x:|glide\s+\(?[\w\-\+]+\)?\s+secs\s+to\s+x:|point\s+in\s+direction|change\s+[xy]\s+by|go\s+to\s+random\s+position)/i },
-// ✅ التعبير النمطي الصحيح
-		{ cat: 'motion', rx: /(move\s+\(?[^)]+\)?\s+steps|turn\s+(clockwise|counterclockwise)|go\s+to\s+x:|glide\s+\(?[^)]+\)?\s+secs\s+to\s+x:|point\s+in\s+direction|change\s+[xy]\s+by|go\s+to\s+random\s+position)/i },
-		// تم تصحيح: استخدام \s بدلاً من \\s وإزالة \ من الأقواس
-        { cat: 'control', rx: /(repeat\s*\(|forever|if\s*\(|else|wait\s*\(|stop\s+all|until\s*\()/i },
-        // تم تصحيح: استخدام \s بدلاً من \\s
-        { cat: 'variables', rx: /(set\s+\[?.+?\]?\s+to|change\s+\[?.+?\]?\s+by|الضلع)/i },
-        // تم تصحيح: استخدام \s بدلاً من \\s
-        { cat: 'myblocks', rx: /(define\s+\w+|\s*ارسم\s|لبنة\s+مخص)/i }
-    ];
-
-    function detectCat(line) {
-        const t = line.trim();
-        for (const cat of categories) {
-            if (cat.rx.test(t)) return cat.cat;
-        }
-        return null;
-    }
-
     function colorizeScratchCode() {
+        console.log("➡️ تشغيل colorizeScratchCode()");
         const preElements = document.querySelectorAll('.scratch-code');
         preElements.forEach(pre => {
             const code = pre.querySelector('code');
             if (!code) return;
-
             const lines = code.innerHTML.split('\n');
             let coloredHtml = '';
-
             lines.forEach(line => {
-                let cleanLine = line.replace(/<span[^>]*>(.*?)<\/span>/g, '$1').trim();
-                
-                const cat = detectCat(cleanLine);
-                if (cat) {
-                    coloredHtml += `<span class="line cat-${cat}">${line}</span>\n`;
-                } else {
-                    coloredHtml += `${line}\n`;
-                }
+                coloredHtml += line + "\n"; // للتبسيط الآن
             });
-
             code.innerHTML = coloredHtml;
         });
     }
@@ -143,4 +136,6 @@ const categories = [
     // ************************************************************
     setupTermModal();
     colorizeScratchCode();
+
+    console.log("✅ main.js انتهى تشغيله بالكامل");
 });
