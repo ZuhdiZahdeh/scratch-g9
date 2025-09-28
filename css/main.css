@@ -48,106 +48,114 @@ h1, h2, h3, h4 {
     color: #3B82F6;
 }
 
-/* ********** تنسيقات البطاقات (Cards) والمحتوى ********** */
-
-.card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 24px;
-    margin-bottom: 24px;
-    border: 1px solid #E5E7EB;
+.border-blue-400 {
+    border-color: #60A5FA;
 }
 
-/* تنسيق الروابط للعودة */
-.back-link {
-    display: inline-block;
-    margin-bottom: 20px;
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 700;
+.bg-blue-100 {
+    background-color: #DBEAFE;
 }
 
-.back-link:hover {
-    text-decoration: underline;
+.text-blue-900 {
+    color: #1E3A8A;
 }
 
-/* ********** تنسيقات المفاهيم والمفردات ********** */
+.text-gray-600 {
+    color: #4B5563;
+}
+
+.text-gray-800 {
+    color: #1F2937;
+}
+
+.text-yellow-400 {
+    color: #FACC15;
+}
+
+.bg-green-500 {
+    background-color: #22C55E;
+}
+
+.hover\:bg-green-600:hover {
+    background-color: #16A34A;
+}
+
+.rounded-full {
+    border-radius: 9999px;
+}
+
+.hidden {
+    display: none;
+}
+
+.vocab-item .en {
+    font-family: 'Inter', sans-serif;
+    direction: ltr;
+    text-align: left;
+}
 
 .term-card {
-    background-color: #F3F4F6;
-    border: 1px solid #D1D5DB;
-    border-radius: 8px;
-    padding: 12px 16px;
-    margin-bottom: 10px;
     cursor: pointer;
-    transition: background-color 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s ease-in-out;
 }
 
 .term-card:hover {
-    background-color: #E5E7EB;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transform: translateY(-5px);
 }
 
-.term-title {
-    font-weight: 700;
-    color: var(--text-color);
+/* جداول سكراتش */
+.scratch-cats-table {
+  width:100%;
+  border-collapse: collapse;
+  direction: rtl;
+  margin-top: 18px;
+  font-family: "Tajawal", "Noto Naskh Arabic", Arial, sans-serif;
+}
+.scratch-cats-table th, .scratch-cats-table td {
+  padding: 16px 18px;
+  border-radius: 8px;
+  vertical-align: middle;
+  font-size: 20px;
+  line-height: 1.45;
+}
+.scratch-cats-table thead th {
+  text-align: right;
+  color:#0f172a;
+  font-weight:800;
+  padding-bottom:12px;
+  font-size:20px;
+}
+.cat-events { background:#FFBF00; color:#051017; }
+.cat-control { background:#FFAB19; color:#051017; }
+.cat-motion { background:#4C97FF; color:#fff; }
+.cat-pen { background:#0FBD8C; color:#fff; }
+.cat-looks { background:#9966FF; color:#fff; }
+.cat-sound { background:#FF66B2; color:#fff; }
+.cat-sensing { background:#5CB1D6; color:#051017; }
+.cat-operators { background:#59C059; color:#051017; }
+.cat-variables { background:#FF8C1A; color:#051017; }
+.cat-myblocks { background:#FF6680; color:#051017; }
+.scratch-cats-table td.examples {
+  font-family: "Courier New", monospace;
+  opacity:0.96;
+  font-size:19px;
+}
+.scratch-cats-table tbody tr {
+  display: table-row;
+  margin-bottom:14px;
+}
+.scratch-cats-table td.col-color,
+.scratch-cats-table th.col-color { display:none; }
+@media (max-width:720px){
+  .scratch-cats-table thead{display:none;}
+  .scratch-cats-table, .scratch-cats-table tbody, .scratch-cats-table tr, .scratch-cats-table td { display:block; width:100%; }
+  .scratch-cats-table td{ text-align:right; padding:12px; font-size:18px; }
+  .scratch-cats-table td.label{ font-weight:800; margin-bottom:6px; display:block; }
 }
 
-.term-english {
-    color: #6B7280;
-    font-style: italic;
-    font-size: 0.9em;
-}
-
-/* ********** تنسيق النافذة المنبثقة للمفاهيم (Term Modal) ********** */
-
-#term-modal {
-    /* قيمة Z-Index عالية جداً لضمان الظهور فوق كل شيء */
-    z-index: 5000; 
-}
-
-/* زر إغلاق نافذة المفاهيم (للتناسق) */
-#term-modal .modal-close-btn {
-    line-height: 1;
-    font-size: 2rem; 
-}
-
-/* ********** تنسيقات الصور المصغرة و Modal الصور ********** */
-
-/* حاوية الصورة المصغرة: لتوسيط الصورة */
-.thumbnail-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* الصورة المصغرة نفسها: تحديد الأبعاد وتفعيل النقر */
-.thumbnail {
-    width: 150px;
-    height: 150px;
-    object-fit: contain; 
-    cursor: pointer; 
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    transition: transform 0.2s;
-}
-
-.thumbnail:hover {
-    transform: scale(1.05); 
-}
-
-/* نافذة العرض المنبثقة (Modal) للصور */
-#imageModal {
-    z-index: 9999; 
-}
-
-/* ********** تنسيقات كود سكراتش (Syntax Highlighting) ********** */
-
+/* تنسيقات كود سكراتش - تم نقلها هنا لتكون عامة */
 .scratch-code {
-    background: #111;
+    background: #000;
     color: #fff;
     padding: 24px 28px;
     border-radius: 8px;
@@ -161,31 +169,73 @@ h1, h2, h3, h4 {
     box-shadow: 0 10px 16px rgba(0, 0, 0, .2);
 }
 
-.scratch-code code {
-    white-space: pre-wrap;
-}
-
-/* 🎯 هذا هو الحل: تنسيق أساسي شامل لكل الأسطر الملونة */
 .scratch-code .line {
-    /* تم تفعيل display: block لضمان أن كل سطر يأخذ سطرًا جديدًا كاملاً للتلوين */
-    display: block; 
+    display: block;
     padding: 4px 10px;
     margin: 4px 0;
     border-radius: 4px;
-    font-weight: 700;
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    background-color: transparent; 
 }
 
-/* 🎯 هذا هو الحل: توحيد المُحدِّدات لملفات JS/CSS */
-/* الألوان يتم تطبيقها مباشرة على فئة الـ 'cat-' التي يضيفها ملف main.js */
-.cat-events     { background:#FFD500; color:#051017; }     /* Events */
-.cat-control   { background:#FFAB19; color:#fff; }     /* Control */
-.cat-motion    { background:#4C97FF; color:#fff; }     /* Motion */
-.cat-pen       { background:#0FBD8C; color:#fff; }     /* Pen */
-.cat-looks     { background:#9966FF; color:#fff; }     /* Looks */ /* تم إضافته ليعمل */
-.cat-sound     { background:#FF66B2; color:#fff; }     /* Sound */ /* تم إضافته ليعمل */
-.cat-sensing   { background:#5CB1D6; color:#051017; }  /* Sensing */ /* تم إضافته ليعمل */
-.cat-operators { background:#59C059; color:#051017; }  /* Operators */ /* تم إضافته ليعمل */
-.cat-variables { background:#FF8C1A; color:#051017; }  /* Variables/Data */
-.cat-myblocks  { background:#FF6680; color:#051017; }  /* My Blocks */
+/* ألوان الأسطر البرمجية - تم نقلها هنا لتكون عامة */
+.line[data-cat="events"] { background: #FFBF00; color:#051017; }
+.line[data-cat="control"] { background: #FFAB19; color: #fff; }
+.line[data-cat="motion"] { background: #4C97FF; color: #fff; }
+.line[data-cat="pen"] { background: #0FBD8C; color: #fff; }
+.line[data-cat="looks"] { background: #9966FF; color: #fff; }
+.line[data-cat="sound"] { background: #FF66B2; color: #fff; }
+.line[data-cat="sensing"] { background: #5CB1D6; color: #051017; }
+.line[data-cat="operators"] { background: #59C059; color: #051017; }
+.line[data-cat="variables"] { background: #FF8C1A; color: #051017; }
+.line[data-cat="myblocks"] { background: #FF6680; color: #051017; }
+.line[data-cat="none"] { background: #111;  color:#fff; }
+
+/* Modal (نفس أسلوب صفحة التكنولوجيا) */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, .6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+.modal {
+  width: min(900px, 92vw);
+  max-height: 86vh;
+  overflow: auto;
+  background: #0b1220;
+  border: 1px solid rgba(148, 163, 184, .22);
+  border-radius: 18px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .45);
+}
+.modal header {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 1), rgba(15, 23, 42, .92));
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(148, 163, 184, .18);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+}
+.modal header h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #e5e7eb;
+}
+.modal .content {
+  padding: 18px;
+  color: #e5e7eb;
+}
+.modal .content h4 {
+  margin: 14px 0 8px;
+  color: #86efac;
+}
+.modal .content p {
+  margin: 0 0 10px;
+}
+.modal .content ul {
+  margin: 6px 0 12px;
+  padding: 0 18px;
+}
