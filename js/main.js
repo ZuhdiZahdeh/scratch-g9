@@ -89,14 +89,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // ************************************************************
     // 3. وظيفة تلوين كود سكراتش (Syntax Highlighting)
     // ************************************************************
-    const categories = [
-        { cat: 'events', rx: /(when\\s+green\\s+flag\\s+clicked|when\\s+key\\s+pressed|when\\s+this\\s+sprite\\s+clicked)/i },
-        { cat: 'pen', rx: /(pen\\s+up|pen\\s+down|erase\\s+all|set\\s+pen\\s+size|set\\s+pen\\s+color|change\\s+pen\\s+color|stamp)/i },
-        { cat: 'motion', rx: /(move\\s+\\(?[\\w\\-\\+]+\\)?\\s+steps|turn\\s+(clockwise|counterclockwise)|go\\s+to\\s+x:|glide\\s+\\(?[\\w\\-\\+]+\\)?\\s+secs\\s+to\\s+x:|point\\s+in\\s+direction|change\\s+[xy]\\s+by|go\\s+to\\s+random\\s+position)/i },
-        { cat: 'control', rx: /(repeat\\s*\\(|forever|if\\s*\\(|else|wait\\s*\\(|stop\\s+all|until\\s*\\()/i },
-        // إضافة المتغيرات التي قد تظهر داخل brackets
-        { cat: 'variables', rx: /(set\\s+\\[?.+?\\]?\\s+to|change\\s+\\[?.+?\\]?\\s+by|\\[my\\s+variable\\]|الضلع)/i }, 
-        { cat: 'myblocks', rx: /(define\\s+\\w+|^\\s*ارسم\\s|لبنة\\s+مخص)/i }
+const categories = [
+        // تم تصحيح: استخدام \s بدلاً من \\s
+        { cat: 'events', rx: /(when\s+green\s+flag\s+clicked|when\s+key\s+pressed|when\s+this\s+sprite\s+clicked)/i },
+        // تم تصحيح: استخدام \s بدلاً من \\s
+        { cat: 'pen', rx: /(pen\s+up|pen\s+down|erase\s+all|set\s+pen\s+size|set\s+pen\s+color|change\s+pen\s+color|stamp)/i },
+        // هذا هو التصحيح الذي قمت به لفئة motion
+        { cat: 'motion', rx: /(move\s+\(?[^)]+\)?\s+steps|turn\s+(clockwise|counterclockwise)|go\s+to\s+x:|glide\s+\(?[^)]+\)?\s+secs\s+to\s+x:|point\s+in\s+direction|change\s+[xy]\s+by|go\s+to\s+random\s+position)/i },
+        // تم تصحيح: استخدام \s بدلاً من \\s وإزالة \ من الأقواس
+        { cat: 'control', rx: /(repeat\s*\(|forever|if\s*\(|else|wait\s*\(|stop\s+all|until\s*\()/i },
+        // تم تصحيح: استخدام \s بدلاً من \\s
+        { cat: 'variables', rx: /(set\s+\[?.+?\]?\s+to|change\s+\[?.+?\]?\s+by|الضلع)/i },
+        // تم تصحيح: استخدام \s بدلاً من \\s
+        { cat: 'myblocks', rx: /(define\s+\w+|\s*ارسم\s|لبنة\s+مخص)/i }
     ];
 
     function detectCat(line) {

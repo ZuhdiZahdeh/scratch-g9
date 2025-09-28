@@ -178,20 +178,5 @@
   </div>
 
   <script src="../js/main.js" defer></script>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const solutionBtn = document.getElementById('show-solution-btn');
-      const solutionContent = document.getElementById('solution-content');
-
-      if (solutionBtn && solutionContent) {
-        solutionBtn.addEventListener('click', () => {
-          solutionContent.classList.toggle('hidden');
-          solutionBtn.textContent = solutionContent.classList.contains('hidden') ? 'اضغط هنا لعرض الإجابات' : 'إخفاء الإجابات';
-        });
-      }
-    });
-  </script>
-
 </body>
 </html>
