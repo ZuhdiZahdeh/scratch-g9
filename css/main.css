@@ -1,4 +1,4 @@
-/* ===== main.css == مُنقح ومُصلح ==== version=3 ==== */
+/* ===== main.css == مُخففة ==== version=4 ==== */
 
 /* Google Fonts - Tajawal */
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
@@ -173,89 +173,8 @@ h1, h2, h3, h4 {
   height: 100% !important;
 }
 
-/* -------- Modal (نافذة منبثقة) — قواعد كاملة ومُحسّنة -------- */
-#term-modal,
-#imageModal {
-  position: fixed !important;        /* أهم سطر: يضمن التثبيت بالنسبة للنافذة */
-  top: 0 !important;
-  left: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  z-index: 99999 !important;
-  background: rgba(0,0,0,0.55);      /* غطاء خلفي نصف شفاف */
-  box-sizing: border-box;
-  padding: 20px;
-  overflow: auto !important;         /* يسمح باللف داخل modal إذا كان المحتوى كبير */
-}
-
-/* محتوى الـ modal: صندوق أبيض مركزي يقيّد الأبعاد */
-#term-modal .modal-content,
-#imageModal .modal-content {
-  background: var(--card-bg);
-  border-radius: 10px;
-  padding: 12px;
-  max-width: calc(100vw - 60px);
-  max-height: calc(100vh - 60px);
-  overflow: auto;
-  box-shadow: 0 12px 36px rgba(2,6,23,0.35);
-  -webkit-overflow-scrolling: touch;
-}
-
-/* زر الإغلاق */
-#term-modal .modal-close-btn,
-#imageModal .modal-close-btn {
-  position: absolute;
-  top: 14px;
-  left: 14px; /* لأن الصفحة rtl فنجعل زر الإغلاق على اليسار للاتساق مع المشاهد */
-  background: transparent;
-  border: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-  color: var(--text-color);
-  line-height: 1;
-  z-index: 100000;
-}
-
-/* صورة داخل modal */
-#imageModal img,
-#imageModal #modalImage {
-  display: block;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: 80vh;
-  object-fit: contain;
-  margin: 0 auto;
-}
-
-/* محتوى النص التعريفي داخل term-modal */
-#term-modal .term-body {
-  color: var(--text-color);
-  line-height: 1.5;
-  font-size: 1rem;
-}
-
-/* في حال وجود عنصر عرض كامل (fullscreen) */
-.modal-fullscreen .modal-content {
-  width: 100%;
-  height: 100%;
-  border-radius: 0;
-  max-width: 100%;
-  max-height: 100%;
-}
-
 /* -------- تحسينات للأجهزة الصغيرة -------- */
 @media (max-width: 640px) {
   .thumbnail { width: 120px; height: 120px; }
   .card { padding: 16px; }
-  #term-modal, #imageModal { padding: 12px; }
-  #term-modal .modal-content, #imageModal .modal-content {
-    max-width: calc(100vw - 24px);
-    max-height: calc(100vh - 24px);
-    padding: 10px;
-  }
 }
-

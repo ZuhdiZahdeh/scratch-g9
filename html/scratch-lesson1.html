@@ -21,20 +21,22 @@
 
   <main class="container mx-auto p-6">
     <article class="space-y-6">
+      <!-- المقدمة -->
       <section id="introduction" class="card">
         <h2 class="text-3xl text-blue-800 mb-4 border-b-2 pb-2">1. مقدمة</h2>
         <p class="text-lg text-gray-700">مرحباً بك في عالم سكراتش! في هذا الدرس، سنتعرف على الواجهة الأساسية واللبنات البرمجية الرئيسية.</p>
       </section>
 
+      <!-- واجهة Scratch -->
       <section id="interface" class="card">
         <h2 class="text-3xl text-blue-800 mb-4 border-b-2 pb-2">2. واجهة برنامج سكراتش</h2>
         <p class="text-lg mb-4">تنقسم واجهة سكراتش إلى مناطق عمل رئيسية:</p>
         
         <ul class="list-disc list-inside space-y-2 text-lg text-gray-800 mb-6">
-            <li>**المنصة (Stage):** حيث يتم عرض نتيجة المشروع وتحرك الكائنات.</li>
-            <li>**منطقة الكائنات (Sprites):** لإدارة الكائنات وإضافة خلفيات.</li>
-            <li>**منطقة اللبنات:** حيث نجد مجموعات اللبنات البرمجية حسب فئاتها (الحركة، المظهر، الأحداث...).</li>
-            <li>**منطقة الكود:** حيث يتم سحب اللبنات وتركيبها لتكوين البرنامج.</li>
+            <li><strong>المنصة (Stage):</strong> حيث يتم عرض نتيجة المشروع وتحرك الكائنات.</li>
+            <li><strong>منطقة الكائنات (Sprites):</strong> لإدارة الكائنات وإضافة خلفيات.</li>
+            <li><strong>منطقة اللبنات:</strong> حيث نجد مجموعات اللبنات البرمجية حسب فئاتها (الحركة، المظهر، الأحداث...).</li>
+            <li><strong>منطقة الكود:</strong> حيث يتم سحب اللبنات وتركيبها لتكوين البرنامج.</li>
         </ul>
         
         <div class="thumbnail-container">
@@ -43,13 +45,14 @@
         </div>
       </section>
 
+      <!-- أبعاد المسرح -->
       <section id="stage-dimensions" class="card">
         <h2 class="text-3xl text-blue-800 mb-4 border-b-2 pb-2">3. أبعاد مسرح العمل (المنصة)</h2>
         <p class="text-lg mb-4">يعمل مسرح سكراتش بنظام إحداثيات (X/Y) كالآتي:</p>
         <ul class="list-disc list-inside space-y-2 text-lg text-gray-800 mb-6">
-            <li>**المحور X (الأفقي):** يتراوح من -240 (أقصى اليسار) إلى 240 (أقصى اليمين).</li>
-            <li>**المحور Y (العمودي):** يتراوح من -180 (الأسفل) إلى 180 (الأعلى).</li>
-            <li>**المركز:** النقطة (0، 0).</li>
+            <li><strong>المحور X (الأفقي):</strong> يتراوح من -240 (أقصى اليسار) إلى 240 (أقصى اليمين).</li>
+            <li><strong>المحور Y (العمودي):</strong> يتراوح من -180 (الأسفل) إلى 180 (الأعلى).</li>
+            <li><strong>المركز:</strong> النقطة (0، 0).</li>
         </ul>
         <div class="thumbnail-container">
             <img class="thumbnail" onclick="window.showImageModal(this.src)" src="../images/scratch-stage-dimensions.png" alt="أبعاد مسرح سكراتش">
@@ -57,6 +60,7 @@
         </div>
       </section>
       
+      <!-- جدول فئات اللبنات -->
       <section id="scratch-categories" class="card scratch-cats-wrapper">
         <h3 class="text-3xl text-blue-800 mb-4 border-b-2 pb-2">4. جدول فئات اللبنات في سكراتش</h3>
         <p class="text-lg text-gray-700 mb-4">كل صف يمثل فئة لبنات سكراتش؛ خلفية الصف تُطابق لون الفئة في محرّر سكراتش.</p>
@@ -73,69 +77,61 @@
                 <tr class="cat-events border-b border-gray-300">
                     <td class="label p-3">الأحداث (Events)</td>
                     <td class="examples p-3 font-mono">when green flag clicked<br>when this sprite clicked</td>
-                    <td class="p-3">تحدد متى يبدأ تنفيذ الكود (انطلاق عند النقر، عند العلم الأخضر...).</td>
+                    <td class="p-3">تحدد متى يبدأ تنفيذ الكود.</td>
                 </tr>
-
                 <tr class="cat-control border-b border-gray-300">
                     <td class="label p-3">التحكم (Control)</td>
                     <td class="examples p-3 font-mono">repeat (4)<br>if … then<br>forever</td>
-                    <td class="p-3">حلقات وتفرعات وشروط لتنظيم سير التعليمات (تكرار، قرار، إيقاف).</td>
+                    <td class="p-3">حلقات وتفرعات وشروط.</td>
                 </tr>
-
                 <tr class="cat-motion border-b border-gray-300">
                     <td class="label p-3">الحركة (Motion)</td>
                     <td class="examples p-3 font-mono">move 10 steps<br>turn clockwise 15°<br>go to x: y:</td>
-                    <td class="p-3">حركات واتجاهات ومواقع الكائن على المسرح (تحريك، دوران، انتقال).</td>
+                    <td class="p-3">تحريك الكائنات على المسرح.</td>
                 </tr>
-
                 <tr class="cat-pen border-b border-gray-300">
                     <td class="label p-3">القلم (Pen)</td>
                     <td class="examples p-3 font-mono">pen down<br>erase all<br>set pen color to …</td>
-                    <td class="p-3">رسم على المسرح باستخدام القلم: رسم خطوط وتغيير لون القلم ومسحه.</td>
+                    <td class="p-3">الرسم على المسرح.</td>
                 </tr>
-
                 <tr class="cat-looks border-b border-gray-300">
                     <td class="label p-3">المظاهر (Looks)</td>
                     <td class="examples p-3 font-mono">say "Hi" for 2 secs<br>switch costume to …</td>
-                    <td class="p-3">تغيير مظهر الكائن وإظهار نصوص أو حوارات على المسرح.</td>
+                    <td class="p-3">تغيير المظهر.</td>
                 </tr>
-
                 <tr class="cat-sound border-b border-gray-300">
                     <td class="label p-3">الأصوات (Sound)</td>
                     <td class="examples p-3 font-mono">play sound Meow<br>start sound …</td>
-                    <td class="p-3">تشغيل مؤثرات أو مقاطع صوتية مرتبطة بالكائن.</td>
+                    <td class="p-3">تشغيل الأصوات.</td>
                 </tr>
-
                 <tr class="cat-sensing border-b border-gray-300">
                     <td class="label p-3">الاستشعار (Sensing)</td>
                     <td class="examples p-3 font-mono">touching [mouse-pointer]?<br>ask [What's your name?]</td>
-                    <td class="p-3">التفاعل مع المسرح أو المستخدم: لمس، قراءة إجابة المستخدم، قياس المسافة.</td>
+                    <td class="p-3">التفاعل مع المستخدم.</td>
                 </tr>
-
                 <tr class="cat-operators border-b border-gray-300">
                     <td class="label p-3">المشغّلات (Operators)</td>
-                    <td class="examples p-3 font-mono">(1 + 2) <br>pick random 1 to 10 <br> &lt; &gt;</td>
-                    <td class="p-3">عمليات حسابية ومنطقية (جمع، طرح، مقارنة، اختيار عشوائي).</td>
+                    <td class="examples p-3 font-mono">(1 + 2)<br>pick random 1 to 10</td>
+                    <td class="p-3">عمليات حسابية.</td>
                 </tr>
-
                 <tr class="cat-variables border-b border-gray-300">
                     <td class="label p-3">المتغيّرات (Variables)</td>
                     <td class="examples p-3 font-mono">set [score] to 0<br>change [score] by 1</td>
-                    <td class="p-3">تخزين قيم قابلة للتغيير أثناء التشغيل (مثل النقاط، الوقت، الطول).</td>
+                    <td class="p-3">تخزين القيم.</td>
                 </tr>
-
                 <tr class="cat-myblocks border-b border-gray-300">
                     <td class="label p-3">اللبنات المخصّصة (My Blocks)</td>
                     <td class="examples p-3 font-mono">define draw_square<br>call draw_square (100)</td>
-                    <td class="p-3">إنشاء لبنات جديدة لتجميع كتل متكررة وزيادة إعادة الاستخدام.</td>
+                    <td class="p-3">إنشاء لبنات خاصة.</td>
                 </tr>
             </tbody>
         </table>
       </section>
 
+      <!-- المفاهيم -->
       <section id="terms" class="card">
         <h2 class="text-3xl text-blue-800 mb-4 border-b-2 pb-2">5. المفاهيم والمفردات الرئيسية</h2>
-        <p class="text-lg mb-4">هذه أهم المفاهيم التي سنستخدمها في دروسنا (انقر على كل مصطلح لمعرفة تعريفه):</p>
+        <p class="text-lg mb-4">انقر على كل مصطلح لمعرفة تعريفه:</p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div class="term-card" data-term="البرمجة">
                 <span class="term-title">البرمجة</span> <span class="term-english">(Programming)</span>
@@ -164,15 +160,17 @@
     <p>&copy; 2025 مستودع البرمجة للصف التاسع</p>
   </footer>
 
-  <div id="term-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-[5000]">
+  <!-- Modal التعريفات -->
+  <div id="term-modal" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-[5000]">
     <div class="bg-white rounded-lg shadow-lg p-6 w-11/12 md:w-96 relative">
-      <button class="modal-close-btn absolute top-3 left-3 text-gray-500 hover:text-gray-700 text-3xl font-light leading-none">&times;</button>
+      <button class="absolute top-3 left-3 text-gray-500 hover:text-gray-700 text-3xl leading-none" onclick="document.getElementById('term-modal').classList.add('hidden')">&times;</button>
       <h3 id="term-modal-title" class="text-2xl font-bold mb-4 text-blue-700 border-b pb-2"></h3>
       <div id="term-modal-body" class="text-gray-800 text-lg"></div>
     </div>
   </div>
 
-  <div id="imageModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 hidden z-[9999]">
+  <!-- Modal الصور -->
+  <div id="imageModal" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-[9999]">
       <button class="text-white text-3xl absolute top-4 left-4 z-[10001]" onclick="window.hideImageModal()">&times;</button>
       <img id="modalImage" class="max-h-[90vh] max-w-[90vw] object-contain" src="" alt="صورة مكبرة">
   </div>
