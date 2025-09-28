@@ -6,7 +6,7 @@
   <title>الدرس 1: جولة استكشافية</title>
 
   <link rel="stylesheet" href="../css/main.css" />
-  <link rel="stylesheet" href="../css/scratch-lesson1.css" />
+
 </head>
 <body class="bg-gray-100">
   <header class="bg-blue-600 text-white p-4">
@@ -161,19 +161,19 @@
   </footer>
 
   <!-- Modal التعريفات -->
-  <div id="term-modal" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-[5000]">
-    <div class="bg-white rounded-lg shadow-lg p-6 w-11/12 md:w-96 relative">
-      <button class="absolute top-3 left-3 text-gray-500 hover:text-gray-700 text-3xl leading-none" onclick="document.getElementById('term-modal').classList.add('hidden')">&times;</button>
-      <h3 id="term-modal-title" class="text-2xl font-bold mb-4 text-blue-700 border-b pb-2"></h3>
-      <div id="term-modal-body" class="text-gray-800 text-lg"></div>
-    </div>
+<div id="term-modal" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-[99999]">
+  <div class="bg-white rounded-lg shadow-lg p-6 w-11/12 md:w-96 relative">
+    <button class="absolute top-3 left-3 text-gray-500 hover:text-gray-700 text-3xl leading-none" onclick="document.getElementById('term-modal').classList.add('hidden')">&times;</button>
+    <h3 id="term-modal-title" class="text-2xl font-bold mb-4 text-blue-700 border-b pb-2"></h3>
+    <div id="term-modal-body" class="text-gray-800 text-lg"></div>
   </div>
+</div>
 
-  <!-- Modal الصور -->
-  <div id="imageModal" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-[9999]">
-      <button class="text-white text-3xl absolute top-4 left-4 z-[10001]" onclick="window.hideImageModal()">&times;</button>
-      <img id="modalImage" class="max-h-[90vh] max-w-[90vw] object-contain" src="" alt="صورة مكبرة">
-  </div>
+    <!-- Modal الصور -->
+<div id="imageModal" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-[99999]">
+    <button class="text-white text-3xl absolute top-4 left-4 z-[100000]" onclick="window.hideImageModal()">&times;</button>
+    <img id="modalImage" class="max-h-[90vh] max-w-[90vw] object-contain" src="" alt="صورة مكبرة">
+</div>
 
   <script src="../js/main.js" defer></script>
 </body>

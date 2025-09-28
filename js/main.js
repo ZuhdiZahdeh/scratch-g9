@@ -70,12 +70,12 @@ document.addEventListener('DOMContentLoaded', () => {
         window.showImageModal = function(imageUrl) {
             modalImage.src = imageUrl;
             imageModal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // منع تمرير الصفحة
+            // document.body.style.overflow = 'hidden'; // منع تمرير الصفحة
         };
 
         window.hideImageModal = function() {
             imageModal.classList.add('hidden');
-            document.body.style.overflow = 'auto'; // إعادة تفعيل التمرير
+            // document.body.style.overflow = 'auto'; // إعادة تفعيل التمرير
         };
 
         // الإغلاق بالنقر على القناع (الخلفية السوداء) فقط
