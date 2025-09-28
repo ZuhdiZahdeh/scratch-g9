@@ -168,10 +168,7 @@ h1, h2, h3, h4 {
 }
 
 /* عند فتح modal — منع تمرير خلفي (يُفعّل عبر JS إذا رغبت) */
-.modal-open {
-  overflow: hidden !important;
-  height: 100% !important;
-}
+
 
 /* -------- تحسينات للأجهزة الصغيرة -------- */
 @media (max-width: 640px) {
