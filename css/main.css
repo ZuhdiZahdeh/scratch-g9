@@ -1,3 +1,5 @@
+/* ===== main.css == مُنقح ومُصلح ==== version=3 ==== */
+
 /* Google Fonts - Tajawal */
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
 
@@ -5,11 +7,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* --------:root و ألوان المشروع -------- */
 :root {
     --primary-color: #2563EB;
     --secondary-color: #3B82F6;
     --text-color: #1F2937;
     --bg-color: #F3F4F6;
+    --card-bg: #ffffff;
+    --muted: #6B7280;
+}
+
+/* -------- قواعد أساسية للصفحة -------- */
+html, body {
+    height: 100%;
 }
 
 body {
@@ -18,48 +28,46 @@ body {
     direction: rtl;
     text-align: right;
     line-height: 1.6;
+    color: var(--text-color);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
 }
 
+/* رؤوس */
 h1, h2, h3, h4 {
     font-weight: 700;
+    margin-top: 0;
 }
 
+/* حاوية */
 .container {
     max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+    box-sizing: border-box;
 }
 
-.bg-gray-800 {
-    background-color: #1F2937;
-}
+/* نصوص وألوان مساعدة */
+.bg-gray-800 { background-color: #1F2937; }
+.text-white { color: #F9FAFB; }
+.text-blue-800 { color: #1E40AF; }
+.text-blue-700 { color: #1D4ED8; }
+.text-blue-500 { color: #3B82F6; }
 
-.text-white {
-    color: #F9FAFB;
-}
-
-.text-blue-800 {
-    color: #1E40AF;
-}
-
-.text-blue-700 {
-    color: #1D4ED8;
-}
-
-.text-blue-500 {
-    color: #3B82F6;
-}
-
-/* ********** تنسيقات البطاقات (Cards) والمحتوى ********** */
-
+/* -------- Cards و Layouts -------- */
 .card {
-    background-color: #fff;
+    background-color: var(--card-bg);
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.06);
     padding: 24px;
     margin-bottom: 24px;
     border: 1px solid #E5E7EB;
+    box-sizing: border-box;
 }
 
-/* تنسيق الروابط للعودة */
+/* رابط العودة */
 .back-link {
     display: inline-block;
     margin-bottom: 20px;
@@ -67,13 +75,9 @@ h1, h2, h3, h4 {
     text-decoration: none;
     font-weight: 700;
 }
+.back-link:hover { text-decoration: underline; }
 
-.back-link:hover {
-    text-decoration: underline;
-}
-
-/* ********** تنسيقات المفاهيم والمفردات ********** */
-
+/* -------- Term Cards (المفاهيم) -------- */
 .term-card {
     background-color: #F3F4F6;
     border: 1px solid #D1D5DB;
@@ -81,73 +85,43 @@ h1, h2, h3, h4 {
     padding: 12px 16px;
     margin-bottom: 10px;
     cursor: pointer;
-    transition: background-color 0.2s, box-shadow 0.2s;
+    transition: background-color 0.18s ease, box-shadow 0.18s ease, transform 0.12s ease;
 }
-
 .term-card:hover {
     background-color: #E5E7EB;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transform: translateY(-2px);
 }
+.term-title { font-weight: 700; color: var(--text-color); }
+.term-english { color: var(--muted); font-style: italic; font-size: 0.9em; }
 
-.term-title {
-    font-weight: 700;
-    color: var(--text-color);
-}
-
-.term-english {
-    color: #6B7280;
-    font-style: italic;
-    font-size: 0.9em;
-}
-
-/* ********** تنسيق النافذة المنبثقة للمفاهيم (Term Modal) ********** */
-
-#term-modal {
-    /* قيمة Z-Index عالية جداً لضمان الظهور فوق كل شيء */
-    z-index: 5000; 
-}
-
-/* زر إغلاق نافذة المفاهيم (للتناسق) */
-#term-modal .modal-close-btn {
-    line-height: 1;
-    font-size: 2rem; 
-}
-
-/* ********** تنسيقات الصور المصغرة و Modal الصور ********** */
-
-/* حاوية الصورة المصغرة: لتوسيط الصورة */
+/* -------- Thumbnails و صور المعاينة -------- */
 .thumbnail-container {
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
     text-align: center;
     margin-bottom: 20px;
 }
-
-/* الصورة المصغرة نفسها: تحديد الأبعاد وتفعيل النقر */
 .thumbnail {
     width: 150px;
     height: 150px;
-    object-fit: contain; 
-    cursor: pointer; 
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    transition: transform 0.2s;
+    object-fit: contain;
+    cursor: pointer;
+    border: 1px solid #E2E8F0;
+    border-radius: 6px;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    background: #fff;
+    display: inline-block;
 }
-
 .thumbnail:hover {
-    transform: scale(1.05); 
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(13, 27, 56, 0.06);
 }
 
-/* نافذة العرض المنبثقة (Modal) للصور */
-#imageModal {
-    z-index: 9999; 
-}
-
-/* ********** تنسيقات كود سكراتش (Syntax Highlighting) ********** */
-
+/* -------- كود سكراتش (Syntax Highlighting) -------- */
 .scratch-code {
-    background: #111;
+    background: #0b0b0b;
     color: #fff;
     padding: 24px 28px;
     border-radius: 8px;
@@ -160,32 +134,128 @@ h1, h2, h3, h4 {
     border: 1px solid #111;
     box-shadow: 0 10px 16px rgba(0, 0, 0, .2);
 }
-
-.scratch-code code {
-    white-space: pre-wrap;
-}
-
-/* 🎯 هذا هو الحل: تنسيق أساسي شامل لكل الأسطر الملونة */
+.scratch-code code { white-space: pre-wrap; }
 .scratch-code .line {
-    /* تم تفعيل display: block لضمان أن كل سطر يأخذ سطرًا جديدًا كاملاً للتلوين */
-    display: block; 
+    display: block;
     padding: 4px 10px;
     margin: 4px 0;
     border-radius: 4px;
     font-weight: 700;
+    background-color: transparent;
     box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    background-color: transparent; 
 }
 
-/* 🎯 هذا هو الحل: توحيد المُحدِّدات لملفات JS/CSS */
-/* الألوان يتم تطبيقها مباشرة على فئة الـ 'cat-' التي يضيفها ملف main.js */
-.cat-events     { background:#FFD500; color:#051017; }     /* Events */
-.cat-control   { background:#FFAB19; color:#fff; }     /* Control */
-.cat-motion    { background:#4C97FF; color:#fff; }     /* Motion */
-.cat-pen       { background:#0FBD8C; color:#fff; }     /* Pen */
-.cat-looks     { background:#9966FF; color:#fff; }     /* Looks */ /* تم إضافته ليعمل */
-.cat-sound     { background:#FF66B2; color:#fff; }     /* Sound */ /* تم إضافته ليعمل */
-.cat-sensing   { background:#5CB1D6; color:#051017; }  /* Sensing */ /* تم إضافته ليعمل */
-.cat-operators { background:#59C059; color:#051017; }  /* Operators */ /* تم إضافته ليعمل */
-.cat-variables { background:#FF8C1A; color:#051017; }  /* Variables/Data */
-.cat-myblocks  { background:#FF6680; color:#051017; }  /* My Blocks */
+/* فئات الألوان (تطابق مع main.js) */
+.cat-events     { background:#FFD500; color:#051017; }
+.cat-control    { background:#FFAB19; color:#fff; }
+.cat-motion     { background:#4C97FF; color:#fff; }
+.cat-pen        { background:#0FBD8C; color:#fff; }
+.cat-looks      { background:#9966FF; color:#fff; }
+.cat-sound      { background:#FF66B2; color:#fff; }
+.cat-sensing    { background:#5CB1D6; color:#051017; }
+.cat-operators  { background:#59C059; color:#051017; }
+.cat-variables  { background:#FF8C1A; color:#051017; }
+.cat-myblocks   { background:#FF6680; color:#051017; }
+
+/* -------- Helper classes -------- */
+.hidden { display: none !important; }
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px,1px,1px,1px);
+  white-space: nowrap;
+}
+
+/* عند فتح modal — منع تمرير خلفي (يُفعّل عبر JS إذا رغبت) */
+.modal-open {
+  overflow: hidden !important;
+  height: 100% !important;
+}
+
+/* -------- Modal (نافذة منبثقة) — قواعد كاملة ومُحسّنة -------- */
+#term-modal,
+#imageModal {
+  position: fixed !important;        /* أهم سطر: يضمن التثبيت بالنسبة للنافذة */
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 99999 !important;
+  background: rgba(0,0,0,0.55);      /* غطاء خلفي نصف شفاف */
+  box-sizing: border-box;
+  padding: 20px;
+  overflow: auto !important;         /* يسمح باللف داخل modal إذا كان المحتوى كبير */
+}
+
+/* محتوى الـ modal: صندوق أبيض مركزي يقيّد الأبعاد */
+#term-modal .modal-content,
+#imageModal .modal-content {
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 12px;
+  max-width: calc(100vw - 60px);
+  max-height: calc(100vh - 60px);
+  overflow: auto;
+  box-shadow: 0 12px 36px rgba(2,6,23,0.35);
+  -webkit-overflow-scrolling: touch;
+}
+
+/* زر الإغلاق */
+#term-modal .modal-close-btn,
+#imageModal .modal-close-btn {
+  position: absolute;
+  top: 14px;
+  left: 14px; /* لأن الصفحة rtl فنجعل زر الإغلاق على اليسار للاتساق مع المشاهد */
+  background: transparent;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--text-color);
+  line-height: 1;
+  z-index: 100000;
+}
+
+/* صورة داخل modal */
+#imageModal img,
+#imageModal #modalImage {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+/* محتوى النص التعريفي داخل term-modal */
+#term-modal .term-body {
+  color: var(--text-color);
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+/* في حال وجود عنصر عرض كامل (fullscreen) */
+.modal-fullscreen .modal-content {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* -------- تحسينات للأجهزة الصغيرة -------- */
+@media (max-width: 640px) {
+  .thumbnail { width: 120px; height: 120px; }
+  .card { padding: 16px; }
+  #term-modal, #imageModal { padding: 12px; }
+  #term-modal .modal-content, #imageModal .modal-content {
+    max-width: calc(100vw - 24px);
+    max-height: calc(100vh - 24px);
+    padding: 10px;
+  }
+}
+
