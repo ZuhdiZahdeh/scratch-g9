@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الدرس 1: جولة استكشافية</title>
+
+  <link rel="stylesheet" href="../css/main.css?v=3" />
+  <link rel="stylesheet" href="../css/scratch-lesson1.css" />
+  <!-- <link rel="stylesheet" href="../css/scratch-lesson2.css" />  -->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" /> -->
+</head>
+<body class="bg-gray-100">
+   <header class="bg-blue-600 text-white p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-3xl font-bold">البرمجة للصف التاسع</h1>
+      <nav>
+        <a href="../index.html" class="hover:text-yellow-400 mx-2">الرئيسية</a>
+        <a href="scratch-lesson2.html" class="hover:text-yellow-400 mx-2">الدرس التالي</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto p-6">
+    <article class="bg-white p-8 rounded-lg shadow-lg">
+      <h2 class="text-4xl text-center text-blue-800 mb-6">الدرس الأول: جولة استكشافية</h2>
+      <p class="text-xl text-center text-gray-700 mb-8">
+        هذا الدرس هو مدخلك الأول لعالم البرمجة. سنتعرّف فيه على برنامج سكراتش، وكيف يمكننا استخدامه لتحويل أفكارنا إلى مشاريع مذهلة!
+      </p>
+
+      <section class="mb-8">
+        <h3 class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">الأهداف التعليمية</h3>
+        <ul class="list-disc list-inside space-y-2 text-lg text-gray-800">
+          <li>يتعرّف الطالب على واجهة برنامج سكراتش الرئيسية.</li>
+          <li>يصف الطالب وظيفة كل جزء من أجزاء واجهة البرنامج.</li>
+          <li>يستخدم الطالب لبنات القلم لرسم أشكال هندسية.</li>
+        </ul>
+      </section>
+
+      <section class="mb-8">
+        <h3 class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">المفاهيم والمفردات</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="bg-blue-100 p-4 rounded-lg term-card" data-term="البرمجة">
+            <h4 class="font-bold text-xl text-blue-900">البرمجة</h4>
+            <p class="text-gray-600">Programming</p>
+          </div>
+          <div class="bg-blue-100 p-4 rounded-lg term-card" data-term="الكائن">
+            <h4 class="font-bold text-xl text-blue-900">الكائن</h4>
+            <p class="text-gray-600">Sprite</p>
+          </div>
+          <div class="bg-blue-100 p-4 rounded-lg term-card" data-term="اللبنة">
+            <h4 class="font-bold text-xl text-blue-900">اللبنة</h4>
+            <p class="text-gray-600">Block</p>
+          </div>
+          <div class="bg-blue-100 p-4 rounded-lg term-card" data-term="المنصة">
+            <h4 class="font-bold text-xl text-blue-900">المنصة</h4>
+            <p class="text-gray-600">Stage</p>
+          </div>
+          <div class="bg-blue-100 p-4 rounded-lg term-card" data-term="المتغير">
+            <h4 class="font-bold text-xl text-blue-900">المتغيّر</h4>
+            <p class="text-gray-600">Variable</p>
+          </div>
+          <div class="bg-blue-100 p-4 rounded-lg term-card" data-term="لبنة_مخصصة">
+            <h4 class="font-bold text-xl text-blue-900">لبنة مخصّصة</h4>
+            <p class="text-gray-600">My Block</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-8">
+        <h3 class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">أبعاد مسرح العمل (The Stage)</h3>
+        <div class="bg-gray-100 p-4 rounded-lg">
+          <p class="text-lg text-gray-800 mb-4">
+            يُعتبر مسرح العمل في برنامج سكراتش بمثابة الخلفية التي تتحرك عليها الكائنات وتتفاعل معها. معرفة أبعاد هذا المسرح أمر ضروري جدًا، حيث يساعدك على التحكم في مكان الكائنات وتصميم مشروعك بدقة، وتجنُّب خروجها عن حدود الشاشة.
+          </p>
+          <p class="text-lg text-gray-800 mb-4">
+            يتم تحديد أبعاد المسرح باستخدام نظام الإحداثيات السيني-الصادي (X-Y)، حيث يقع مركز المسرح عند النقطة (X:0, Y:0).
+          </p>
+          <ul class="list-disc list-inside space-y-1 text-gray-700 mt-2">
+            <li><strong>أفقيًا (المحور السيني X):</strong> تتراوح القيم من -240 (أقصى اليسار) إلى 240 (أقصى اليمين).</li>
+            <li><strong>عموديًا (المحور الصادي Y):</strong> تتراوح القيم من -180 (الأسفل) إلى 180 (الأعلى).</li>
+          </ul>
+          <div class="flex justify-center mt-6">
+          <img src="../images/Scratch-workspace-limits.png" 
+     alt="أبعاد مسرح سكراتش" 
+     class="cursor-pointer rounded-lg shadow-lg" 
+     width="100" height="100" 
+     onclick="showImageModal('../images/Scratch-workspace-limits.png')">
+          </div>
+        </div>
+      </section>
+
+      <section id="scratch-categories" class="scratch-cats-wrapper">
+        <h3 class="text-2xl text-blue-700 mb-3">جدول فئات اللبنات في سكراتش</h3>
+        <p class="note" style="margin-bottom:10px;">كل صف يمثل فئة لبنات سكراتش؛ خلفية الصف تُطابق لون الفئة في محرّر سكراتش.</p>
+
+        <table class="scratch-cats-table" role="table" aria-label="Scratch blocks categories">
+          <thead>
+            <tr>
+              <th style="width:22%;">الفئة</th>
+              <th style="width:40%;">أمثلة</th>
+              <th style="width:38%;">شرح مبسّط</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr class="cat-events">
+              <td class="label">الأحداث (Events)</td>
+              <td class="examples">when green flag clicked<br>when this sprite clicked</td>
+              <td>تحدد متى يبدأ تنفيذ الكود (انطلاق عند النقر، عند العلم الأخضر...).</td>
+            </tr>
+
+            <tr class="cat-control">
+              <td class="label">التحكم (Control)</td>
+              <td class="examples">repeat (4)<br>if … then<br>forever</td>
+              <td>حلقات وتفرعات وشروط لتنظيم سير التعليمات (تكرار، قرار، إيقاف).</td>
+            </tr>
+
+            <tr class="cat-motion">
+              <td class="label">الحركة (Motion)</td>
+              <td class="examples">move 10 steps<br>turn clockwise 15°<br>go to x: y:</td>
+              <td>حركات واتجاهات ومواقع الكائن على المسرح (تحريك، دوران، انتقال).</td>
+            </tr>
+
+            <tr class="cat-pen">
+              <td class="label">القلم (Pen)</td>
+              <td class="examples">pen down<br>erase all<br>set pen color to …</td>
+              <td>رسم على المسرح باستخدام القلم: رسم خطوط وتغيير لون القلم ومسحه.</td>
+            </tr>
+
+            <tr class="cat-looks">
+              <td class="label">المظاهر (Looks)</td>
+              <td class="examples">say "Hi" for 2 secs<br>switch costume to …</td>
+              <td>تغيير مظهر الكائن وإظهار نصوص أو حوارات على المسرح.</td>
+            </tr>
+
+            <tr class="cat-sound">
+              <td class="label">الأصوات (Sound)</td>
+              <td class="examples">play sound Meow<br>start sound …</td>
+              <td>تشغيل مؤثرات أو مقاطع صوتية مرتبطة بالكائن.</td>
+            </tr>
+
+            <tr class="cat-sensing">
+              <td class="label">الاستشعار (Sensing)</td>
+              <td class="examples">touching [mouse-pointer]?<br>ask [What's your name?]</td>
+              <td>التفاعل مع المسرح أو المستخدم: لمس، قراءة إجابة المستخدم، قياس المسافة.</td>
+            </tr>
+
+            <tr class="cat-operators">
+              <td class="label">المشغّلات (Operators)</td>
+              <td class="examples">(1 + 2) <br>pick random 1 to 10 <br> &lt; &gt;</td>
+              <td>عمليات حسابية ومنطقية (جمع، طرح، مقارنة، اختيار عشوائي).</td>
+            </tr>
+
+            <tr class="cat-variables">
+              <td class="label">المتغيّرات (Variables)</td>
+              <td class="examples">set [score] to 0<br>change [score] by 1</td>
+              <td>تخزين قيم قابلة للتغيير أثناء التشغيل (مثل النقاط، الوقت، الطول).</td>
+            </tr>
+
+            <tr class="cat-myblocks">
+              <td class="label">اللبنات المخصّصة (My Blocks)</td>
+              <td class="examples">define draw_square<br>call draw_square (100)</td>
+              <td>إنشاء لبنات جديدة لتجميع كتل متكررة وزيادة إعادة الاستخدام.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="mb-8">
+        <h3 class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">واجبات الدرس</h3>
+
+        <div class="bg-red-100 p-4 rounded-lg mb-4">
+          <h4 class="font-bold text-xl text-red-800 mb-2">ملاحظة هامة لتسليم المشاريع</h4>
+          <p class="text-lg text-gray-800 mb-2">
+            قبل التسليم، سمِّ ملف المشروع (.sb3) بصيغة موحّدة.
+          </p>
+          <p class="text-lg text-gray-800">
+            <strong>الصيغة:</strong>
+            <span class="font-mono bg-gray-200 px-2 py-1 rounded">YourName-ProjectName</span>
+          </p>
+        </div>
+
+        <div class="bg-green-100 p-4 rounded-lg mb-4">
+          <h4 class="font-bold text-xl text-green-800 mb-2">واجب الحصة (للمختبر)</h4>
+          <ul class="list-disc list-inside space-y-1 text-gray-700 mt-2">
+            <li>أنشئ لبنة مخصّصة <code>ارسم مربع (الضلع)</code> واستخدمها لرسم مربع.</li>
+          </ul>
+        </div>
+
+        <div class="bg-yellow-100 p-4 rounded-lg">
+          <h4 class="font-bold text-xl text-yellow-800 mb-2">واجب منزلي (Classroom)</h4>
+          <ul class="list-disc list-inside space-y-1 text-gray-700 mt-2">
+            <li>أنشئ لبنة <code>ارسم معين (الضلع) (الزاوية)</code> واحسب الزاوية المنفرجة = 180 − الزاوية الحادّة.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="mb-8">
+        <h3 id="solutions-section" class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">الإجابات النموذجية</h3>
+        <button onclick="document.getElementById('solution-content').style.display='block'; this.style.display='none';" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full">
+          اضغط هنا لعرض الإجابات
+        </button>
+        <div id="solution-content" class="mt-4 p-4 bg-gray-100 rounded-lg hidden">
+          <h4 class="font-bold text-xl text-green-800 mb-2">حل واجب الحصة:</h4>
+          <p class="text-lg mb-2">تعريف لبنة <code>ارسم مربع (الضلع)</code> واستخدامها:</p>
+
+          <pre class="scratch-code"><code>define ارسم مربع (الضلع)
+repeat (4)
+        move (الضلع) steps
+        turn clockwise (90) degrees
+<span class="line" data-cat="control">end</span>
+
+when green flag clicked
+erase all
+pen down
+ارسم مربع (150)
+pen up</code></pre>
+        </div>
+      </section>
+
+      <section class="mb-8">
+        <h3 class="text-2xl text-blue-700 border-b-2 border-blue-400 pb-2 mb-4">مصادر إضافية (للإثراء)</h3>
+        <ul class="list-disc list-inside space-y-2 text-lg text-gray-800">
+          <li><a href="https://scratch.mit.edu/projects/editor/" target="_blank" class="text-blue-500 hover:underline">محرر سكراتش على الإنترنت</a></li>
+        </ul>
+      </section>
+    </article>
+  </main>
+
+  <footer class="bg-gray-800 text-white text-center p-4 mt-8">
+    <p>&copy; 2025 مستودع البرمجة للصف التاسع</p>
+  </footer>
+
+  <script src="../js/main.js" defer></script>
+  
+  <div id="term-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden modal-overlay">
+    <div class="bg-white rounded-lg shadow-lg p-6 w-96 relative">
+      <button class="modal-close-btn absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl font-bold">&times;</button>
+      <h3 id="term-modal-title" class="text-2xl font-bold mb-4 text-blue-700"></h3>
+      <div id="term-modal-body" class="text-gray-800 text-lg"></div>
+    </div>
+  </div>
+
+<div id="imageModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50 hidden">
+    <div class="relative max-w-full max-h-screen p-4">
+        <button class="absolute top-4 right-6 text-white text-4xl font-bold hover:text-gray-300" onclick="hideImageModal()">&times;</button>
+        <img id="modalImage" class="max-h-screen-image rounded-lg"> 
+    </div>
+  </div>
+
+</body>
+</html>
