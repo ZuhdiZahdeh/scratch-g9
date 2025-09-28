@@ -8,8 +8,7 @@
   <link rel="stylesheet" href="../css/scratch-lesson2.css" />
 </head>
 <body>
-  <main class="page">
-<header class="bg-blue-600 text-white p-4">
+  <header class="bg-blue-600 text-white p-4">
     <div class="container mx-auto flex justify-between items-center">
       <h1 class="text-3xl font-bold">رسم المربع</h1>
       <nav>
@@ -19,13 +18,14 @@
     </div>
   </header>
 
+  <main class="page container mx-auto p-6">
     <a href="scratch-lesson2.html" class="back-link">← العودة إلى قائمة الأشكال</a>
 
     <section id="square-simple" class="card">
       <h2>A) المربع — الطريقة الأسهل</h2>
       <p>أقل عدد ممكن من اللبنات: حلقة تكرار 4 + حركة ودوران.</p>
       <div class="thumbnail-container">
-        <img class="thumbnail" onclick="showImageModal(this.src)" src="../images/Square-MovementAndRotation.png" alt="كود سكراتش لرسم مربع">
+        <img class="thumbnail" onclick="window.showImageModal(this.src)" src="../images/Square-MovementAndRotation.png" alt="كود سكراتش لرسم مربع">
         <p>كود سكراتش لرسم مربع</p>
       </div>
       <pre class="scratch-code"><code>when green flag clicked
@@ -35,135 +35,110 @@ set pen size to (5)
 go to x:(-225) y:(160)
 pen down
 repeat (4)
-        move (320) steps
+        move (100) steps
         turn clockwise (90) degrees
-<span class="line" data-cat="control">end</span>
+end
 pen up</code></pre>
     </section>
 
     <section id="square-xy" class="card">
-      <h2>B) المربع — باستخدام النقاط الثابتة (X/Y)</h2>
-      <p>استخدم أربع نقاط أركان: (-150,150) → (150,150) → (150,-150) → (-150,-150) → العودة.</p>
-      <div class="thumbnail-container">
-        <img class="thumbnail" onclick="showImageModal(this.src)" src="../images/Square-FixedPoints.png" alt="كود سكراتش لرسم مربع باستخدام النقاط الثابتة">
-        <p>كود سكراتش لرسم مربع باستخدام النقاط الثابتة</p>
-      </div>
-      <pre class="scratch-code"><code>when green flag clicked
+        <h2>B) المربع — باستخدام النقاط الثابتة (X/Y)</h2>
+        <p>بدلاً من الحركة والدوران، يمكن الاعتماد على تغيير إحداثيات (X/Y) لرسم الشكل.</p>
+        <div class="thumbnail-container">
+            <img class="thumbnail" onclick="window.showImageModal(this.src)" src="../images/Square-XY-fixed.png" alt="كود سكراتش لرسم مربع باستخدام إحداثيات X/Y">
+            <p>كود سكراتش لرسم مربع باستخدام إحداثيات X/Y</p>
+        </div>
+        <pre class="scratch-code"><code>when green flag clicked
 erase all
 pen up
 set pen size to (5)
-go to x:(-150) y:(150)
+go to x:(0) y:(0)
 pen down
-glide (1) secs to x:(150) y:(150)
-glide (1) secs to x:(150) y:(-150)
-glide (1) secs to x:(-150) y:(-150)
-glide (1) secs to x:(-150) y:(150)
+        go to x:(100) y:(0)
+        go to x:(100) y:(100)
+        go to x:(0) y:(100)
+        go to x:(0) y:(0)
 pen up</code></pre>
-      <div class="thumbnail-container">
-        <img class="thumbnail" onclick="showImageModal(this.src)" src="../images/Square-FixedPoints-Result.png" alt="شكل مربع مرسوم باستخدام النقاط الثابتة">
-        <p>النتيجة النهائية لرسم المربع</p>
-      </div>
     </section>
 
     <section id="square-variable" class="card">
-      <h2>C) المربع — باستخدام متغيّر (طول_الضلع)</h2>
-      <p>لتغيير حجم المربع بسهولة، يمكننا استخدام متغير. قم بإنشاء متغير جديد اسمه <span class="monospace-text">طول_الضلع</span>.</p>
+      <h2>C) المربع — استخدام متغيرات لضبط طول الضلع</h2>
+      <p>يمكن استخدام <span class="term-card inline-block" data-term="المتغير">متغير</span> للتحكم بمرونة في طول الضلع.</p>
       <div class="thumbnail-container">
-        <img class="thumbnail" onclick="showImageModal(this.src)" src="../images/Square-Variable-side_length.png" alt="كود سكراتش لرسم مربع باستخدام متغير">
-        <p>كود سكراتش لرسم مربع بمتغير</p>
+        <img class="thumbnail" onclick="window.showImageModal(this.src)" src="../images/Square-Variable-side_length.png" alt="كود سكراتش لرسم مربع باستخدام متغير">
+        <p>كود سكراتش لرسم مربع باستخدام متغير</p>
       </div>
+    </section>
+    
+    <section id="square-myblock" class="card">
+      <h2>D) ترقية: لبنة مخصّصة — ارسم مربع(الضلع)</h2>
+      <p>يمكن تبسيط الكود وإنشاء لبنة خاصة بنا (لبنة مخصصة) تجمع الأوامر المتكررة.</p>
+      
+      <h3>تعريف اللبنة</h3>
+      <pre class="scratch-code"><code>define ارسم مربع (الضلع)
+repeat (4)
+        move (الضلع) steps
+        turn clockwise (90) degrees
+end</code></pre>
+      
+      <h3>الاستخدام (رسم مربع واحد)</h3>
       <pre class="scratch-code"><code>when green flag clicked
 erase all
-pen up
-set pen size to (5)
-go to x:(-225) y:(160)
 pen down
-set <span class="line" data-cat="variables">[طول_الضلع]</span> to (150)
-repeat (4)
-<span class="line" data-cat="motion">    move </span><span class="line" data-cat="variables"> (طول_الضلع)</span><span class="line" data-cat="motion"> steps </span> 
-    turn clockwise (90) degrees
-<span class="line" data-cat="control">end</span>
+ارسم مربع (150)
 pen up</code></pre>
     </section>
 
-    <section id="square-result" class="card">
-      <h2>صورة النتيجة</h2>
+    <section id="square-overlapping" class="card">
+      <h2>E) رسم مربع متداخل (إثراء)</h2>
+      <p>باستخدام لبنة <code>ارسم مربع (الضلع)</code>، يمكننا تكرار رسم المربع مع تحريك بسيط (دوران) بين كل تكرار.</p>
+      
+      <h3>كود سكراتش</h3>
       <div class="thumbnail-container">
-        <img class="thumbnail" onclick="showImageModal(this.src)" src="../images/Square-Variable-side_length-Result.png" alt="نتيجة رسم مربع باستخدام متغير">
-        <p>نتيجة تشغيل الكود</p>
+        <img class="thumbnail" onclick="window.showImageModal(this.src)" src="../images/Square-Overlapping.png" alt="كود سكراتش لرسم مربعات متداخلة">
+        <p>تكرار رسم المربع مع دوران</p>
       </div>
-    </section>
 
-<section id="square-myblock" class="card">
-      <h2>D) ترقية: لبنة مخصّصة — ارسم مربع(الضلع)</h2>
-      <h3>تعريف اللبنة</h3>
-<pre class="scratch-code"> <code><span class="line" data-cat="myblocks">define ارسم مربع (الضلع)</span>
-repeat (4)
-<span class="line" data-cat="motion">    move </span><span class="line" data-cat="variables"> (الضلع) </span><span class="line" data-cat="motion"> steps </span> 
-    turn clockwise (90) degrees
-<span class="line" data-cat="control">end</span></code></pre>
-<h3>الاستخدام</h3>
+      <section id="square-overlapping-result" class="card">
+        <h2>صورة النتيجة</h2>
+        <div class="thumbnail-container">
+          <img class="thumbnail" onclick="window.showImageModal(this.src)" src="../images/Square-Overlapping-Result.png" alt="نتيجة رسم مربعات متداخلة">
+          <p>النتيجة النهائية للشكل</p>
+        </div>
+      </section>
+      
+      <h3>لبنات الكود الأساسية المستخدمة</h3>
       <pre class="scratch-code"><code>when green flag clicked
 erase all
 pen up
-set pen size to (5)
-go to x:(-225) y:(160)
+set pen size to (2)
+go to x:(0) y:(0)
 pen down
-<span class="line" data-cat="myblocks">ارسم مربع (150)</span>
-pen up
-</code></pre></section>
-
-  <section id="square-overlapping" class="card">
-    <h2>E) مشروع: تداخل المربعات (Overlapping Squares)</h2>
-    <p>لإنشاء شكل مركب باستخدام لبنة <code>ارسم مربع (الضلع)</code>، يمكننا تكرار رسم المربع مع تحريك بسيط (دوران) بين كل تكرار.</p>
-
-    <h3>كود سكراتش</h3>
-    <div class="thumbnail-container">
-      <img class="thumbnail" onclick="showImageModal(this.src)" src="../images/Square-Overlapping.png" alt="كود سكراتش لرسم مربعات متداخلة">
-      <p>تكرار رسم المربع مع دوران</p>
-    </div>
-
-    <section id="square-overlapping-result" class="card">
-      <h2>صورة النتيجة</h2>
-      <div class="thumbnail-container">
-        <img class="thumbnail" onclick="showImageModal(this.src)" src="../images/Square-Overlapping-Result.png" alt="نتيجة رسم مربعات متداخلة">
-        <p>النتيجة النهائية للشكل</p>
-      </div>
+repeat (36)
+        ارسم مربع (150)
+        turn clockwise (10) degrees
+end
+pen up</code></pre>
     </section>
+    
+  </main>
 
-<h3>لبنات الكود الأساسية المستخدمة</h3>
-      <pre class="scratch-code"><code>when green flag clicked
-<span class="line" data-cat="looks">show </span>
-erase all
-pen up
-set pen size to (5)
-go to x:(-150) y:(150)
-point in direction 90
-set [Y-position] to (150)
-<span class="line" data-cat="sensing">ask "ما هو طول الضلع ؟" and wait</span> 
-set [my variable]  to [answer]
-repeat (15)
-repeat (4)
-    pen down
-<span class="line" data-cat="motion">    move </span><span class="line" data-cat="variables">[my variable]</span><span class="line" data-cat="motion"> steps </span> 
-    turn clockwise (90) degrees
-<span class="line" data-cat="control">end</span>
-	pen up
-	change y by -10 
-	change x by 10 
-	change [my variable] by 20
-<span class="line" data-cat="control">end</span>
-<span class="line" data-cat="looks">hide </span></code></pre>
-</section>
-</main>
-
-
-<div id="imageModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 hidden">
+  <footer class="bg-gray-800 text-white text-center p-4 mt-8">
+    <p>&copy; 2025 مستودع البرمجة للصف التاسع</p>
+  </footer>
   
-  <button class="text-white text-3xl absolute top-4 left-4 z-50" onclick="hideImageModal()">&times;</button>
-  
-  <img id="modalImage" class="max-h-full max-w-full" src="" alt="صورة مكبرة">
-</div>
+  <div id="term-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-[5000]">
+    <div class="bg-white rounded-lg shadow-lg p-6 w-11/12 md:w-96 relative">
+      <button class="modal-close-btn absolute top-3 left-3 text-gray-500 hover:text-gray-700 text-3xl font-light leading-none">&times;</button>
+      <h3 id="term-modal-title" class="text-2xl font-bold mb-4 text-blue-700 border-b pb-2"></h3>
+      <div id="term-modal-body" class="text-gray-800 text-lg"></div>
+    </div>
+  </div>
+
+  <div id="imageModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 hidden z-[9999]">
+      <button class="text-white text-3xl absolute top-4 left-4 z-[10001]" onclick="window.hideImageModal()">&times;</button>
+      <img id="modalImage" class="max-h-[90vh] max-w-[90vw] object-contain" src="" alt="صورة مكبرة">
+  </div>
 
   <script src="../js/main.js" defer></script>
 </body>
