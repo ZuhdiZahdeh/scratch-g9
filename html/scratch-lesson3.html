@@ -29,4 +29,109 @@
       <h2>الأهداف التعليمية</h2>
       <ul>
         <li>استخدام لبنات القلم Pen مع التكرار لرسم مضلعات وزخارف.</li>
-        <li>فهم العلاقة <b>
+        <li>فهم العلاقة <b>زاوية الدوران الخارجية = 360 ÷ عدد الأضلاع</b>.</li>
+        <li>بناء تكرارات متداخلة (حلقة داخل حلقة) والتحكّم باللون والسرعة.</li>
+        <li>تعميم الحل باستخدام <b>متغيّرات</b> و<b>لبنة مخصّصة</b> (My Blocks).</li>
+      </ul>
+    </section>
+
+    <!-- النشاط الرئيس -->
+    <section class="card">
+      <h2>النشاط الرئيس: ٦ سداسيات تدور 60°</h2>
+      <p>الفكرة: نرسم <b>سداسيًا واحدًا</b>، ثم نكرّر رسم السداسي ٦ مرات، ومع كل مرة <b>نستدير 60°</b> لنحصل على شكل الزخرفة.</p>
+
+      <h3>لماذا 60°؟</h3>
+      <p>الدائرة 360°. لتوزيع <b>٦</b> أشكال بالتساوي حول المركز ⇒ <b>360/6 = 60°</b>. وهي أيضًا الزاوية الخارجية للسداسي المنتظم.</p>
+
+      <h3>الكود المقترح (حل النشاط)</h3>
+      <pre class="scratch-code" dir="ltr"><code>when green flag clicked
+erase all
+go to x: (0) y: (0)
+set pen size to (2)
+pen down
+repeat (6)            // السداسي 6 مرات حول المركز
+  change pen color by (30)
+  repeat (6)          // رسم سداسي واحد
+    move (50) steps
+    turn right ((360) / (6)) degrees
+  end
+  turn right ((360) / (6)) degrees   // توزيع 6 سداسيات حول المركز
+  wait (0.3) seconds                  // إبطاء لإظهار كل سداسي
+end
+pen up</code></pre>
+
+      <p class="note">لإبطاء الرسم، اجعل الانتظار داخل الحلقة الخارجية (بعد كل سداسي). ولإظهار كل ضلع ببطء شديد ضع الانتظار داخل الحلقة الداخلية.</p>
+    </section>
+
+    <!-- أسئلة على النشاط -->
+    <section class="card">
+      <h2>أسئلة على النشاط</h2>
+      <ol>
+        <li>أين تضع لبنة <b>انتظر</b> لتبطئ الرسم؟ ولماذا هذا الموضع؟</li>
+        <li>ما التكرار الذي يرسم شكلاً سداسيًا واحدًا؟ وما التكرار الذي يرسم ستة سداسيات؟</li>
+        <li>ما زاوية الاستدارة داخل السداسي؟ ولماذا <b>لا نستخدم 120°</b> في الاستدارة الداخلية؟</li>
+        <li>اكتب خوارزمية سير البرنامج خطوة بخطوة.</li>
+      </ol>
+    </section>
+
+    <!-- التعميم -->
+    <section class="card">
+      <h2>التعميم: زخارف عامة بالمتغيّرات + My Blocks</h2>
+      <p>نُعرّف المتغيّرات: <b>n</b> (الأضلاع)، <b>len</b> (الطول)، <b>k</b> (عدد النسخ حول المركز)، <b>cStep</b> (تغيّر اللون)، وننشئ لبنة مخصّصة لرسم مضلع عام.</p>
+
+      <h3>١) لبنة رسم مضلع عام</h3>
+      <pre class="scratch-code" dir="ltr"><code>define DrawPolygon (sides n) (length len)
+repeat (n)
+  move (len) steps
+  turn right ((360) / (n)) degrees
+end</code></pre>
+
+      <h3>٢) زخرفة عامّة حول المركز</h3>
+      <pre class="scratch-code" dir="ltr"><code>when green flag clicked
+set [n v] to (6)
+set [len v] to (50)
+set [k v] to (9)
+set [cStep v] to (20)
+erase all
+pen down
+repeat (k)
+  change pen color by (cStep)
+  DrawPolygon (n) (len)
+  turn right ((360) / (k)) degrees
+  wait (0.2) seconds
+end
+pen up</code></pre>
+
+      <p class="note">جرّب تغيير قيم <span class="monospace-text">n, len, k, cStep</span> لصناعة أنماط مختلفة.</p>
+    </section>
+
+    <!-- تمارين -->
+    <section class="card">
+      <h2>تمارين إثرائية</h2>
+      <ul>
+        <li>بدّل <span class="monospace-text">k</span> إلى 8 ثم 9. ما زاوية الدوران المناسبة كل مرة؟ (الإجابة: <span class="monospace-text">360/k</span>).</li>
+        <li>استبدل السداسي بمربّع: <span class="monospace-text">n=4</span> وجرّب <span class="monospace-text">k=4</span> ثم <span class="monospace-text">k=8</span>.</li>
+        <li>ارفع <span class="monospace-text">cStep</span> إلى 30–40 أو اجعله سالبًا لتدرّج عكسي.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>إجابات نموذجية مختصرة</h2>
+      <ul>
+        <li>موضع الانتظار الأفضل: بعد كل مضلع في الحلقة الخارجية.</li>
+        <li>التكرار الداخلي يرسم السداسي؛ والخارجي يكرّر السداسي ٦ مرات مع استدارة 60°.</li>
+        <li>الاستدارة الداخلية دائمًا <span class="monospace-text">360/n</span> (للسداسي 60°) وليست 120°.</li>
+        <li>الخوارزمية: مسح ← موقع البداية ← إنزال القلم ← (كرّر k: لون ← (كرّر n: تحرّك/استدر 360/n) ← استدر 360/k ← انتظر) ← ارفع القلم.</li>
+      </ul>
+    </section>
+  </div>
+
+  <footer style="text-align:center; margin: 24px 0; color:#6b7280">
+    &copy; 2025 برنامج سكراتش للصف التاسع
+  </footer>
+
+  <!-- سكريبتات الموقع (المسارات الصحيحة) -->
+  <script src="../js/scratch-lesson2.js" defer></script>
+  <script src="../js/main.js" defer></script>
+</body>
+</html>
