@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>الدرس ٣: زخارف سداسية والتعميم بالمتغيّرات — Scratch</title>
 
-  <!-- ملاحظة: هذه الصفحة داخل /html لذا نصعد بمستوى واحد -->
+  <!-- الصفحة داخل /html لذا نصعد بمستوى واحد -->
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/scratch-lesson2.css">
 </head>
@@ -48,23 +48,27 @@
         <p>الدائرة 360°. لتوزيع <b>٦</b> أشكال بالتساوي حول المركز ⇒ <b>360/6 = 60°</b>. وهي أيضًا الزاوية الخارجية للسداسي المنتظم.</p>
 
         <h3>الكود المقترح (حل النشاط)</h3>
-        <pre class="scratch-code" dir="ltr"><code>when green flag clicked
-erase all
-go to x: (0) y: (0)
-set pen size to (2)
-pen down
-repeat (6)            // تكرار السداسي حول المركز
-  change pen color by (30)
-  repeat (6)          // رسم سداسي واحد
-    move (50) steps
-    turn right ((360) / (6)) degrees
-  end
-  turn right ((360) / (6)) degrees  // توزيع 6 سداسيات
-  wait (0.3) seconds                // إبطاء بسيط
-end
-pen up</code></pre>
+        <!-- النمط القديم: أسطر ملونة حسب الفئة -->
+        <div class="scratch-code" dir="ltr">
+          <span class="line" data-cat="events">when green flag clicked</span>
+          <span class="line" data-cat="pen">erase all</span>
+          <span class="line" data-cat="motion">go to x: (0) y: (0)</span>
+          <span class="line" data-cat="pen">set pen size to (2)</span>
+          <span class="line" data-cat="pen">pen down</span>
 
-        <p class="note">لإبطاء الرسم، اجعل الانتظار داخل الحلقة الخارجية (بعد كل سداسي). ولإظهار كل ضلع ببطء شديد ضع الانتظار داخل الحلقة الداخلية.</p>
+          <span class="line" data-cat="control">repeat (6) {   // السداسي 6 مرات حول المركز</span>
+          <span class="line" data-cat="pen">&nbsp;&nbsp;change pen color by (30)</span>
+          <span class="line" data-cat="control">&nbsp;&nbsp;repeat (6) {   // رسم سداسي واحد</span>
+          <span class="line" data-cat="motion">&nbsp;&nbsp;&nbsp;&nbsp;move (50) steps</span>
+          <span class="line" data-cat="operators">&nbsp;&nbsp;&nbsp;&nbsp;turn right ((360) / (6)) degrees</span>
+          <span class="line" data-cat="control">&nbsp;&nbsp;}</span>
+          <span class="line" data-cat="operators">&nbsp;&nbsp;turn right ((360) / (6)) degrees   // توزيع 6 سداسيات حول المركز</span>
+          <span class="line" data-cat="control">&nbsp;&nbsp;wait (0.3) seconds   // إبطاء لإظهار كل سداسي</span>
+          <span class="line" data-cat="control">}</span>
+          <span class="line" data-cat="pen">pen up</span>
+        </div>
+
+        <p class="note">لإبطاء الرسم، اجعل <b>انتظر</b> داخل الحلقة الخارجية (بعد كل سداسي). ولإظهار كل ضلع ببطء شديد ضع الانتظار داخل الحلقة الداخلية.</p>
       </div>
     </div>
 
@@ -81,36 +85,6 @@ pen up</code></pre>
       </div>
     </div>
 
-    <!-- صور من الكتاب / المطلوب إنجازه (مع lightbox) -->
-    <div class="card">
-      <div class="card-header"><h2>صور من الكتاب / المطلوب إنجازه</h2></div>
-      <div class="card-body">
-        <div class="figure-grid">
-          <figure>
-            <a href="../images/Scratch-01.png" data-lightbox>
-              <img src="../images/Scratch-01.png" alt="مهمة: صمّم الأشكال والحروف A F K A L Y">
-            </a>
-            <figcaption>مهمة: صمّم الأشكال التالية وارسل الرابط + حروف A, F, K, A, L, Y.</figcaption>
-          </figure>
-
-          <figure>
-            <a href="../images/Scratch-02.png" data-lightbox>
-              <img src="../images/Scratch-02.png" alt="نشاط: ٦ سداسيات تدور 60° مع أسئلة">
-            </a>
-            <figcaption>نشاط: ٦ سداسيات تدور 60° مع أسئلة متابعة.</figcaption>
-          </figure>
-
-          <figure>
-            <a href="../images/Scratch-03.png" data-lightbox>
-              <img src="../images/Scratch-03.png" alt="تمرين: تغيير عدد الأضلاع 8/4/9">
-            </a>
-            <figcaption>تمرين: استخدم نفس البرنامج وغيّر عدد الأضلاع (8، 4، 9).</figcaption>
-          </figure>
-        </div>
-        <p class="note" style="margin-top:12px">انقر على أي صورة لمشاهدتها مكبَّرة داخل الصفحة (اضغط خارج الصورة أو زر <span class="monospace-text">Esc</span> للإغلاق).</p>
-      </div>
-    </div>
-
     <!-- التعميم -->
     <div class="card">
       <div class="card-header"><h2>التعميم: زخارف عامة بالمتغيّرات + My Blocks</h2></div>
@@ -118,33 +92,37 @@ pen up</code></pre>
         <p>نُعرّف المتغيّرات: <b>n</b> (الأضلاع)، <b>len</b> (الطول)، <b>k</b> (عدد النسخ حول المركز)، <b>cStep</b> (تغيّر اللون)، وننشئ لبنة مخصّصة لرسم مضلع عام.</p>
 
         <h3>١) لبنة رسم مضلع عام</h3>
-        <pre class="scratch-code" dir="ltr"><code>define DrawPolygon (sides n) (length len)
-repeat (n)
-  move (len) steps
-  turn right ((360) / (n)) degrees
-end</code></pre>
+        <div class="scratch-code" dir="ltr">
+          <span class="line" data-cat="myblocks">define DrawPolygon (sides n) (length len)</span>
+          <span class="line" data-cat="control">repeat (n)</span>
+          <span class="line" data-cat="motion">&nbsp;&nbsp;move (len) steps</span>
+          <span class="line" data-cat="operators">&nbsp;&nbsp;turn right ((360) / (n)) degrees</span>
+          <span class="line" data-cat="control">end</span>
+        </div>
 
         <h3>٢) زخرفة عامّة حول المركز</h3>
-        <pre class="scratch-code" dir="ltr"><code>when green flag clicked
-set [n v] to (6)
-set [len v] to (50)
-set [k v] to (9)
-set [cStep v] to (20)
-erase all
-pen down
-repeat (k)
-  change pen color by (cStep)
-  DrawPolygon (n) (len)
-  turn right ((360) / (k)) degrees
-  wait (0.2) seconds
-end
-pen up</code></pre>
+        <div class="scratch-code" dir="ltr">
+          <span class="line" data-cat="events">when green flag clicked</span>
+          <span class="line" data-cat="variables">set [n v] to (6)</span>
+          <span class="line" data-cat="variables">set [len v] to (50)</span>
+          <span class="line" data-cat="variables">set [k v] to (9)</span>
+          <span class="line" data-cat="variables">set [cStep v] to (20)</span>
+          <span class="line" data-cat="pen">erase all</span>
+          <span class="line" data-cat="pen">pen down</span>
+          <span class="line" data-cat="control">repeat (k)</span>
+          <span class="line" data-cat="pen">&nbsp;&nbsp;change pen color by (cStep)</span>
+          <span class="line" data-cat="myblocks">&nbsp;&nbsp;DrawPolygon (n) (len)</span>
+          <span class="line" data-cat="operators">&nbsp;&nbsp;turn right ((360) / (k)) degrees</span>
+          <span class="line" data-cat="control">&nbsp;&nbsp;wait (0.2) seconds</span>
+          <span class="line" data-cat="control">end</span>
+          <span class="line" data-cat="pen">pen up</span>
+        </div>
 
-        <p class="note">جرّب تغيير قيم <span class="monospace-text">n, len, k, cStep</span> لصناعة أنماط مختلفة.</p>
+        <p class="note">بدّل قيم <span class="monospace-text">n, len, k, cStep</span> لتوليد زخارف مختلفة.</p>
       </div>
     </div>
 
-    <!-- تمارين -->
+    <!-- تمارين إثرائية -->
     <div class="card">
       <div class="card-header"><h2>تمارين إثرائية</h2></div>
       <div class="card-body">
@@ -153,6 +131,33 @@ pen up</code></pre>
           <li>استبدل السداسي بمربّع: <span class="monospace-text">n=4</span> وجرّب <span class="monospace-text">k=4</span> ثم <span class="monospace-text">k=8</span>.</li>
           <li>ارفع <span class="monospace-text">cStep</span> إلى 30–40 أو اجعله سالبًا لتدرّج عكسي.</li>
         </ul>
+      </div>
+    </div>
+
+    <!-- الصور المصغّرة في آخر الصفحة (تكبير بالنقر) -->
+    <div class="card">
+      <div class="card-header"><h2>صور من الكتاب / المطلوب إنجازه</h2></div>
+      <div class="card-body">
+        <div class="figure-grid">
+          <figure>
+            <a href="../images/Scratch-01.png" data-lightbox>
+              <img src="../images/Scratch-01.png" alt="مهمة: الأشكال والحروف" style="max-width:240px">
+            </a>
+          </figure>
+          <figure>
+            <a href="../images/Scratch-02.png" data-lightbox>
+              <img src="../images/Scratch-02.png" alt="نشاط: ٦ سداسيات وأسئلة" style="max-width:240px">
+            </a>
+          </figure>
+          <figure>
+            <a href="../images/Scratch-03.png" data-lightbox>
+              <img src="../images/Scratch-03.png" alt="تمرين: تغيير عدد الأضلاع" style="max-width:240px">
+            </a>
+          </figure>
+        </div>
+        <p class="note" style="margin-top:12px">
+          انقر على أي صورة لتكبيرها داخل الصفحة (اضغط خارج الصورة أو زر <span class="monospace-text">Esc</span> للإغلاق).
+        </p>
       </div>
     </div>
 
