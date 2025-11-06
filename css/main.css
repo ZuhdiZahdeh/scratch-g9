@@ -31,6 +31,66 @@ img{max-width:100%;height:auto;display:block}
   padding:.15rem .45rem;border-radius:8px;transition:.2s all;
 }
 .breadcrumbs a:hover{border-color:var(--primary);background:#eef2ff}
+/* =========================
+   ألوان جدول فئات سكراتش
+   ========================= */
+.scratch-cats-table tbody tr[class^="cat-"]{
+  /* ظل خفيف للصف كاملاً */
+  --tint: transparent;
+  background: var(--tint);
+  transition: background .15s ease;
+}
+.scratch-cats-table tbody tr[class^="cat-"]:hover{ filter: brightness(1.02); }
+
+/* شارة الفئة (الخلية الأولى) */
+.scratch-cats-table .label{
+  display:inline-block;
+  padding:.2rem .6rem;
+  border-radius:9999px;
+  font-weight:700;
+  color:#fff;           /* يُعدّل ببعض الفئات أدناه */
+}
+
+/* تعيين ألوان كل فئة (مطابقة للوحة سكراتش) */
+/* Events */
+.scratch-cats-table .cat-events{ --tint: rgba(242,193,46,.18); }
+.scratch-cats-table .cat-events .label{ background:#f2c12e; color:#1a1a1a; }
+
+/* Control */
+.scratch-cats-table .cat-control{ --tint: rgba(255,171,25,.18); }
+.scratch-cats-table .cat-control .label{ background:#ffab19; }
+
+/* Motion */
+.scratch-cats-table .cat-motion{ --tint: rgba(76,151,255,.18); }
+.scratch-cats-table .cat-motion .label{ background:#4c97ff; }
+
+/* Pen */
+.scratch-cats-table .cat-pen{ --tint: rgba(15,189,140,.18); }
+.scratch-cats-table .cat-pen .label{ background:#0fbd8c; }
+
+/* Looks */
+.scratch-cats-table .cat-looks{ --tint: rgba(153,102,255,.18); }
+.scratch-cats-table .cat-looks .label{ background:#9966ff; }
+
+/* Sound */
+.scratch-cats-table .cat-sound{ --tint: rgba(207,99,207,.18); }
+.scratch-cats-table .cat-sound .label{ background:#cf63cf; }
+
+/* Sensing */
+.scratch-cats-table .cat-sensing{ --tint: rgba(92,177,214,.18); }
+.scratch-cats-table .cat-sensing .label{ background:#5cb1d6; }
+
+/* Operators */
+.scratch-cats-table .cat-operators{ --tint: rgba(89,192,89,.18); }
+.scratch-cats-table .cat-operators .label{ background:#59c059; }
+
+/* Variables */
+.scratch-cats-table .cat-variables{ --tint: rgba(255,140,26,.18); }
+.scratch-cats-table .cat-variables .label{ background:#ff8c1a; }
+
+/* My Blocks */
+.scratch-cats-table .cat-myblocks{ --tint: rgba(255,102,128,.18); }
+.scratch-cats-table .cat-myblocks .label{ background:#ff6680; }
 
 /* البطاقات */
 .card{
