@@ -1,103 +1,31 @@
-/* تنسيقات خاصة بالدرس الثاني */
-.page {
-    max-width: 980px;
-    margin: 32px auto;
-    padding: 0 16px;
+/* أنماط كتلة كود سكراتش الملوّنة */
+
+.scratch-code{
+  background:#0b0b0b;          /* خلفية الإطار */
+  border-radius:14px;
+  padding:18px;
+  box-shadow:0 20px 40px rgba(0,0,0,.15);
+  overflow:auto;
 }
 
-h1 {
-    font-size: 28px;
-    margin: 0 0 8px;
-    color: #1d4ed8;
+/* ألوان الفئات (مستوحاة من Scratch) */
+.scratch-code .line[data-cat="events"]   { background:#f2c12e }   /* أصفر */
+.scratch-code .line[data-cat="control"]  { background:#ffab19 }   /* برتقالي */
+.scratch-code .line[data-cat="motion"]   { background:#4c97ff }   /* أزرق */
+.scratch-code .line[data-cat="pen"]      { background:#0fbd8c }   /* أخضر */
+.scratch-code .line[data-cat="looks"]    { background:#9966ff }   /* بنفسجي */
+.scratch-code .line[data-cat="sound"]    { background:#cf63cf }   /* وردي */
+.scratch-code .line[data-cat="sensing"]  { background:#5cb1d6 }   /* فيروزي */
+.scratch-code .line[data-cat="operators"]{ background:#59c059 }   /* أخضر فاتح */
+.scratch-code .line[data-cat="variables"]{ background:#ff8c1a }   /* برتقالي داكن */
+.scratch-code .line[data-cat="myblocks"] { background:#ff6680 }   /* قرمزي */
+
+/* إطار داخلي لكل سطر ليظهر كقطعة Scratch */
+.scratch-code .line{
+  border-radius:8px;
+  box-shadow:inset 0 -2px 0 rgba(0,0,0,.15);
+  white-space:pre;            /* نحافظ على المسافات كما في المصدر */
 }
 
-.lead {
-    color: #374151;
-    margin: 0 0 24px;
-}
-
-h2 {
-    font-size: 22px;
-    margin: 28px 0 8px;
-    color: #1f2937;
-}
-
-h3 {
-    font-size: 18px;
-    margin: 22px 0 8px;
-    color: #1f2937;
-}
-
-p {
-    line-height: 1.9;
-    margin: 0 0 12px;
-}
-
-.note {
-    font-size: 14px;
-    color: #6b7280;
-}
-
-.card {
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, .08);
-    padding: 24px;
-    margin-bottom: 24px;
-}
-
-.shapes-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.shape-link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: #1f2937;
-    transition: transform 0.2s ease-in-out;
-    background-color: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
-    padding: 16px;
-    width: 140px;
-}
-
-.shape-link img {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 12px;
-}
-
-.shape-link:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
-}
-
-.lab-task h4 {
-    color: #1d4ed8;
-    margin-bottom: 8px;
-}
-
-.important-text {
-    font-weight: bold;
-    color: #dc2626;
-}
-
-.note-example {
-    font-style: italic;
-    color: #4b5563;
-}
-
-.monospace-text {
-    font-family: monospace;
-    background: #e5e7eb;
-    padding: 2px 6px;
-    border-radius: 4px;
-}
+/* تحسين بسيط عند التحديد */
+.scratch-code .line::selection{background:rgba(255,255,255,.2)}
