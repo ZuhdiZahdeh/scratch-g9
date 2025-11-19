@@ -101,9 +101,19 @@ img{max-width:100%;height:auto;display:block}
   margin:16px 2px;
   overflow:hidden;
 }
-.card-header{padding:12px 16px;border-bottom:1px solid var(--border);background:#fafafa}
+.card-header{
+  /* top | right | bottom | left */
+  padding:12px 26px 12px 16px;
+  border-bottom:1px solid var(--border);
+  background:#fafafa;
+}
+
 .card-header h2{margin:0;font-size:clamp(18px,2.2vw,24px)}
-.card-body{padding:16px}
+.card-body{
+  /* top | right | bottom | left */
+  padding:16px 26px 16px 16px;
+}
+
 .note{color:var(--muted);background:#f8fafc;border:1px solid var(--border);padding:8px 12px;border-radius:10px}
 .monospace-text{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, "Courier New", monospace}
 
