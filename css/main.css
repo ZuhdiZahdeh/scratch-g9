@@ -108,6 +108,7 @@ img{max-width:100%;height:auto;display:block}
 .monospace-text{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, "Courier New", monospace}
 
 /* شبكة الصور المصغّرة */
+/* شبكة الصور المصغّرة */
 .figure-grid{
   display:grid;gap:12px;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -116,9 +117,40 @@ img{max-width:100%;height:auto;display:block}
 .figure-grid figure{margin:0}
 .figure-grid figcaption{margin-top:.4rem;color:var(--muted)}
 
+/* صورة مفردة على شكل Thumbnail (لدروس سكراتش) */
+.thumbnail-container{
+  text-align:center;
+  margin:16px auto;
+}
+.thumbnail-container .thumbnail{
+  width:260px;          /* حجم الصورة المصغّرة */
+  max-width:100%;
+  height:auto;
+  margin:0 auto;
+  border-radius:10px;
+  border:1px solid var(--border);
+  box-shadow:0 6px 14px rgba(15,23,42,.18);
+  cursor:pointer;
+}
+
 /* Lightbox بسيط */
-.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;place-items:center;z-index:1000}
-.lightbox.open img{max-width:92vw;max-height:92vh;border-radius:12px;box-shadow:0 14px 48px rgba(0,0,0,.45)}
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  display:none;
+  place-items:center;
+  z-index:1000;
+}
+.lightbox.open{
+  display:grid;         /* مهم: إظهار المودال عند فتحه */
+}
+.lightbox.open img{
+  max-width:92vw;
+  max-height:92vh;
+  border-radius:12px;
+  box-shadow:0 14px 48px rgba(0,0,0,.45);
+}
 
 /* خطوط كود سكراتش (تصحيحات منع الفراغات السوداء) */
 .scratch-code .line{
