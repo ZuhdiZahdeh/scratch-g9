@@ -31,6 +31,7 @@ img{max-width:100%;height:auto;display:block}
   padding:.15rem .45rem;border-radius:8px;transition:.2s all;
 }
 .breadcrumbs a:hover{border-color:var(--primary);background:#eef2ff}
+
 /* =========================
    ألوان جدول فئات سكراتش
    ========================= */
@@ -92,7 +93,7 @@ img{max-width:100%;height:auto;display:block}
 .scratch-cats-table .cat-myblocks{ --tint: rgba(255,102,128,.18); }
 .scratch-cats-table .cat-myblocks .label{ background:#ff6680; }
 
-/* البطاقات */
+/* البطاقات العامة */
 .card{
   background:var(--card);
   border:1px solid var(--border);
@@ -117,7 +118,6 @@ img{max-width:100%;height:auto;display:block}
 .note{color:var(--muted);background:#f8fafc;border:1px solid var(--border);padding:8px 12px;border-radius:10px}
 .monospace-text{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, "Courier New", monospace}
 
-/* شبكة الصور المصغّرة */
 /* شبكة الصور المصغّرة */
 .figure-grid{
   display:grid;gap:12px;
@@ -176,4 +176,82 @@ img{max-width:100%;height:auto;display:block}
   padding:0 !important;
   margin:0 !important;
   height:0 !important;
+}
+
+/* =========================
+   بطاقات المفاهيم (Section 5)
+   ========================= */
+.term-card{
+  position:relative;
+  background: #ffffff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:10px 16px;
+  box-shadow:0 4px 12px rgba(15,23,42,.06);
+  cursor:pointer;
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  transition:
+    background-color .18s ease,
+    box-shadow .18s ease,
+    transform .08s ease,
+    border-color .18s ease;
+}
+
+/* مسافة بسيطة من الحافة اليمنى/اليسرى في الشاشات الصغيرة */
+@media (max-width:640px){
+  .term-card{
+    padding-inline:14px;
+  }
+}
+
+.term-card:hover{
+  background:#eff6ff;
+  border-color:#bfdbfe;
+  box-shadow:0 6px 18px rgba(37,99,235,.18);
+  transform:translateY(-1px);
+}
+
+.term-card:active{
+  transform:translateY(0);
+  box-shadow:0 3px 10px rgba(15,23,42,.10);
+}
+
+/* العنوان العربي */
+.term-card .term-title{
+  font-weight:700;
+  font-size:1.05rem;
+  color:#111827;
+  margin-left:4px; /* مسافة صغيرة بين العربي والإنجليزي في اتجاه RTL */
+}
+
+/* الترجمة الإنجليزية */
+.term-card .term-english{
+  font-size:.9rem;
+  color:var(--muted);
+}
+
+/* عند فتح البطاقة (يضيفها السكربت) */
+.term-card.open{
+  background:#f9fafb;
+  border-color:#cbd5f5;
+}
+
+/* صندوق التعريف الذي يُضاف من السكربت */
+.term-card .term-definition{
+  margin-top:8px;
+  padding-top:8px;
+  border-top:1px dashed #d1d5db;
+  font-size:.95rem;
+  color:#374151;
+  line-height:1.7;
+}
+
+/* تحسين تباعد العناوين داخل قسم المصطلحات */
+#terms .text-lg{
+  margin-bottom:1rem;
+}
+#terms .grid{
+  margin-top:.5rem;
 }
